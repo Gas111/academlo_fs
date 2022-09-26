@@ -332,12 +332,16 @@ article {
   align-items: center;
   gap: 5px;
 }
+.subscribe a{
+  margin-bottom: 15px;
+}
 
 .subscribe input {
   height: 40px;
   width: 40%;
   margin-bottom: 20px;
   border-width: 0;
+  padding:10px;
 }
 
 @media (max-width: 480px) {
