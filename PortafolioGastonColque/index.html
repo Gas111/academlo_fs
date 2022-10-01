@@ -7,77 +7,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Porfolio Soy Jorge</title>
     <link rel="stylesheet" href="./styles/normalize.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 
 <body>
     <header>
-        <nav>
-            <div>
-                <a href="">Home</a><a href="">Servicios</a><a href="">Acerca de mi</a><a href="">Mis habilidades</a><a
-                    href="">Mi portafolio</a><a href="">Contacto</a>
-                <img src="./icons/menu.svg" alt="icono del menu">
+        <div class="headernav">
+            <nav>
+                <div>
+                    <a href="">Home</a><a href="">Servicios</a><a href="">Acerca de mi</a><a href="">Mis
+                        habilidades</a><a href="">Mi portafolio</a><a href="">Contacto</a>
+                    <img src="./icons/menu.svg" alt="icono del menu">
+                </div>
+            </nav>
+        </div>
+
+        <section class="profile-data">
+            <div class="profile-block">
+                <div class="profile-info">
+
+                    <p class="text-color-generic" id="p"><span class="uppercase">s</span>oy</p>
+                    <div class="line1"></div>
+                    <h1 class="text-color-important size-title" id="h1"><span class="uppercase">J</span>orge</h1>
+                    <div class="line2"></div>
+                    <p class="text-color-generic">Marketing y diseñador UX/UI</p>
+                    <p class="text-color-generic"><span class="text-color-important">3 años</span> experiencia</p>
+                </div>
+                <div class="profile-icons">
+                    <div><img src="./icons/linkedin.svg" alt="linkedin"></div>
+                    <div><img src="./icons/instagram.svg" alt="instagram"></div>
+                    <div><img src="./icons/twitter.svg" alt="twitter"></div>
+                </div>
             </div>
-        </nav>
+
+            <div class=profile>
+                <div class="profile-img-section">
+                    <div class="profile-image"></div>
+                </div>
+            </div>
+            <div class="profile-block">
+                <!-- separacion para que quede centrado -->
+            </div>
+
+        </section>
     </header>
 
-    <section class="profile-data">
-        <div class="profile-block">
-            <div class="profile-info">
-                
-                <p class="text-color-generic"><span class="uppercase">s</span>oy</p>
-                <div class="line1"></div>
-                <h1 class="text-color-important size-title"><span class="uppercase">J</span>orge</h1>
-                <div class="line2"></div>
-                <p class="text-color-generic">Marketing y diseñador UX/UI</p>
-                <p class="text-color-generic"><span class="text-color-important">3 años</span> experiencia</p>
-            </div>
-            <div class="profile-icons">
-                <div><img src="./icons/linkedin.svg" alt="linkedin"></div>
-                <div><img src="./icons/instagram.svg" alt="instagram"></div>
-                <div><img src="./icons/twitter.svg" alt="twitter"></div>
-            </div>
+    <section class="profile-logo-block">
+        <div class="profile-logo">
+            <div><img src="./icons/google.svg" alt="google"></div>
+            <div><img src="./icons/amazon.svg" alt="amazon"></div>
+            <div><img src="./icons/spotify.svg" alt=""></div>
         </div>
-
-        <div class=profile>
-            <div class="profile-img-section">
-                <div class="profile-image"></div>
-            </div>
-        </div>
-        <div class="profile-block">
-        <!-- separacion para que quede centrado -->
-        </div>
-
     </section>
-<section>
-    
-    <div class="profile-logo">
-        <div><img src="./icons/google.svg" alt="google"></div>
-        <div><img src="./icons/amazon.svg" alt="amazon"></div>
-        <div><img src="./icons/spotify.svg" alt=""></div>
-    </div>
-</section>
     <section class="about-me">
         <h1 class="text-color-important size-subtitle text-center"><span class="uppercase">a</span>cerca de mi</h1>
         <p class="text-color-generic">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta nihil maiores eum
             illum? Veritatis neque
             beatae deleniti! Repellat, cum mollitia!</p>
     </section>
-    <section class="services">
+
+    <main class="services">
         <h3 class="text-color-important size-subtitle text-center"><span class="uppercase">s</span>ervicios</h3>
         <div class="service-list">
+            <div class="button" id="buttonid">
+                <div class="boxbutton"><span class="material-symbols-outlined">
+                        arrow_forward_ios
+                    </span></div>
+            </div>
             <div class="service-card">
                 <div class="service-image">
                     <img src="./icons/pencil.svg" alt="lapiz">
                 </div>
                 <div class="service-text">
                     <p class="size-subsection">UX/UI Design</p>
-                    <p class="size-body text-color-gray">Desde el disño hasta la implementacion del desarrollo</p>
+                    <p class="size-body text-color-gray">Desde el diseño hasta la implementacion del desarrollo</p>
                 </div>
             </div>
             <div class="service-card">
@@ -99,7 +108,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <section class="skills">
         <h3 class="text-color-important size-subtitle text-center"><span class="uppercase">m</span>is habilidades</h3>
@@ -120,7 +129,7 @@
         <div class="skills-second">
             <div class="skills-text-line">
                 <div>
-                    <p class="text-color-generic">Marketing</p>
+                    <p class="text-color-generic">UX/UI Design</p>
                 </div>
                 <div>
                     <p class="text-color-important">95%</p>
@@ -135,7 +144,7 @@
         <div class="skills-thirth">
             <div class="skills-text-line">
                 <div>
-                    <p class="text-color-generic">Marketing</p>
+                    <p class="text-color-generic">UX Research</p>
                 </div>
                 <div>
                     <p class="text-color-important">80%</p>
@@ -147,13 +156,26 @@
         </div>
 
     </section>
+
     <section class="porfolio">
+
         <h3 class="text-color-important size-subtitle text-center"><span class="uppercase">M</span>i portafolio</h3>
+
         <div class="porfolio-selection">
+            <div class="button">
+                <div class="boxbutton"><span class="material-symbols-outlined">
+                        arrow_forward_ios
+                    </span></div>
+            </div>
+            <a href="http://"><img src="./img/ejemplo1.jpg" alt=""></a>
+            <a href="http://"><img src="./img/ejemplo2.jpg" alt=""></a>
+            <a href="http://"><img src="./img/ejemplo3.jpg" alt=""></a>
+            <a href="http://"><img src="./img/ejemplo5.jpg" alt=""></a>
         </div>
     </section>
+
+    <h3 class="text-color-important size-subtitle text-center"><span class="uppercase">C</span>ontacto</h3>
     <section class="contact">
-        <h3 class="text-color-important size-subtitle text-center"><span class="uppercase">C</span>ontacto</h3>
         <div class="contact-card">
             <div class="contact-image">
                 <img src="./icons/phone.svg" alt="telefono">
