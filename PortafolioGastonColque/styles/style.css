@@ -114,7 +114,6 @@ body {
 header {
     display: flex;
     flex-direction: column;
-    /* height: 80vh; */
     margin-bottom: 10%;
 }
 
@@ -125,15 +124,7 @@ header {
         
     }
 }
-/* 
-@media (min-width:700px) and (orientation:landscape) {
-    header {
-        justify-content: flex-end;
-        margin-bottom: 10%;
-        height: 100vh;
-   
-    }
-} */
+
 
 
 .headernav {
@@ -204,7 +195,6 @@ nav a:first-child {
 }
 .profile-data {
     width: 100%;
-    /* height: 80vh; */
     text-align: center;
     display: flex;
     flex-direction: column-reverse;
@@ -218,7 +208,6 @@ nav a:first-child {
 
 .profile-data {
     width: 100%;
-    /* height: 45vh; */
     display: inline-flex;
     flex-direction: row;
     padding:30px;
@@ -464,7 +453,7 @@ nav a:first-child {
 
 .porfolio-selection a,
 .porfolio-selection a img {
-    /* width: 100%; */
+
     height: 100%;
 
 }
@@ -503,7 +492,6 @@ nav a:first-child {
 @media (min-width:768px) {
     .service-list {
         justify-content: space-evenly;
-        /* width: 100%; */
 
     }
 }
