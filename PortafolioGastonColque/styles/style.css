@@ -114,17 +114,26 @@ body {
 header {
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    /* height: 80vh; */
     margin-bottom: 10%;
 }
 
-@media (min-width:768px) {
+/* significa si la pantalla es mayor a 768px */
+@media (min-width:768px) { 
     header {
-        margin-bottom: 10%;
-        height: auto;
+        margin:0;
+        
     }
 }
-
+/* 
+@media (min-width:700px) and (orientation:landscape) {
+    header {
+        justify-content: flex-end;
+        margin-bottom: 10%;
+        height: 100vh;
+   
+    }
+} */
 
 
 .headernav {
@@ -140,12 +149,6 @@ header {
     width: 80%;
 }
 
-@media (max-width:769px) {
-    .headernav nav {
-        width: 30px;
-    }
-}
-
 .headernav nav div {
     display: flex;
     justify-content: space-between;
@@ -153,10 +156,19 @@ header {
 
 }
 
+ 
+@media (max-width:769px) {
+    .headernav nav div{
+        justify-content: flex-end;
+
+    }
+} 
+
 
 .headernav nav img {
     background-color: white;
     filter: invert(100%);
+    padding:5px;
 }
 
 @media (min-width:768px) {
@@ -192,7 +204,7 @@ nav a:first-child {
 }
 .profile-data {
     width: 100%;
-    height: 80vh;
+    /* height: 80vh; */
     text-align: center;
     display: flex;
     flex-direction: column-reverse;
@@ -206,10 +218,10 @@ nav a:first-child {
 
 .profile-data {
     width: 100%;
-    height: 45vh;
+    /* height: 45vh; */
     display: inline-flex;
     flex-direction: row;
-
+    padding:30px;
 } 
 }
 
