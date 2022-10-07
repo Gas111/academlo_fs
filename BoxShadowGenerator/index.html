@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Shadow Generator</title>
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__title"> Box Shadow Generator</h1> <button class="header__button">Show Code</button>
+  </header>
+  <main class="shadow">
+    <section class="shadow__frame">
+      <div class="shadow__box"></div>
+    </section>
+    <section class="shadow__properties">
+      <h3 class="shadow__properties__title">Box Properties</h3>
+
+      <label for="back_color" class="background-color block">Background color</label>
+      <input class="input block" type="text" name="" id="back_color" value="#fff">
+      <label for="bordercolor" class="border-color block">Border color</label>
+      <input class="input block" type="text" name="" id="border_color" value="transparent">
+      <div class="box-range">
+        <div class="box-range__first-line">
+          <p class="shadow__properties__text">Border radius</p>
+          <div><input class="input rem" type="text" name="" id="rem_border_radius" min="0" max="20" value="2">
+            <p>rem</p>
+          </div>
+        </div>
+        <input class="input block" type="range" name="" min="0" max="20" id="border_radius" value="2">
+      </div>
+      <div class="box-range">
+        <div class="box-range__first-line block">
+          <p class="shadow__properties__text">Height</p>
+
+          <div><input class="input rem" type="text" name="" id="rem_range_height" min="0" max="40" value="20">
+            <p>rem</p>
+          </div>
+        </div>
+        <input class="input block" type="range" name="" id="range_height" min="0" max="40">
+      </div>
+      <div class="box-range">
+
+
+        <div class="box-range">
+          <div class="box-range__first-line block">
+
+            <p class="shadow__properties__text">Width</p>
+            <div>
+              <input class="input rem" type="text" name="" id="rem_range_width" min="0" max="40" value="20">
+              <p>rem</p>
+            </div>
+          </div>
+          <input class="input block" type="range" name="" id="range_width" min="0" max="40">
+        </div>
+
+
+    </section>
+    <section class="shadow__customize">
+
+      <div class="actions">
+        <div class="sub-actions"><input type="checkbox" name="" id="">
+          <input type="checkbox" name="" id="">
+        </div>
+        <button></button>
+      </div>
+
+      <div class="box-range">
+        <div class="box-range__first-line block">
+          <p class="shadow__properties__text">Horizontal offset</p>
+          <div>
+            <input class="input px" type="text" name="" id="px_horizontal_offset" min="-100" max="100" value="0">
+            <p>px</p>
+          </div>
+        </div>
+        <input class="input block" type="range" name="" id="horizontal_offset" min="-100" max="100" value="0">
+      </div>
+      <div class="box-range">
+        <div class="box-range__first-line block">
+          <p class="shadow__properties__text">Vertical offset</p>
+          <div>
+            <input class="input px" type="text" name="" id="px_vertical_offset" value="10" min="-100" max="100">
+            <p>px</p>
+          </div>
+        </div>
+        <input class="input block" type="range" name="" id="vertical_offset" value="10" min="-100" max="100">
+      </div>
+
+      <div class="box-range">
+        <div class="box-range__first-line block">
+          <p class="shadow__properties__text">Blur Radius</p>
+          <div>
+            <input class="input px" type="text" name="" id="px_blur_radius" value="15" min="0" max="100">
+            <p>px</p>
+          </div>
+        </div>
+        <input class="input block" type="range" name="" id="blur_radius" value="15" min="0" max="100">
+      </div>
+
+      <div class="box-range">
+        <div class="box-range__first-line block">
+          <p class="shadow__properties__text">Spread Radius</p>
+          <div>
+            <input class="input px" type="text" name="" id="px_spread_radius" value="-3" min="-100" max="100">
+            <p>px</p>
+          </div>
+        </div>
+        <input class="input block" type="range" name="" id="spread_radius" value="-3" min="-100" max="100">
+      </div>
+
+      <label for="back_shadow_color" class="color block">Color</label>
+      <input class="input block" type="text" name="" id="back_shadow_color" value="rgba(0,0,0,0.1)">
+
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__text">Creado por Gaston Colque</p>
+  </footer>
+</body>
+<script src="./js/app.js"></script>
+
+</html>
