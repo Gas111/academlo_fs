@@ -55,6 +55,7 @@ addEventListener("load",()=>{
    rangeBlurRadius.value=15
    rangeSpreadRadius.value =-3
    backShadowColor.value ="rgba(0,0,0,0.1)"
+   checkActive.value="checked";
 
 });
 

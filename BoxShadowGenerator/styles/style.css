@@ -134,7 +134,8 @@ body {
 
 .shadow__properties,
 .shadow__customize {
-    max-width: 500px;
+    /* max-width: 500px; */
+    width: 100%;
     text-align: left;
     background-color: white;
     margin: 10px;
