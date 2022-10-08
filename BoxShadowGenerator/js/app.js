@@ -44,6 +44,21 @@ var click = 0
 var active = true
 var inset=false
 
+addEventListener("load",()=>{
+   textBackgrounColor.value ="#fff"
+   textBorderColor.value ="transparent"
+   rangeBorderRadius.value =2
+   rangeHeight.value = 20
+  rangeWidth.value = 20
+   rangeHoffset.value =0
+   rangeVoffset.value =15
+   rangeBlurRadius.value=15
+   rangeSpreadRadius.value =-3
+   backShadowColor.value ="rgba(0,0,0,0.1)"
+
+});
+
+
 textBackgrounColor.addEventListener('change', (e) => {
   shadowBox.style.backgroundColor = e.target.value
   console.log(e.target.value)
