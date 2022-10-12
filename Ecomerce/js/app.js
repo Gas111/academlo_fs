@@ -170,7 +170,6 @@ elementCartAsside.addEventListener("click",(e)=>{
 
   if (e.target.classList.contains('bx-plus-circle')) {
     const id = e.target.getAttribute('id')
-
     const cartIndexOf =searchIndeOf(id)
     updateCart(cartIndexOf,'quantity','plus')
   
@@ -178,13 +177,17 @@ elementCartAsside.addEventListener("click",(e)=>{
 
   }
 
-  if (e.target.classList.contains('bx bx-minus-circle')) {
-  
+  if (e.target.classList.contains('bx-minus-circle')) {
+    const id = e.target.getAttribute('id')
+    const cartIndexOf =searchIndeOf(id)
+    updateCart(cartIndexOf,'quantity','minus')
     
   }
 
   if (e.target.classList.contains('bx-trash-alt')) {
-  
+    const id = e.target.getAttribute('id')
+    const cartIndexOf =searchIndeOf(id)
+    // updateCart(cartIndexOf,'quantity','plus')
     
   }
 
@@ -313,7 +316,7 @@ if(change==='plus')
 
 if(change==='minus')
 {
-  cartArray[cartIndexOf].quantity++
+  cartArray[cartIndexOf].quantity--
   console.log(cartArray[cartIndexOf].quantity)
 }
 
