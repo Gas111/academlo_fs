@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="shortcut icon" href="https://www.academlo.com/academlo-icon-shadow.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Ecommerce</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__navbar-all">
+            <nav class="header__navbar">
+                <div class="header__navbar__logo">
+                    <img src="https://www.academlo.com/academlo-icon-shadow.png" alt="logo academio" class="logo">
+                    <a class="title-logo text-uc">store</a>
+                    <a class="title-logo menu-home">Home</a>
+                    <a class="title-logo menu-products">Products</a>
+
+                </div>
+                <div class="header__navbar__menu">
+                    <i class='bx bx-moon ligth-mode'></i>
+                    <i class='bx bx-shopping-bag shopping-bag'></i>
+                    <i class='bx bx-grid-alt menu'></i>
+
+                </div>
+
+            </nav>
+
+            <div class="cart-asside">
+                <div class="text-align-right">
+                    <i class='bx bx-x text-align-right close-cart-asside'></i>
+                </div>
+                <h3 SWclass="cart-asside__title">My Cart</h3>
+                <!-- <div class="cart-asside__add">
+                    <div class="box-image"><img src="./assets/img/featured1.png" alt=""></div>
+                    <div class="box-info">
+                        <p class="m10">Shirts</p>
+                        <p class="inline">Stock:</p>
+                        <p class="inline">x</p>
+                        <p class="inline">$</p>
+                        <p class="inline">14.00</p>
+                        <br>
+                        <p class="inline">Subtotal:</p>
+                        <p class="inline">$</p>
+                        <p class="inline">48.00</p>
+                        <br>
+                        <div class="box-info-buttons m10">
+                            <i class='bx bx-plus-circle'></i>
+                            <p class="inline">2</p>
+                            <p class="inline">units</p>
+                            <i class='bx bx-minus-circle'></i>
+                            <i class='bx bx-trash-alt'></i>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="cart-asside__products"><img src="./assets/img/empty-cart.png" alt="cart-empty"
+                        class="cart-empty">
+                    <h2>Your Card is empty</h2>
+                    <p>You can add items to your cart by clicking on the "+" button on the product page.</p>
+                </div>
+            </div>
+            <div class="menu-asside">
+                <div class="menu-asside__box text-align-right">
+
+                    <i class='bx bx-shopping-bag shopping-bag block inline'></i>
+                    <i class='bx bx-x block inline close-menu'></i>
+                </div>
+                <a class="text-uc block m30">Home</a>
+                <br>
+                <a class="text-uc block m30">Products</a>
+
+            </div>
+        </div>
+        <section class="new-collection-product"><img class="new-collection-image" src="./assets/img/home.png" alt="">
+        </section>
+        <section class="new-collection">
+            <h2 class="new-collection__title">New Sweatshirt</h2>
+            <h2 class="new-collection__subtitle">COLLECTIONS 2022</h2>
+            <p class="new-collection__description">Lastet arrival of the new Hanes Midweigth Crewneck sweatshirt
+                Imported from the 2022 series, width a modern design</p>
+            <p class="new-collection__value"><span>$</span> 14.00</p>
+
+            <div class="new-collection__buttons">
+                <button class="button-discover">Discover</button>
+                <button class="button-add-to-cart text-uc">add to cart</button>
+            </div>
+        </section>
+    </header>
+
+    <main class="products">
+        <div class="products__menu">
+            <div class="products__menu__show-all">
+                <a class="show" id="show_all">Show All</a>
+                <label for="show_all">
+                    <p class="show-all-products">show all products</p>
+                </label>
+
+            </div>
+            <div class="products__menu__hoddie">
+                <a class="hoddie" id="hoddie_">Hoddies</a>
+                <label for="hoddie_">
+
+                    <p class="hoddie-quantity">x</p>
+                    <p class="hoddie-text">products</p>
+                </label>
+
+            </div>
+            <div class="products__menu__shirts">
+                <a class="shirts" id="shirts_">Shirts</a>
+                <label for="shirts_">
+                    <p class="shirts-quantity">x</p>
+                    <p class="shirts-text">products</p>
+                </label>
+            </div>
+            <div class="products__menu__sweatshirts">
+                <a class="sweatshirts" id="sweatshirts_">Sweatshirts</a>
+                <label for="sweatshirts_">
+                    <p class="sweatshirts-quantity">x</p>
+                    <p class="sweatshirts-text">products</p>
+                </label>
+            </div>
+        </div>
+        <section class="products__cards">
+            <!-- <div class="products__cards-item hoddies">
+                <div class="products__cards-item__image">
+                    <img src="https://academlo-store.netlify.app/assets/img/home.png" alt="image of product"
+                        class="product-image">
+                </div>
+                <a class="product-button-add">+</a>
+                <div class="card-information">
+                    <span class="card-unit">$</span>
+                    <p class="card-price">14.00</p>
+                    <p class="stock">Stock:</p>
+                    <p class="stock-quantity">x</p>
+                    <p class="card-item">Hoodies</p>
+                </div>
+            </div> -->
+        </section>
+    </main>
+    <footer class="footer">
+        <section class="footer__box">
+            <div class="footer__box__information">
+                <p class="footer__information__title">Our information</p>
+                <a href="" class="footeer__information__link">Toluca-Mexico</a>
+            </div>
+            <div class="footer__about-us">
+                <p class="footer__information__title">About Us</p>
+                <a href="" class="footeer__information__link">Support Center</a>
+                <a href="" class="footeer__information__link">Customer Support</a>
+                <a href="" class="footeer__information__link">About Us</a>
+                <a href="" class="footeer__information__link">Copy Right</a>
+            </div>
+            <div class="footer__product">
+                <p class="footer__information__title">Product</p>
+
+                <a href="" class="footeer__information__link">Hoodies</a>
+                <a href="" class="footeer__information__link">Shirts</a>
+                <a href="" class="footeer__information__link">Sweatshirts</a>
+
+            </div>
+            <div class="footer__social">
+                <p class="footer__information__title">Social</p>
+                <a href="" class="footeer__information__link"><i class='bx bxl-facebook'></i></a>
+                <a href="" class="footeer__information__link"><i class='bx bxl-twitter'></i></a>
+                <a href="" class="footeer__information__link"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </section>
+        <section class="footer_rigths">
+            <p class="rigths">@gastoncolque All rigths reserved</p>
+        </section>
+    </footer>
+
+</body>
+<script src="./js/app.js"></script>
+
+</html>
