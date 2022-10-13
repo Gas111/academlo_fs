@@ -56,7 +56,11 @@ const elementCartProducts = document.querySelector('.cart-asside__products')
 
 // ----LOCAL STORAGE insert-----------
 localStorage.setItem('products', JSON.stringify(productsArray))
-// localStorage.setItem('cart', JSON.stringify(auxCartArray))
+console.log(localStorage.getItem('cart'))
+if(localStorage.getItem('cart')==0)
+{
+localStorage.setItem('cart', JSON.stringify(cartArray))
+}
 // ----LOCAL STORAGE read-----------------
 recovery = JSON.parse(localStorage.getItem('products'))
 cartArray = JSON.parse(localStorage.getItem('cart'))
@@ -78,15 +82,12 @@ addEventListener('load', (e) => {
   }
 })
 
-//----CLICKS EVENTS---
+//----CLICKS EVENTS---------------------
 
 elementSectionCards.addEventListener('click', (e) => {
   if (e.target.classList.contains('product-button-add')) {
-    console.log(e.target.getAttribute('id'))
     const id = e.target.getAttribute('id')
-    console.log(typeof idCard)
-    let itemCartSelected = productsArray.filter((prod) => prod.id == `${id}`)
-
+    let itemCartSelected = recovery.filter((prod) => prod.id == `${id}`)
     let name = ''
     let stock = ''
     let price = ''
@@ -96,7 +97,8 @@ elementSectionCards.addEventListener('click', (e) => {
       const index = cartArray.findIndex(
         (element) => element.id == itemCartSelected[0].id,
       )
-      quantity++
+     
+      quantity=1;
       const totalprice = quantity * Number(itemCartSelected[0].price)
       cartArray[index].quantity = quantity
       cartArray[index].totalprice = totalprice
@@ -121,7 +123,6 @@ elementSectionCards.addEventListener('click', (e) => {
     }
 
     totalUnits = totalUnitsInArray(cartArray)
-
     emptyCartDisplayOff()
     createCart()
   }
@@ -161,7 +162,7 @@ elementSweatshirts.addEventListener('click', () => {
   createCards()
 })
 
-// ----------------EVENT CART ASSIDE----
+// ----------------EVENT CART ASSIDE---------
 
 elementCartAsside.addEventListener('click', (e) => {
   console.log(e.target)
@@ -172,7 +173,6 @@ elementCartAsside.addEventListener('click', (e) => {
     updateCart(cartIndexOf, 'quantity', 'plus')
     updateCart(cartIndexOf, 'totalprice', '')
     createCart()
-    // search indexof for this id and then change quantity property
   }
 
   if (e.target.classList.contains('bx-minus-circle')) {
@@ -190,24 +190,16 @@ elementCartAsside.addEventListener('click', (e) => {
   }
 
   if (e.target.classList.contains('button-order')) {
-    // const id = e.target.getAttribute('id')
-    // const cartIndexOf = searchIndeOf(id)
+
     updateCart('all', 'stock')
     createCart()
     createCards()
     emptyCartDisplayBougth()
-
-    //OPCION 1 ORDENO AMBOS ARREGLOS.
-    // cartArray.sort((cart1,cart2)=>cart1.id-cart2.id)
-    // recovery.sort((rec1,rec2)=>rec1.id-rec2.id)
-    // console.log(cartArray)
-    // console.log(recovery)
-
-    // deleteCart(cartIndexOf)
+    cartArray=[]
+    localStorageInsert()
   }
 })
 
-// CRUD INSERTAR
 
 //------------CREATE CARDS FUNCTION----------
 
@@ -254,7 +246,6 @@ function loadQuantities() {
 
 // ------------SEARCH IN CARTARRAY----------
 function searchInCartArray(cart) {
-  console.log('este es el id dentro de mi fucion', cart[0].id)
   return cartArray.some((element) => element.id == cart[0].id)
 }
 
@@ -274,13 +265,14 @@ function totalPriceBuy(cart) {
   return total
 }
 
+// ----------ASSIDE CART FUNCTIONS-------------
 function emptyCartDisplayBougth() {
   elementCartProducts.innerHTML = 'Compra Finalizada'
 }
 
 function emptyCartDisplayOff() {
   elementCartProducts.innerHTML = ''
-  // elementCartProducts.style.display = 'none'
+
 }
 
 function emptyCartDisplayOn() {
@@ -288,8 +280,10 @@ function emptyCartDisplayOn() {
   class="cart-empty">
 <h2>Your Card is empty</h2>
 <p>You can add items to your cart by clicking on the "+" button on the product page.</p>`
-  // elementCartProducts.style.display = 'block'
+ 
 }
+
+// ----------CREATE CART-------------
 
 function createCart() {
   const elements = cartArray.map((element) => {
@@ -339,11 +333,7 @@ function searchIndeOf(id) {
   return index
 }
 
-// function searchIndeOfrecovery(id) {
-//   const index = cartArray.findIndex((element) => element.id == id)
-
-//   return index
-// }
+// --------------UPDATE CART---------------------
 
 function updateCart(cartIndexOf, property, change) {
   if (property == 'quantity') {
@@ -372,13 +362,19 @@ function updateCart(cartIndexOf, property, change) {
       const { id, stock } = element
       return { id, stock }
     })
-    console.log(arrayStockChanged)
+    console.log("soy el array de stock",arrayStockChanged)
 
-    const indexRecovery = searchIndeOfRecovery(arrayStockChanged[0].id)
-    recovery[indexRecovery].stock = arrayStockChanged[0].stock
+    arrayStockChanged.forEach((element)=>{
+      const indexRecovery = searchIndexOfRecovery(element.id)
+      recovery[indexRecovery].stock = element.stock
+    })
+
+
   }
 }
 
+
+// ---------------DELETE CART-------------------------
 function deleteCart(cartIndexOf) {
   cartArray.splice(cartIndexOf, 1)
   localStorageInsert()
@@ -389,13 +385,13 @@ function deleteCart(cartIndexOf) {
   }
 }
 
+// ------------------LOCAL STORAGE FUNCTIONS----------------
 function localStorageInsert() {
   localStorage.setItem('cart', JSON.stringify(cartArray))
 }
 
-function searchIndeOfRecovery(id) {
+// ---------------FIND INDEX--------------------
+function searchIndexOfRecovery(id) {
   const index = recovery.findIndex((element) => element.id == id)
-
   return index
 }
-

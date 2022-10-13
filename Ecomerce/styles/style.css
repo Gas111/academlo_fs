@@ -82,6 +82,8 @@ font-weight: 600;
 .m-text{
     font-size: 1.8rem;
 }
+a{text-decoration: none;
+}
 
 /* --------HEADER------------ */
 /* --------NAVBAR----- */
@@ -255,11 +257,11 @@ align-items:center;
         left: 100%;
     }
     30% {
-        left: 90%;
+        left: 80%;
     }
 
-    50% {
-        left: 85%;
+    68%,72% {
+        left: 70%;
     }
 
     100% {
@@ -508,4 +510,12 @@ align-items:center;
 .footer__social a {
     display: inline;
     font-size: 0.8rem;
+    margin: 0;
+    width: 30px;
+}
+
+@media (min-width:768px) {
+    .footer__social__links{
+        display: flex;
+    } 
 }
