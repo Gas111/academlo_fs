@@ -126,7 +126,7 @@ elementSectionCards.addEventListener('click', (e) => {
     totalUnits = totalUnitsInArray(cartArray)
     console.log(totalUnits)
 
-    emptyCart()
+    emptyCartDisplayOff()
     createCart()
   }
 })
@@ -165,35 +165,31 @@ elementSweatshirts.addEventListener('click', () => {
   createCards()
 })
 
-elementCartAsside.addEventListener("click",(e)=>{
+elementCartAsside.addEventListener('click', (e) => {
   console.log(e.target)
 
   if (e.target.classList.contains('bx-plus-circle')) {
     const id = e.target.getAttribute('id')
-    const cartIndexOf =searchIndeOf(id)
-    updateCart(cartIndexOf,'quantity','plus')
-  
+    const cartIndexOf = searchIndeOf(id)
+    updateCart(cartIndexOf, 'quantity', 'plus')
+    updateCart(cartIndexOf, 'totalprice', '')
+    createCart()
     // search indexof for this id and then change quantity property
-
   }
 
   if (e.target.classList.contains('bx-minus-circle')) {
     const id = e.target.getAttribute('id')
-    const cartIndexOf =searchIndeOf(id)
-    updateCart(cartIndexOf,'quantity','minus')
-    
+    const cartIndexOf = searchIndeOf(id)
+    updateCart(cartIndexOf, 'quantity', 'minus')
+    updateCart(cartIndexOf, 'totalprice', '')
+    createCart()
   }
 
   if (e.target.classList.contains('bx-trash-alt')) {
     const id = e.target.getAttribute('id')
-    const cartIndexOf =searchIndeOf(id)
-    // updateCart(cartIndexOf,'quantity','plus')
-    
+    const cartIndexOf = searchIndeOf(id)
+    deleteCart(cartIndexOf)
   }
-
-
-
-
 })
 
 // CRUD INSERTAR
@@ -219,15 +215,9 @@ function createCards() {
   })
   elementSectionCards.innerHTML = elements.join('')
 }
-// const elementAdd = document.querySelector('.product-button-add')
-
-// elementAdd.addEventListener('click', (event) => {
-//   console.log("hola estoy aca")
-//   console.log(elementAdd.nextElementSibling.lastElementChild.textContent)
-//   console.log(elementAdd);
-// })
 
 //----------------FILTER FUNCTION-------------
+
 function filterProduct(productText) {
   let productSelected = []
   recovery = JSON.parse(localStorage.getItem('products'))
@@ -261,8 +251,17 @@ function totalUnitsInArray(cart) {
   return total
 }
 
-function emptyCart() {
+function emptyCartDisplayOff() {
   elementCartProducts.innerHTML = ''
+  // elementCartProducts.style.display = 'none'
+}
+
+function emptyCartDisplayOn() {
+  elementCartProducts.innerHTML = `<img src="./assets/img/empty-cart.png" alt="cart-empty"
+  class="cart-empty">
+<h2>Your Card is empty</h2>
+<p>You can add items to your cart by clicking on the "+" button on the product page.</p>`
+  // elementCartProducts.style.display = 'block'
 }
 
 function createCart() {
@@ -294,31 +293,39 @@ function createCart() {
   elementCartProducts.innerHTML = elements.join('')
 }
 
+function searchIndeOf(id) {
+  const index = cartArray.findIndex((element) => element.id == id)
 
-function searchIndeOf(id){
+  return index
+}
 
-  const index = cartArray.findIndex(
-    (element) => element.id == id)
-  
-    return index
+function updateCart(cartIndexOf, property, change) {
+  if (property == 'quantity') {
+    if (
+      change === 'plus' &&
+      cartArray[cartIndexOf][property] < cartArray[cartIndexOf].stock
+    ) {
+      cartArray[cartIndexOf][property]++
+      console.log(cartArray[cartIndexOf].quantity)
+    }
 
-
+    if (change === 'minus' && cartArray[cartIndexOf][property] > 0) {
+      cartArray[cartIndexOf][property]--
+      console.log(cartArray[cartIndexOf].quantity)
+    }
   }
-
-
-function updateCart(cartIndexOf,quantity,change)
-{
-if(change==='plus')
-{
-  cartArray[cartIndexOf].quantity++
-  console.log(cartArray[cartIndexOf].quantity)
+  if (property === 'totalprice') {
+    cartArray[cartIndexOf][property] =
+      cartArray[cartIndexOf].quantity * cartArray[cartIndexOf].price
+  }
 }
 
-if(change==='minus')
-{
-  cartArray[cartIndexOf].quantity--
-  console.log(cartArray[cartIndexOf].quantity)
-}
-
-
+function deleteCart(cartIndexOf) {
+  cartArray.splice(cartIndexOf, 1)
+  console.log(cartArray)
+  if (cartArray.length == 0) {
+    emptyCartDisplayOn()
+  } else {
+    createCart()
+  }
 }
