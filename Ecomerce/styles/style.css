@@ -83,6 +83,7 @@ font-weight: 600;
     font-size: 1.8rem;
 }
 a{text-decoration: none;
+    color:var(--font-color-black);
 }
 
 /* --------HEADER------------ */
