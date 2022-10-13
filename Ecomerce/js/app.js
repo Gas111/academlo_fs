@@ -30,19 +30,18 @@ let recovery = []
 let cartArray = []
 let quantity = 0
 let totalUnits = 0
+// let totalpriceBuy=0
+
 //---NODES AND ELEMENTS--------
 const elementNavbar = document.querySelector('.header__navbar')
-
 const elementCardPrice = document.querySelector('.card-price')
 const elementCardStock = document.querySelector('.stock-quantity')
 const elementMenuButton = document.querySelector('.menu')
 const elementCartButton = document.querySelector('.shopping-bag')
 const elementCartAsside = document.querySelector('.cart-asside')
 const elementMenuAsside = document.querySelector('.menu-asside')
-
 const elementCloseMenuButton = document.querySelector('.close-menu')
 const elementCloseCartButton = document.querySelector('.close-cart-asside')
-
 const elementSectionCards = document.querySelector('.products__cards')
 
 // ---ELEMENTS TO BE FILTER-------
@@ -57,11 +56,10 @@ const elementCartProducts = document.querySelector('.cart-asside__products')
 
 // ----LOCAL STORAGE insert-----------
 localStorage.setItem('products', JSON.stringify(productsArray))
-localStorage.setItem('cart', JSON.stringify(cartArray))
+// localStorage.setItem('cart', JSON.stringify(auxCartArray))
 // ----LOCAL STORAGE read-----------------
-
 recovery = JSON.parse(localStorage.getItem('products'))
-
+cartArray = JSON.parse(localStorage.getItem('cart'))
 // -------WINDOW--EVENTS---------
 
 addEventListener('scroll', (e) => {
@@ -74,6 +72,10 @@ addEventListener('scroll', (e) => {
 addEventListener('load', (e) => {
   createCards()
   loadQuantities()
+  if (cartArray.length !== 0) {
+    emptyCartDisplayOff()
+    createCart()
+  }
 })
 
 //----CLICKS EVENTS---
@@ -94,15 +96,11 @@ elementSectionCards.addEventListener('click', (e) => {
       const index = cartArray.findIndex(
         (element) => element.id == itemCartSelected[0].id,
       )
-      console.log('estoy en el if lo encontro')
       quantity++
       const totalprice = quantity * Number(itemCartSelected[0].price)
       cartArray[index].quantity = quantity
       cartArray[index].totalprice = totalprice
-      console.log(cartArray)
     } else {
-      console.log(itemCartSelected[0].name)
-      // id = itemCartSelected[0].id
       name = itemCartSelected[0].name
       price = itemCartSelected[0].price
       stock = itemCartSelected[0].stock
@@ -120,11 +118,9 @@ elementSectionCards.addEventListener('click', (e) => {
         quantity,
         totalprice,
       })
-      console.log(cartArray)
     }
 
     totalUnits = totalUnitsInArray(cartArray)
-    console.log(totalUnits)
 
     emptyCartDisplayOff()
     createCart()
@@ -165,6 +161,8 @@ elementSweatshirts.addEventListener('click', () => {
   createCards()
 })
 
+// ----------------EVENT CART ASSIDE----
+
 elementCartAsside.addEventListener('click', (e) => {
   console.log(e.target)
 
@@ -189,6 +187,23 @@ elementCartAsside.addEventListener('click', (e) => {
     const id = e.target.getAttribute('id')
     const cartIndexOf = searchIndeOf(id)
     deleteCart(cartIndexOf)
+  }
+
+  if (e.target.classList.contains('button-order')) {
+    // const id = e.target.getAttribute('id')
+    // const cartIndexOf = searchIndeOf(id)
+    updateCart('all', 'stock')
+    createCart()
+    createCards()
+    emptyCartDisplayBougth()
+
+    //OPCION 1 ORDENO AMBOS ARREGLOS.
+    // cartArray.sort((cart1,cart2)=>cart1.id-cart2.id)
+    // recovery.sort((rec1,rec2)=>rec1.id-rec2.id)
+    // console.log(cartArray)
+    // console.log(recovery)
+
+    // deleteCart(cartIndexOf)
   }
 })
 
@@ -251,6 +266,18 @@ function totalUnitsInArray(cart) {
   return total
 }
 
+function totalPriceBuy(cart) {
+  let total = 0
+  cart.forEach((element, index) => {
+    total = total + element.totalprice
+  })
+  return total
+}
+
+function emptyCartDisplayBougth() {
+  elementCartProducts.innerHTML = 'Compra Finalizada'
+}
+
 function emptyCartDisplayOff() {
   elementCartProducts.innerHTML = ''
   // elementCartProducts.style.display = 'none'
@@ -291,6 +318,19 @@ function createCart() {
   })
 
   elementCartProducts.innerHTML = elements.join('')
+
+  localStorageInsert()
+
+  const totalBuy = totalPriceBuy(cartArray)
+  const elementTotalPriceBuy = document.createElement('h5')
+  elementTotalPriceBuy.innerHTML = `Precio Total: $ ${totalBuy}`
+  elementTotalPriceBuy.setAttribute('class', 'm-text')
+  elementCartProducts.appendChild(elementTotalPriceBuy)
+
+  const elementButtonOrder = document.createElement('button')
+  elementButtonOrder.innerHTML = 'finalizar orden'
+  elementButtonOrder.setAttribute('class', 'button-order')
+  elementCartProducts.appendChild(elementButtonOrder)
 }
 
 function searchIndeOf(id) {
@@ -298,6 +338,12 @@ function searchIndeOf(id) {
 
   return index
 }
+
+// function searchIndeOfrecovery(id) {
+//   const index = cartArray.findIndex((element) => element.id == id)
+
+//   return index
+// }
 
 function updateCart(cartIndexOf, property, change) {
   if (property == 'quantity') {
@@ -318,14 +364,38 @@ function updateCart(cartIndexOf, property, change) {
     cartArray[cartIndexOf][property] =
       cartArray[cartIndexOf].quantity * cartArray[cartIndexOf].price
   }
+  if (property === 'stock' && cartIndexOf === 'all') {
+    cartArray.forEach((element) => {
+      return (element.stock = element.stock - element.quantity)
+    })
+    const arrayStockChanged = cartArray.map((element) => {
+      const { id, stock } = element
+      return { id, stock }
+    })
+    console.log(arrayStockChanged)
+
+    const indexRecovery = searchIndeOfRecovery(arrayStockChanged[0].id)
+    recovery[indexRecovery].stock = arrayStockChanged[0].stock
+  }
 }
 
 function deleteCart(cartIndexOf) {
   cartArray.splice(cartIndexOf, 1)
-  console.log(cartArray)
+  localStorageInsert()
   if (cartArray.length == 0) {
     emptyCartDisplayOn()
   } else {
     createCart()
   }
 }
+
+function localStorageInsert() {
+  localStorage.setItem('cart', JSON.stringify(cartArray))
+}
+
+function searchIndeOfRecovery(id) {
+  const index = recovery.findIndex((element) => element.id == id)
+
+  return index
+}
+

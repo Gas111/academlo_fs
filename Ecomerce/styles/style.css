@@ -254,6 +254,13 @@ align-items:center;
     0% {
         left: 100%;
     }
+    30% {
+        left: 90%;
+    }
+
+    50% {
+        left: 85%;
+    }
 
     100% {
         left: 65%;
@@ -323,6 +330,15 @@ align-items:center;
     padding: 10px 20px;
     border: none;
 }
+
+.button-order {
+    background-color: var(--button-color-discover);
+    height: 95%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+}
+
 
 
 .button-discover:hover {
