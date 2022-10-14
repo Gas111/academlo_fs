@@ -43,6 +43,9 @@ const elementMenuAsside = document.querySelector('.menu-asside')
 const elementCloseMenuButton = document.querySelector('.close-menu')
 const elementCloseCartButton = document.querySelector('.close-cart-asside')
 const elementSectionCards = document.querySelector('.products__cards')
+const elementTotalUnits = document.querySelector(
+  '.header__navbar__menu__total-units',
+)
 
 // ---ELEMENTS TO BE FILTER-------
 const elementProductsMenu = document.querySelector('.products__menu')
@@ -56,13 +59,16 @@ const elementCartProducts = document.querySelector('.cart-asside__products')
 
 // ----LOCAL STORAGE insert-----------
 localStorage.setItem('products', JSON.stringify(productsArray))
-if(cartArray===[])
-{
-console.log("seteo cart en cero")
-localStorage.setItem('cart', JSON.stringify(cartArray))
+if (cartArray === []) {
+  console.log('seteo cart en cero')
+  localStorage.setItem('cart', JSON.stringify(cartArray))
 }
 // ----LOCAL STORAGE read-----------------
-recovery = JSON.parse(localStorage.getItem('products'))
+if (JSON.parse(localStorage.getItem('recovery') === null)) {
+  recovery = JSON.parse(localStorage.getItem('products'))
+} else {
+  recovery = JSON.parse(localStorage.getItem('recovery'))
+}
 cartArray = JSON.parse(localStorage.getItem('cart'))
 // -------WINDOW--EVENTS---------
 
@@ -80,6 +86,7 @@ addEventListener('load', (e) => {
     emptyCartDisplayOff()
     createCart()
   }
+  updateTotalUnitsIcon()
 })
 
 //----CLICKS EVENTS---------------------
@@ -97,8 +104,13 @@ elementSectionCards.addEventListener('click', (e) => {
       const index = cartArray.findIndex(
         (element) => element.id == itemCartSelected[0].id,
       )
-     
-      quantity=1;
+
+      if (!Number(itemCartSelected[0].stock)) {
+        quantity = 0
+        alert('no hay mas stock del producto')
+      } else {
+        quantity = 1
+      }
       const totalprice = quantity * Number(itemCartSelected[0].price)
       cartArray[index].quantity = quantity
       cartArray[index].totalprice = totalprice
@@ -108,7 +120,13 @@ elementSectionCards.addEventListener('click', (e) => {
       stock = itemCartSelected[0].stock
       unit = itemCartSelected[0].unit
       image = itemCartSelected[0].image
-      quantity = 1
+      if (!Number(itemCartSelected[0].stock)) {
+        quantity = 0
+        alert('no hay mas stock del producto')
+      } else {
+        quantity = 1
+      }
+
       const totalprice = quantity * Number(itemCartSelected[0].price)
       cartArray.push({
         id,
@@ -122,7 +140,10 @@ elementSectionCards.addEventListener('click', (e) => {
       })
     }
 
-    totalUnits = totalUnitsInArray(cartArray)
+    // totalUnits = totalUnitsInArray(cartArray)
+
+    updateTotalUnitsIcon()
+
     emptyCartDisplayOff()
     createCart()
   }
@@ -190,17 +211,18 @@ elementCartAsside.addEventListener('click', (e) => {
   }
 
   if (e.target.classList.contains('button-order')) {
-
     updateCart('all', 'stock')
     createCart()
     createCards()
     emptyCartDisplayBougth()
-    cartArray=[]
+    cartArray = []
     localStorageInsert()
     loadQuantities()
+    localStorage.setItem('products', JSON.stringify(recovery))
   }
-})
 
+  updateTotalUnitsIcon()
+})
 
 //------------CREATE CARDS FUNCTION----------
 
@@ -228,7 +250,7 @@ function createCards() {
 
 function filterProduct(productText) {
   let productSelected = []
-  recovery = JSON.parse(localStorage.getItem('products'))
+  recovery = JSON.parse(localStorage.getItem('recovery'))
   if (productText !== 'show') {
     console.log(productText)
     productSelected = recovery.filter((prod) => prod.name == `${productText}`)
@@ -273,7 +295,6 @@ function emptyCartDisplayBougth() {
 
 function emptyCartDisplayOff() {
   elementCartProducts.innerHTML = ''
-
 }
 
 function emptyCartDisplayOn() {
@@ -281,7 +302,6 @@ function emptyCartDisplayOn() {
   class="cart-empty">
 <h2>Your Card is empty</h2>
 <p>You can add items to your cart by clicking on the "+" button on the product page.</p>`
- 
 }
 
 // ----------CREATE CART-------------
@@ -363,17 +383,15 @@ function updateCart(cartIndexOf, property, change) {
       const { id, stock } = element
       return { id, stock }
     })
-    console.log("soy el array de stock",arrayStockChanged)
+    console.log('soy el array de stock', arrayStockChanged)
 
-    arrayStockChanged.forEach((element)=>{
+    arrayStockChanged.forEach((element) => {
       const indexRecovery = searchIndexOfRecovery(element.id)
       recovery[indexRecovery].stock = element.stock
+      localStorage.setItem('recovery', JSON.stringify(recovery))
     })
-
-
   }
 }
-
 
 // ---------------DELETE CART-------------------------
 function deleteCart(cartIndexOf) {
@@ -395,4 +413,14 @@ function localStorageInsert() {
 function searchIndexOfRecovery(id) {
   const index = recovery.findIndex((element) => element.id == id)
   return index
+}
+
+function updateTotalUnitsIcon() {
+  totalUnits = totalUnitsInArray(cartArray)
+  if (Number(totalUnits) !== 0) {
+    elementTotalUnits.style.display = 'flex'
+    elementTotalUnits.textContent = totalUnits
+  } else {
+    elementTotalUnits.style.display = 'none'
+  }
 }
