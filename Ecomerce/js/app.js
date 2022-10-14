@@ -197,6 +197,7 @@ elementCartAsside.addEventListener('click', (e) => {
     emptyCartDisplayBougth()
     cartArray=[]
     localStorageInsert()
+    loadQuantities()
   }
 })
 
