@@ -101,13 +101,20 @@ a{text-decoration: none;
 }
 
 .header__navbar__logo {
-    height: 30px;
+    height: 60px;
     padding: 5px;
-    width: 30%;
+    margin-left: 10px;
+    width: 45%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content:space-around;
+    align-items:center;
 }
+
+
+.header__navbar__logo img{
+height: 100%;
+}
+
 .header__navbar__menu {
     height: 30px;
     padding: 15px;
@@ -310,7 +317,7 @@ align-items:center;
 @media (min-width:769px){
     .new-collection{
           position: absolute;
-          width: 50%;
+          width: 55%;
           top:40%;
           padding-left: 100px;
           padding-right: 40px;

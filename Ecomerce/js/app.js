@@ -56,9 +56,9 @@ const elementCartProducts = document.querySelector('.cart-asside__products')
 
 // ----LOCAL STORAGE insert-----------
 localStorage.setItem('products', JSON.stringify(productsArray))
-console.log(localStorage.getItem('cart'))
-if(cartArray==0)
+if(cartArray===[])
 {
+console.log("seteo cart en cero")
 localStorage.setItem('cart', JSON.stringify(cartArray))
 }
 // ----LOCAL STORAGE read-----------------

@@ -1,0 +1,1 @@
+https://ecommerce-gc.netlify.app/
