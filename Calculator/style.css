@@ -1,0 +1,184 @@
+:root {
+    --font-display: #2e3831;
+    --display-background: #9da08d;
+    --body-background: #646271;
+    --button-gray-background: #6a6e7c;
+    --button-gray-shadow: #292632;
+    --button-red-shadow: #4e0a1a;
+    --button-red-background: #9e2044;
+
+    --celda-ligth: #4e0a1a;
+    --celd-ligth-space: #938e89;
+    --font-button: #e0e4e3;
+    --display-border: #656b72;
+
+
+
+}
+
+@font-face {
+    font-family: 'digital-7';
+    src: url(./fonts/digital-7.monoitalic.ttf);
+}
+@font-face {
+    font-family: 'led';
+    src: url(./fonts/LEDCalculator.ttf);
+}
+
+
+html {
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+body {
+    background-image: url(./img/jon-moore-5fIoyoKlz7A-unsplash.jpg);
+    background-size: cover;
+    /* aca poner una imagen de fondo de mesa de madera */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    margin: 0px;
+    padding: 0px;
+
+}
+
+*,
+*:after,
+*::before {
+    box-sizing: inherit;
+}
+
+.calc-frame {
+    width: 400px;
+    height: 450px;
+    /* margin: auto; */
+    /* align-self: auto; */
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #3a3546;
+    box-shadow: 2px 3px 3px 3px rgba(47, 27, 9, 0.7);
+}
+
+.calc-frame__display-frame {
+    height: 30%;
+    width: 100%;
+    background: rgb(174,173,180);
+    background: linear-gradient(146deg, rgba(174,173,180,1) 19%, rgba(100,98,113,1) 74%);
+    padding: 20px;
+    display: block;
+    margin-right: auto;
+}
+
+.display-all{
+    
+    background-color: var(--display-background);
+    border: 4px solid var(--display-border);
+
+}
+
+.calc-frame__keys {
+    height: 70%;
+  
+    display: grid;
+    grid-template: repeat(5, 1fr)/repeat(4, 1fr);
+    gap: 15px;
+    padding: 60px 20px;
+    background: rgb(100,98,113);
+background: linear-gradient(146deg, rgba(100,98,113,1) 19%, rgba(68,66,77,1) 74%);
+}
+
+.small-display {
+    width: 100%;
+    height: 20%;
+    text-align:left;
+    font-family: 'led', sans-serif;
+    color: var(--font-display);
+    font-size: 1.5rem;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin: 0;
+   padding-bottom: 0px;
+
+}
+
+.display {
+    width: 100%;
+    height: 100%;
+     text-align: right;
+    font-family: 'digital-7', sans-serif;
+    color: var(--font-display);
+    font-size: 3.5rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+}
+
+.key {
+
+    background-color: var(--button-gray-background);
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: 0px 1px 1px 1px var(--button-gray-shadow);
+    transform: scale(1);
+    transition: all 0.2s;
+    color: var(--font-button);
+    font-family: 'Exo', sans-serif;
+
+background: rgb(143,148,163);
+background: linear-gradient(146deg, rgba(143,148,163,1) 3%, rgba(106,110,124,1) 29%);
+}
+
+key:hover {
+    cursor: pointer;
+    /* box-shadow: 0px 0px 0px 0px gray; */
+    /* transform: scale(0.9); */
+}
+
+
+.ac {
+    grid-column: 1/3;
+    background-color: var(--button-red-background);
+    box-shadow: 0px 1px 1px 1px var(--button-red-shadow);
+    font-weight: 400;
+    background: rgb(244,84,129);
+background: linear-gradient(146deg, rgba(244,84,129,1) 3%, rgba(158,32,68,1) 29%);
+
+
+}
+
+.plus{
+    grid-column: 4;
+    grid-row: 3/5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.equal {
+    grid-column: 3/5;
+    background-color: var(--button-gray-background);
+    color: var(--font-button);
+    font-weight: 600;
+
+}
+
+.pressed {
+
+    box-shadow: 0px 0px 0px 0px gray;
+    transform: scale(0.9);
+}
+
+.footer {
+    /* display: flex; */
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
