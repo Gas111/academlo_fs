@@ -1,0 +1,14 @@
+body{
+
+    display: flex;
+}
+
+div{
+background-color: red;
+gap:1rem;
+}
+
+.hidden{
+
+    
+}
