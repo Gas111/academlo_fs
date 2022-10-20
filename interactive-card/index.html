@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+
+  <section class="image-cards">
+    <div class="image-card-front">
+      <div class="corner">
+        <div class="corner-circule-white"></div>
+        <div class="corner-circule-transparent"></div>
+      </div>
+      <div class="cardnumber">0000 0000 0000 0000</div>
+      <div class="card-front-data"><span class="card-data-name"> Jane Appleseed</span><span class="card-data-date">00/00</span></div>
+    </div>
+    <div class="image-card-back">
+
+    </div>
+  </section>
+  <main class="main">
+    <label class="cardholder" for="input-card-holder_">Cardholder Name</label>
+    <input type="text" class="input-card-holder" placeholder="e.g. Jane Appleseed" id="input-card-holder_">
+    <p class="cardholder-warning warning"></p>
+
+    <label class="card-number" for="input-number_">Card Number</label>
+    <input type="text" class="input-card-number" placeholder="e.g. 1234 5678 9123 0000" id="input-number_">
+    <p class="card-number-warning warning"></p>
+
+    <div class="all-data-box">
+      <div class="data-box">
+        <label for="date_" class="label-date">Exp. Date</label>
+        <input type="text" name="" id="date_" class="date" placeholder="MM">
+        <p class="date-warning warning"></p>
+    
+      
+      </div>
+      <div class="data-box">
+        <label for="m-y_" class="label-m-y">(MM/YY)</label>
+        <input type="text" name="" id="m-y_" class="m-y" placeholder="YY">
+        <p class="m-y-warning warning"></p>
+   
+      </div>
+      <div class="data-box-cvc">
+        <label for="cvc_" class="label-cvc">CVC</label>
+        <input type="text" name="" id="cvc_" class="cvc" placeholder="e.g. 123
+    ">
+    <p class="cvc-warning warning"></p>
+   
+      </div>
+    </div>
+    <button class="confirm">Confirm</button>
+  </main>
+
+  <!-- Completed state start -->
+
+  <!-- Thank you!
+  We've added your card details
+  Continue -->
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Gaston Colque</a>.
+  </div>
+</body>
+<script src="./js/app.js"></script>
+
+</html>

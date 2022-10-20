@@ -1,0 +1,337 @@
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Linear gradient (active input border): hsl(249, 99%, 64%) to hsl(278, 94%, 30%)
+- Red (input errors): hsl(0, 100%, 66%)
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Light grayish violet: hsl(270, 3%, 87%)
+- Dark grayish violet: hsl(279, 6%, 55%)
+- Very dark violet: hsl(278, 68%, 11%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 18px
+
+### Font
+
+- Family: [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)
+- Weights: 500
+
+ */
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100vw;
+
+}
+
+
+:root {
+
+    --color-primary: hsl(249, 99%, 64%);
+    --white: hsl(0, 0%, 100%);
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+
+    --active-input-border-start: hsl(249, 99%, 64%);
+    --active-input-border-final: hsl(278, 94%, 30%);
+    --error-red: hsl(0, 100%, 66%);
+
+
+}
+
+body {
+    box-sizing: inherit;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+
+@media (min-width:768px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 10fr 1fr;
+
+    }
+}
+
+
+*,
+:before,
+:after {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.28rem;
+    box-sizing: inherit;
+}
+
+/* ----------------GENERIC */
+
+
+
+/*  */
+
+.image-cards {
+    display: block;
+    height: 30vh;
+    width: 100%;
+    background-image: url(../images/bg-main-mobile.png);
+    background-size: cover;
+    background-repeat: none;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+
+@media (min-width:768px) {
+    .image-cards {
+        height: auto;
+        grid-area: 1/1/3/2;
+        background-image: url(../images/bg-main-desktop.png);
+    }
+}
+
+
+.image-card-front {
+
+    background-image: url(../images/bg-card-front.png);
+    background-size: cover;
+    position: absolute;
+    bottom: -2rem;
+    left: 2rem;
+    z-index: 30;
+    height: 130px;
+    width: 220px;
+    border-radius: 5px;
+    color: white;
+    padding: 1rem;
+
+}
+
+@media (min-width:957px) {
+    .image-card-front {
+        bottom: none;
+        top: 10rem;
+        left: 10rem;
+        transform: scale(1.4);
+
+    }
+
+}
+
+
+@media (min-width:768px)and (max-width:956px) {
+
+    .image-card-front {
+        bottom: none;
+        top: 20rem;
+        left: 7rem;
+        transform: scale(1.1);
+    }
+
+}
+
+
+.card-front-data {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+
+}
+
+
+.corner {
+
+    display: flex;
+    align-items: center;
+    height: 40%;
+    width: 100%;
+    padding: 20px auto;
+    margin-bottom: 25px;
+    gap: 0.5rem;
+
+
+}
+
+
+.corner-circule-white {
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+
+.corner-circule-transparent {
+    height: 15px;
+    width: 15px;
+    border: 2px solid white;
+    border-radius: 50%;
+
+}
+
+
+.cardnumber {
+
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+
+}
+
+
+
+
+.image-card-back {
+
+    background-image: url(../images/bg-card-back.png);
+    position: absolute;
+    background-size: cover;
+    height: 130px;
+    width: 220px;
+    border-radius: 5px;
+    top: 1.5rem;
+    right: 4rem;
+    z-index: 20;
+    padding: 1rem;
+
+}
+
+@media (min-width:957px) {
+
+    .image-card-back {
+        top: 35rem;
+        right: none;
+        left: 15rem;
+        transform: scale(1.4);
+
+    }
+
+}
+
+
+@media (min-width:769px)and (max-width:956px) {
+
+    .image-card-back {
+        top: 40rem;
+        right: none;
+        left: 6rem;
+        transform: scale(1.1);
+
+    }
+
+}
+
+
+.main {
+    /* height: 65vh; */
+    width: 80%;
+    margin: auto;
+    padding-top: 80px;
+}
+
+
+@media (min-width:768px) {
+    .main {
+        width: 500px;
+        margin: auto;
+    }
+
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+
+input {
+
+    height: 3rem;
+    border-radius: 5px;
+    padding: 0px 1rem;
+    border: 1px solid var(--dark-grayish-violet);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+    border-color: linear-gradient(var(--active-input-border-start), var(--active-input-border-final));
+
+}
+
+::placeholder {
+    color: rgb(0, 0, 0, 0.2);
+}
+
+button {
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--very-dark-violet);
+    color: white;
+    width: 100%;
+}
+
+.data-box {
+    width: 90%;
+}
+
+
+.all-data-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    gap: 5px;
+
+
+}
+
+
+.label-date {
+
+    display: block;
+    width: 200%;
+
+}
+
+.warning {
+    margin: 0.5rem auto;
+    height: 12px;
+
+}
+
+.attribution {
+    margin-top: 1rem;
+
+}
+
+.attribution,
+.attribution * {
+    font-size: smaller;
+}
