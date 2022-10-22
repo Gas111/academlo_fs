@@ -1,0 +1,61 @@
+body,
+main,
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  width: 100vw;
+}
+
+.article {
+  text-align: center;
+  width: 50%;
+  height: auto;
+  padding: 1rem;
+  margin: auto;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  background: lightcyan;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.text-quote-box {
+  display: inline;
+  padding: 1.5rem;
+
+}
+
+h3 {
+  text-align: end;
+  padding: 1rem;
+}
+
+.button-next {
+  float: right;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: lightblue;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.icon-quote-box {
+  padding: 1rem;
+  font-size: 50px;
+
+}
+
+footer {
+  text-align: center;
+  background-color: #fff;
+  height: 5vh;
+  color: rgba(0, 0, 0, 0.8);
+
+}
