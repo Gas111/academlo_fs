@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import "./styles/normalize.css"
+import './styles/App.css'
 import axios from 'axios'
 import WeatherCard from './components/WeatherCard'
+import Loading from './components/Loading'
+import Footer from './components/Footer'
+import Time from './components/Time'
 
 function App() {
+
   const [coords, setCoords] = useState()
   const [weather, setWeather] = useState()
+  const [fTemp, setfTemp] = useState()
+  const [delay, setDelay] = useState(false)
+  
 
   useEffect(() => {
     const success = (pos) => {
@@ -20,8 +27,6 @@ function App() {
     navigator.geolocation.getCurrentPosition(success)
   }, [])
 
-  console.log('lo q hay qn coords', coords)
-
   // ---- Peticion del clima.
 
   useEffect(() => {
@@ -33,16 +38,26 @@ function App() {
         .get(URL)
         .then((res) => {
           setWeather(res.data)
-          console.log(weather)
+          const fTempAux=((res.data.main.temp*(9/5))+32)
+          setfTemp(Math.round(fTempAux))
+        
         })
         .catch((err) => console.log(err))
     }
   }, [coords])
 
+
+//   useEffect(() => {
+//   setTimeout(()=>{setDelay(true)},3000)
+
+// }, [])
+  
+
   return (
     <div className="App">
-      <h1>WeatherApp</h1>
-      <WeatherCard weather={weather}/>
+
+      {(weather) ? <WeatherCard weather={weather} fTemp={fTemp}/>:<Loading/>}
+      <Footer/>
     </div>
   )
 }
