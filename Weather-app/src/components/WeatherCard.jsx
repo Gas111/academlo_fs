@@ -38,17 +38,18 @@ const WeatherCard = ({ weather, fTemp }) => {
         </span>
       </div>
 
-      <span className="weather-card__description">
-        &#32;"{weather?.weather[0].description}"
-      </span>
+      <p className="weather-card__description">
+       "{weather?.weather[0].description}"
+      </p>
+      <br />
       <p>
         Wind speed: &#32;<span>{weather?.wind.speed}</span>&#32;m/s
       </p>
       <p>
         Clouds:&#32;<span>{weather?.clouds.all}%</span>
       </p>
-      <p>Pressure:&#32;{weather?.main.pressure}&#32;mb</p>
-      <p>Humidity:&#32;{weather?.main.humidity}&#32;hp</p>
+      <p>Pressure:&#32;{weather?.main.pressure}&#32;hPa</p>
+      <p>Humidity:&#32;{weather?.main.humidity}&#32;%</p>
       <button className="weather-card__boton" onClick={changeScale}>
         Change °C/°F
       </button>

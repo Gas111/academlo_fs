@@ -6,11 +6,11 @@ width: 100%;
 margin: 0px;
 padding: 0px;
 font-family: Arial, Helvetica, sans-serif;
-background-image: url("https://www.worldatlas.com/r/w960-q80/upload/b5/90/60/shutterstock-298797602.jpg");
-background-repeat: no-repeat;
+/* background-image: url("https://www.worldatlas.com/r/w960-q80/upload/b5/90/60/shutterstock-298797602.jpg"); */
+background-repeat:no-repeat;
 background-size: cover;
 background-position: center;
-opacity: 0.7;
+background-color: aliceblue;
 }
 
 .main__loader {

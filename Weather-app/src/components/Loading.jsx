@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/loading.css'
 import Footer from './Footer'
 
+
 const Loading = () => {
   return (
     <div className="main">

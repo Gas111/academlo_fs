@@ -31,7 +31,7 @@ const Time = () => {
 
   return (
     <div>
-      <span className="time">{first}</span>
+      <p className="time">{first}</p>
     </div>
   )
 }
