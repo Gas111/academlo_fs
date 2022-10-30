@@ -16,15 +16,6 @@
 
 }
 
-@font-face {
-    font-family: 'digital-7';
-    src: url(./fonts/digital-7.monoitalic.ttf);
-}
-@font-face {
-    font-family: 'led';
-    src: url(./fonts/LEDCalculator.ttf);
-}
-
 
 html {
     box-sizing: border-box;
@@ -35,7 +26,6 @@ html {
 body {
     background-image: url(./img/jon-moore-5fIoyoKlz7A-unsplash.jpg);
     background-size: cover;
-    /* aca poner una imagen de fondo de mesa de madera */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -56,8 +46,6 @@ body {
 .calc-frame {
     width: 400px;
     height: 450px;
-    /* margin: auto; */
-    /* align-self: auto; */
     border-radius: 15px;
     overflow: hidden;
     border: 2px solid #3a3546;
@@ -96,8 +84,7 @@ background: linear-gradient(146deg, rgba(100,98,113,1) 19%, rgba(68,66,77,1) 74%
     width: 100%;
     height: 20%;
     text-align:left;
-    font-family: 'led', sans-serif;
-    color: var(--font-display);
+    font-family: 'Repetition Scrolling', sans-serif;    color: var(--font-display);
     font-size: 1.5rem;
     padding-left: 20px;
     padding-right: 10px;
@@ -110,7 +97,8 @@ background: linear-gradient(146deg, rgba(100,98,113,1) 19%, rgba(68,66,77,1) 74%
     width: 100%;
     height: 100%;
      text-align: right;
-    font-family: 'digital-7', sans-serif;
+     font-family: 'LCD', sans-serif;
+    
     color: var(--font-display);
     font-size: 3.5rem;
     padding-left: 10px;
@@ -135,8 +123,7 @@ background: linear-gradient(146deg, rgba(143,148,163,1) 3%, rgba(106,110,124,1) 
 
 key:hover {
     cursor: pointer;
-    /* box-shadow: 0px 0px 0px 0px gray; */
-    /* transform: scale(0.9); */
+   
 }
 
 
@@ -157,8 +144,6 @@ background: linear-gradient(146deg, rgba(244,84,129,1) 3%, rgba(158,32,68,1) 29%
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
 
 .equal {
@@ -176,7 +161,6 @@ background: linear-gradient(146deg, rgba(244,84,129,1) 3%, rgba(158,32,68,1) 29%
 }
 
 .footer {
-    /* display: flex; */
     height: 10%;
     width: 100%;
     text-align: center;
