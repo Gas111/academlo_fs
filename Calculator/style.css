@@ -55,15 +55,15 @@ body {
 .calc-frame__display-frame {
     height: 30%;
     width: 100%;
-    background: rgb(174,173,180);
-    background: linear-gradient(146deg, rgba(174,173,180,1) 19%, rgba(100,98,113,1) 74%);
+    background: rgb(174, 173, 180);
+    background: linear-gradient(146deg, rgba(174, 173, 180, 1) 19%, rgba(100, 98, 113, 1) 74%);
     padding: 20px;
     display: block;
     margin-right: auto;
 }
 
-.display-all{
-    
+.display-all {
+
     background-color: var(--display-background);
     border: 4px solid var(--display-border);
 
@@ -71,36 +71,36 @@ body {
 
 .calc-frame__keys {
     height: 70%;
-  
+
     display: grid;
     grid-template: repeat(5, 1fr)/repeat(4, 1fr);
     gap: 15px;
     padding: 60px 20px;
-    background: rgb(100,98,113);
-background: linear-gradient(146deg, rgba(100,98,113,1) 19%, rgba(68,66,77,1) 74%);
+    background: rgb(100, 98, 113);
+    background: linear-gradient(146deg, rgba(100, 98, 113, 1) 19%, rgba(68, 66, 77, 1) 74%);
 }
 
 .small-display {
     width: 100%;
     height: 20%;
-    text-align:left;
-    font-family: 'Repetition Scrolling', sans-serif;    color: var(--font-display);
+    text-align: left;
+    font-family: 'Repetition Scrolling', sans-serif;
+    color: var(--font-display);
     font-size: 1.5rem;
     padding-left: 20px;
     padding-right: 10px;
     margin: 0;
-   padding-bottom: 0px;
+    padding-bottom: 0px;
 
 }
 
 .display {
     width: 100%;
     height: 100%;
-     text-align: right;
-     font-family: 'LCD', sans-serif;
-    
+    text-align: right;
+    font-family: 'New X Digital tfb', sans-serif;
     color: var(--font-display);
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 0px;
@@ -117,13 +117,13 @@ background: linear-gradient(146deg, rgba(100,98,113,1) 19%, rgba(68,66,77,1) 74%
     color: var(--font-button);
     font-family: 'Exo', sans-serif;
 
-background: rgb(143,148,163);
-background: linear-gradient(146deg, rgba(143,148,163,1) 3%, rgba(106,110,124,1) 29%);
+    background: rgb(143, 148, 163);
+    background: linear-gradient(146deg, rgba(143, 148, 163, 1) 3%, rgba(106, 110, 124, 1) 29%);
 }
 
 key:hover {
     cursor: pointer;
-   
+
 }
 
 
@@ -132,13 +132,13 @@ key:hover {
     background-color: var(--button-red-background);
     box-shadow: 0px 1px 1px 1px var(--button-red-shadow);
     font-weight: 400;
-    background: rgb(244,84,129);
-background: linear-gradient(146deg, rgba(244,84,129,1) 3%, rgba(158,32,68,1) 29%);
+    background: rgb(244, 84, 129);
+    background: linear-gradient(146deg, rgba(244, 84, 129, 1) 3%, rgba(158, 32, 68, 1) 29%);
 
 
 }
 
-.plus{
+.plus {
     grid-column: 4;
     grid-row: 3/5;
     display: flex;
