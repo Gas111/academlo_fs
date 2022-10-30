@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  box-sizing: content-box;
+  box-sizing:content-box;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -17,7 +17,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 width: 100%;
-min-height: 100vh;
+height: 100vh;
 background-repeat: no-repeat;
 }
 
@@ -26,7 +26,8 @@ img{
   
 }
 .videobg{
-  width: 100%;
-  min-height: 100vh;
-  object-fit: cover;
+
+  width:100%;
+  height: 100vh;
+  object-fit:cover;
 }

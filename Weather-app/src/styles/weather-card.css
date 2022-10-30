@@ -10,7 +10,15 @@
     box-shadow: 3px 3px 3px rgb(0, 0, 0,0.1);
     border-radius: 10px;
     color:white;
+}
 
+@media (min-width: 759px) {
+            .weather-card{
+display: flex;
+justify-content:space-evenly;
+align-items: center;
+    min-width: 700px;
+    }
 }
 
 img{
@@ -21,6 +29,8 @@ img{
     margin: 1rem 0;
 
 }
+
+
 
 .weather-card__section{
 display: flex;
@@ -59,3 +69,4 @@ font-size: 1.8rem;
 margin-bottom: 1rem;
 
 }
+

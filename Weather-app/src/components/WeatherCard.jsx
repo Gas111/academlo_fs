@@ -15,6 +15,7 @@ const WeatherCard = ({ weather, fTemp }) => {
   console.log(weather)
   return (
     <article className="weather-card">
+      <section className="weather-card__information">
       <Time/>
       <h2 className="weather-card__title-city">City: </h2>
       <h3 className="weather-card__city">
@@ -37,11 +38,13 @@ const WeatherCard = ({ weather, fTemp }) => {
           {isCelcius ? ' °C' : ' °F'}
         </span>
       </div>
-
+      </section>
+            <section className="weather-card__extra-information">
       <p className="weather-card__description">
        "{weather?.weather[0].description}"
       </p>
       <br />
+
       <p>
         Wind speed: &#32;<span>{weather?.wind.speed}</span>&#32;m/s
       </p>
@@ -53,7 +56,9 @@ const WeatherCard = ({ weather, fTemp }) => {
       <button className="weather-card__boton" onClick={changeScale}>
         Change °C/°F
       </button>
+      </section>
     </article>
+
   )
 }
 
