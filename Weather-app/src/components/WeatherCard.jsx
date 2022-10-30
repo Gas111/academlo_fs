@@ -39,6 +39,7 @@ const WeatherCard = ({ weather, fTemp }) => {
         </span>
       </div>
       </section>
+      <div className="line"></div>
             <section className="weather-card__extra-information">
       <p className="weather-card__description">
        "{weather?.weather[0].description}"

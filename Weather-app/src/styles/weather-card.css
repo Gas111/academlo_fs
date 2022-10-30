@@ -19,6 +19,14 @@ justify-content:space-evenly;
 align-items: center;
     min-width: 700px;
     }
+
+    .line{
+
+        height:300px;
+        width: 3px;
+        background-color: #fff;
+
+    }
 }
 
 img{
