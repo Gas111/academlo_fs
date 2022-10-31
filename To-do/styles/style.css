@@ -41,7 +41,7 @@ h1{
     box-shadow: 0px 0px 2px 3px rgb(215, 144, 11);
     margin-bottom: 1rem;
 }
-@media (max-width:496px){
+@media (max-width:769px){
     .box{
 flex-direction:column;
  
