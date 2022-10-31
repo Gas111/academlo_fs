@@ -27,7 +27,7 @@ for (let i = 0; i < keys.length; i++) {
         arrayKeysPressed = []
         keyPresseEqual = false
       }
-      if (arrayKeysPressed.length < 10) {
+      if (arrayKeysPressed.length < 7) {
         arrayKeysPressed.push(keyPressed)
         stringKeysPressed = arrayKeysPressed.join('')
         display.innerHTML = stringKeysPressed
