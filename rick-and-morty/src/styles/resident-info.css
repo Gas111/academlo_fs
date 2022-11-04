@@ -1,0 +1,49 @@
+article {
+    width: 437px;
+    height: 696px;
+    background-color: var(--background-resident-info);
+}
+
+.image-resident {
+    width: 437px;
+    height: 402px;
+}
+
+.box-status__cicle{
+
+background-color: brown;
+height: 19px;
+width: 19px;
+border-radius: 50%;
+
+}
+
+.box-status__text{
+
+color:var(--text-color-status);
+}
+
+
+.resident-name {
+
+color:var(--text-color-resident-data);
+
+}
+
+.line {
+    width: 421px;
+    height: 0.5px;
+    background-color: var(--line);
+    border: 0.5px solid var(--line);
+}
+
+.title-info{
+    color:var(--text-color-resident-info);
+    
+}
+
+.title-data{
+
+    color:var(--text-color-resident-data);
+
+}

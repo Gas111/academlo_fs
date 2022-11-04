@@ -1,0 +1,21 @@
+.App{
+
+max-width: 1440px;
+max-height: 2000px;
+background-color: var(--background-color);
+text-align: center;
+}
+
+.header{
+    background-image: url(https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/QQWVSJ6MDVGKRELX455KIABEEY.gif);
+    height: 200px;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:45% 33%;
+    margin: 0;
+    padding: 0;
+
+}
+.title-aplication{
+    margin: 20px 0;
+}
