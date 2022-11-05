@@ -1,21 +1,94 @@
-.App{
+.App {
 
-max-width: 1440px;
-max-height: 2000px;
-background-color: var(--background-color);
-text-align: center;
+    max-width: 1440px;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+
+
 }
 
-.header{
+.header {
     background-image: url(https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/QQWVSJ6MDVGKRELX455KIABEEY.gif);
     height: 200px;
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position:45% 33%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 45% 33%;
     margin: 0;
     padding: 0;
 
 }
-.title-aplication{
+
+.title-aplication {
+    margin: 30px 0;
+    font-family: "Pangolin", sans-serif;
+    font-size: 3rem;
+}
+
+h2 {
     margin: 20px 0;
+    font-family: "Pangolin", sans-serif;
+    font-size: 2rem;
+
+}
+
+.information {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    height: 30px;
+    margin: 1rem auto;
+
+}
+
+input {
+
+    background-color: var(--background-input);
+    padding: 5px 10px;
+    border: none;
+    min-width: 70%;
+    height: 30px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+input::placeholder {
+
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+input:focus {
+    outline: none;
+
+}
+
+.articles {
+
+    width: 80%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+button {
+    height: 30px;
+    background-color: var(--background-input);
+    border: solid 1px gray;
+    padding: 5px 10px;
+    color: white;
+}
+
+.box-buttons {
+    width: 100%;
+    height: 80px;
+    margin: 2rem auto;
+    text-align: center;
+    vertical-align: auto;
 }

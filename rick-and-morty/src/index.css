@@ -6,8 +6,8 @@
 
 #root{
     
-    --background-color:#05292E;
-    --background-resident-info:#062226;
+    --background-color:#272121;
+    --background-resident-info:#3d3535;
     --text-color-resident-data:#FBFBFB;
     --text-color-resident-info:#7E7E7E;
     --text-color-status:white;
@@ -15,6 +15,7 @@
     --background-color-status-no-information:#938686;
     --background-color-status-no-died:#B94343;
     --line:#084851;
+    --background-input:#443737;
     /* --background-color:#; */
 
 }

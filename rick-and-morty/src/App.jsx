@@ -9,27 +9,34 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import './App.css'
+import ButtonPages from './components/ButtonPages'
 import ResidentInfo from './components/ResidentInfo'
 import getRandomNumber from './utils/getRandomNumber'
+import FilterList from './components/FilterList'
 
 function App() {
   const [location, setLocation] = useState('')
-  // const [idLocation, setIdLocation] = useState('')
+  const [arrayResident, setArrayResident] = useState('')
+  const [suggestedList, setSuggestedList] = useState()
 
   // let numberLocation = ''
-
   // const handlerChange = (e) => {
   //   console.log(e.target.value)
   //   setIdLocation(e.target.value)
   // }
-
   useEffect(() => {
     const randomNumber = getRandomNumber(1, 126)
     let URL = `https://rickandmortyapi.com/api/location/${randomNumber}`
 
-    if (location)
-    URL = `https://rickandmortyapi.com/api/location/${location}`
+    if (location) {
+      URL = `https://rickandmortyapi.com/api/location/${location}`
+      if (location > 127 || location < 1) {
+        alert('ingrese numero de 1 a 126')
+      }
+     
+    }
 
+  
     // const URL="https://rickandmortyapi.com/documentation/3get-a-single-location"
     axios
       .get(URL)
@@ -39,23 +46,40 @@ function App() {
       .catch((err) => console.log(err))
   }, [location])
 
-//   const idSelected=()=>{
-//     const URL = `https://rickandmortyapi.com/api/location/${idLocation}`
-//     axios
-//     .get(URL)
-//     .then((res) => {
-//       setLocation(res.data)
-//     })
-//     .catch((err) => console.log(err))
-// }
+  //   const idSelected=()=>{
 
-const handlerSumit=(e)=>{
-  e.preventDefault()    
-  setLocation(e.target.inputLocation.value)
 
+  const handlerSumit = (e) => {
+    e.preventDefault()
+    setLocation(e.target.inputLocation.value)
+
+
+    
+  }
+
+
+  const arrayOfPage = (resident, index) => {
+    console.log('aca mirpmio ', resident, index)
+    return `<ResidentInfo key=${resident} resident=${resident}/>`
+  }
+
+const handlerChange=(e)=>{
+  if(e.target.value===""){
+
+  return  setSuggestedList()
+
+  }
+  const URL = `https://rickandmortyapi.com/api/location?name=${e.target.value}`
+  axios
+  .get(URL)
+  .then((res) => {
+    setSuggestedList(res.data.results)
+  })
+  .catch((err) => console.log(err))
 }
 
-  console.log(location)
+console.log(suggestedList)
+
 
   return (
     <div className="App">
@@ -64,22 +88,34 @@ const handlerSumit=(e)=>{
       </header>
       <h1 className="title-aplication">Rick and Morty wiki</h1>
       <form action="" onSubmit={handlerSumit}>
-        <input
-          id="inputLocation"
-          type="text"
-          placeholder="type a location"
-        />
+        <input id="inputLocation" type="text" placeholder="type a location" onChange={handlerChange}/>
         <button type="submit">Selected</button>
+      <FilterList suggestedList={suggestedList} setLocation={setLocation}/>
       </form>
       <h2>{location?.name}</h2>
-      <p>
-        <span>type:{location?.type}</span>
-        <span>dimension:{location?.dimension}</span>
-        <span>population:{location.residents?.length}</span>
+      <p className="information">
+        <span>
+          <b>Type: </b>
+          {location?.type}
+        </span>
+        <span>
+          <b>Dimension: </b>
+          {location?.dimension}
+        </span>
+        <span>
+          <b>Population: </b>
+          {location.residents?.length}
+        </span>
       </p>
-      {location.residents?.map((resident) => (
-        <ResidentInfo key={resident} resident={resident} />
-      ))}
+
+      <section className="articles">
+        {location.residents?.map(resident => (<ResidentInfo key={resident} resident={resident}/>))
+         
+        }
+      </section>
+      <section className="box-buttons">
+        <ButtonPages quantityResidents={location.residents?.length} />
+      </section>
     </div>
   )
 }
