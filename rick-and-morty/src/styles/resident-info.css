@@ -1,5 +1,5 @@
 article {
-    max-width: 537px;
+    max-width: 500px;
     height: 202px;
     background-color: var(--background-resident-info);
     border-radius: 10px;
@@ -9,20 +9,23 @@ article {
 }
 
 .image-resident {
-    width: 237px;
+    
+    width: 202px;
     height: 202px;
 
 }
 
 .box-info {
-
+    min-width: 300px;
     text-align: left;
+    padding: 1rem;
+  
 }
 
 
-.box-status__cicle {
+.box-status__circle {
 
-    background-color: brown;
+    display:inline-block;
     height: 19px;
     width: 19px;
     border-radius: 50%;
@@ -36,8 +39,10 @@ article {
 
 
 .resident-name {
-
+    font-size: 1.1rem;
     color: var(--text-color-resident-data);
+    margin-bottom:1rem;
+
 
 }
 
@@ -49,6 +54,7 @@ article {
 }
 
 .title-info {
+   
     color: var(--text-color-resident-info);
 
 }
@@ -57,4 +63,22 @@ article {
 
     color: var(--text-color-resident-data);
 
+}
+
+
+.color-unknown{
+
+    background-color: gray;
+}
+
+
+.color-alive{
+    background-color: green;
+    
+}
+
+
+.color-death{
+
+    background-color: brown;
 }

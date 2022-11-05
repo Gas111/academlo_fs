@@ -14,10 +14,13 @@ import ResidentInfo from './components/ResidentInfo'
 import getRandomNumber from './utils/getRandomNumber'
 import FilterList from './components/FilterList'
 
+
+
 function App() {
   const [location, setLocation] = useState('')
   const [arrayResident, setArrayResident] = useState('')
   const [suggestedList, setSuggestedList] = useState()
+  const [hasError, setHasError] = useState(false)
 
   // let numberLocation = ''
   // const handlerChange = (e) => {
@@ -43,7 +46,7 @@ function App() {
       .then((res) => {
         setLocation(res.data)
       })
-      .catch((err) => console.log(err))
+      .catch((err) => setHasError(true))
   }, [location])
 
   //   const idSelected=()=>{

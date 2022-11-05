@@ -33,12 +33,12 @@ const ResidentInfo = ({ resident }) => {
       />
       <div className="box-info">
         <h5 className="resident-name">{residentInfo?.name}</h5>
-        <div className="box-status__circle">{residentInfo?.status}</div>
-        <span className="box-status__text">{residentInfo?.status}</span>
+        <div className={`box-status__circle ${residentInfo.status=="Alive" ? "color-alive": residentInfo?.status=="unknown" ? "color-unknown": "color-death"}`}></div>
+        <deathspan className="box-status__text">{residentInfo?.status}</deathspan>
         <p className="title-info">raze</p>
         <p className="title-data">{residentInfo?.species}</p>
         <p className="title-info">origin</p>
-        {/* <p className="title-data">{residentInfo?.origin.name}</p> */}
+        <p className="title-data">{residentInfo.origin?.name}</p>
         <p className="title-info">episodes where appear</p>
         <p className="title-data">{residentInfo.episode?.length}</p>
       </div>
