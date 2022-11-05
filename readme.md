@@ -17,6 +17,8 @@ https://boxshadowgenerator-gc.netlify.app
 
 https://academloquery.netlify.app
 
+https://rick-and-morty-gc.netlify.app
+
 
 
 
