@@ -22,7 +22,6 @@ function App() {
   const [hasError, setHasError] = useState(false)
   const [page, setPage] = useState(1)
 
-
   useEffect(() => {
     const randomNumber = getRandomNumber(1, 126)
     let URL = `https://rickandmortyapi.com/api/location/${randomNumber}`
@@ -42,15 +41,11 @@ function App() {
       .catch((err) => setHasError(true))
   }, [location])
 
-
   const handlerSumit = (e) => {
     e.preventDefault()
     setLocation(e.target.inputLocation.value)
   }
 
-  // const arrayOfPage = (resident, index) => {
-  //   return `<ResidentInfo key=${resident} resident=${resident}/>`
-  // }
 
   const handlerChange = (e) => {
     // setShowFilter(true) aca tengo que volver a poner true
@@ -76,24 +71,19 @@ function App() {
     }
 
     let array = [...location.residents]
-   let indexMin=0
-   let indexMax=10
-    
+    let indexMin = 0
+    let indexMax = 10
+
     if (page == 1) {
-    
-      array = array.slice( indexMin,  indexMax)
-
+      array = array.slice(indexMin, indexMax)
     } else {
-
-
-      indexMin=page * 10 - 10
-      indexMax= page * 10
-      array = array.slice(indexMin,indexMax)
+      indexMin = page * 10 - 10
+      indexMax = page * 10
+      array = array.slice(indexMin, indexMax)
     }
 
-    if(array[i]){    
-
-    return <div>{<ResidentInfo key={resident} resident={array[i]} />}</div>
+    if (array[i]) {
+      return <div>{<ResidentInfo key={resident} resident={array[i]} />}</div>
     }
   }
 
@@ -139,7 +129,7 @@ function App() {
           setPage={setPage}
         />
       </section>
-      <section className="box-buttons">
+      <section className="box-made-by">
         <Madeby />
       </section>
     </div>
