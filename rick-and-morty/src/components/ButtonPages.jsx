@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/button-pages.css'
 
-const ButtonPages = ({ quantityResidents, setPage }) => {
+const ButtonPages = ({ quantityResidents, setPage}) => {
   const paintButtons = () => {
     let array = []
 
@@ -15,8 +15,10 @@ const ButtonPages = ({ quantityResidents, setPage }) => {
       array[i] = [i + 1]
     }
 
+ 
+
     return array.map((e) => (
-      <div
+      <div key={e}
         className="single-button-pages"
         onClick={() => {
           pageSelected(e)
@@ -31,7 +33,7 @@ const ButtonPages = ({ quantityResidents, setPage }) => {
     setPage(e)
   }
 
-  return <div>{paintButtons()}</div>
+  return <div >{paintButtons()}</div>
 }
 
 export default ButtonPages

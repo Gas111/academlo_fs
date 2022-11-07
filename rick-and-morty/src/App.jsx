@@ -21,6 +21,7 @@ function App() {
   const [suggestedList, setSuggestedList] = useState()
   const [hasError, setHasError] = useState(false)
   const [page, setPage] = useState(1)
+  const [showFilter, setShowFilter] = useState(true)
 
   useEffect(() => {
     const randomNumber = getRandomNumber(1, 126)
@@ -44,11 +45,18 @@ function App() {
   const handlerSumit = (e) => {
     e.preventDefault()
     setLocation(e.target.inputLocation.value)
+    setShowFilter(true)
+  }
+
+  const handlerClickInput=()=>{
+
+    setShowFilter(false)
+
   }
 
 
   const handlerChange = (e) => {
-    // setShowFilter(true) aca tengo que volver a poner true
+
     if (e.target.value === '') {
       return setSuggestedList()
     }
@@ -57,11 +65,10 @@ function App() {
       .get(URL)
       .then((res) => {
         setSuggestedList(res.data.results)
+        setShowFilter(true)
       })
       .catch((err) => console.log(err))
   }
-
-  console.log(suggestedList)
 
   const sendPages = (resident, i) => {
     let quantityPages = parseInt(location.residents.length / 10)
@@ -83,9 +90,10 @@ function App() {
     }
 
     if (array[i]) {
-      return <div>{<ResidentInfo key={resident} resident={array[i]} />}</div>
+      return <div key={ResidentInfo?.id} >{<ResidentInfo key={ResidentInfo?.id} resident={array[i]} />}</div>
     }
   }
+
 
   return (
     <div className="App">
@@ -97,11 +105,13 @@ function App() {
         <input
           id="inputLocation"
           type="text"
+          autoComplete="off"
           placeholder="type a location"
           onChange={handlerChange}
+          onClick={handlerClickInput}
         />
         <button type="submit">Selected</button>
-        <FilterList suggestedList={suggestedList} setLocation={setLocation} />
+        <FilterList key={ResidentInfo?.id} suggestedList={suggestedList} setLocation={setLocation} setShowFilter={setShowFilter} showFilter={showFilter} />
       </form>
       <h2>{location?.name}</h2>
       <p className="information">
@@ -119,14 +129,15 @@ function App() {
         </span>
       </p>
 
-      <section className="articles">
+      <section className="articles" key={ResidentInfo?.id}>
         {location.residents?.map((resident, i) => sendPages(resident, i))}
       </section>
       <section className="box-buttons">
         <ButtonPages
           quantityResidents={location.residents?.length}
-          key={location?.residents}
+          key={ResidentInfo?.id}
           setPage={setPage}
+          location={location}
         />
       </section>
       <section className="box-made-by">

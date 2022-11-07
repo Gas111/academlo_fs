@@ -4,6 +4,7 @@ import '../index.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+
 // name,image,status, origin.name,episode.length
 
 const ResidentInfo = ({ resident }) => {

@@ -2,8 +2,8 @@ import React from 'react'
 import '../styles/filter-list.css'
 import { useState } from 'react'
 
-const FilterList = ({ suggestedList, setLocation }) => {
-  const [showFilter, setShowFilter] = useState(true)
+const FilterList = ({ suggestedList, setLocation,setShowFilter,showFilter}) => {
+
 
   const handleClick = (event, id) => {
     setLocation(id)
@@ -19,9 +19,9 @@ const FilterList = ({ suggestedList, setLocation }) => {
       <ul>
         {suggestedList?.map((location) => {
           return (
-            <li
+            <li key={location.id}
               onClick={(event) => handleClick(event, location.id)}
-              key={location.id}
+              
             >
               {location.name}
             </li>
