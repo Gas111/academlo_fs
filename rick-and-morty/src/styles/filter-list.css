@@ -1,0 +1,30 @@
+.box-list {
+    background-color: var(--background-resident-info);
+    width: 75%;
+    margin: 0 auto;
+    text-align: left;
+    color: rgb(94, 94, 232);
+    font-weight: 600;
+}
+
+.box-list ul li{
+
+    list-style: none;
+    padding: 0.5rem 0.5rem;
+
+}
+
+
+.box-list ul li:hover{
+    background-color: var(--text-color-resident-info);
+    color: rgb(32, 32, 79);
+    cursor: pointer;
+}
+
+.display-on{
+display: block;
+}
+
+.display-off{
+display: none;
+}

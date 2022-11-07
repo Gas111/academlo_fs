@@ -22,7 +22,7 @@ const ResidentInfo = ({ resident }) => {
       .catch((err) => {
         console.log(err)
       })
-  }, [])
+  }, [resident])
 
   return (
     <article>
@@ -33,8 +33,8 @@ const ResidentInfo = ({ resident }) => {
       />
       <div className="box-info">
         <h5 className="resident-name">{residentInfo?.name}</h5>
-        <div className={`box-status__circle ${residentInfo.status=="Alive" ? "color-alive": residentInfo?.status=="unknown" ? "color-unknown": "color-death"}`}></div>
-        <deathspan className="box-status__text">{residentInfo?.status}</deathspan>
+        <div className={`box-status__circle ${residentInfo.status=="Alive" ?   "color-alive" : residentInfo?.status=="unknown" ? "color-unknown": "color-death"}`}></div>
+        <span className="box-status__text">{residentInfo?.status}</span>
         <p className="title-info">raze</p>
         <p className="title-data">{residentInfo?.species}</p>
         <p className="title-info">origin</p>

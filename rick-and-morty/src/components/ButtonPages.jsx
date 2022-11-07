@@ -1,25 +1,37 @@
 import React from 'react'
-import "../styles/button-pages.css"
+import '../styles/button-pages.css'
 
-const ButtonPages = ({quantityResidents}) => {
-  
+const ButtonPages = ({ quantityResidents, setPage }) => {
+  const paintButtons = () => {
+    let array = []
 
+    let quantityPages = parseInt(quantityResidents / 10)
+    const restPages = parseFloat(quantityResidents / 10)
 
-  const paintButtons=()=>{
+    if (restPages > 0) {
+      ++quantityPages
+    }
+    for (let i = 0; i < quantityPages; i++) {
+      array[i] = [i + 1]
+    }
 
-  const quantityPages=parseInt(quantityResidents/10)
-    return(
-      
-        <div className='single-button-pages'>{quantityPages}</div>
-    )
-
+    return array.map((e) => (
+      <div
+        className="single-button-pages"
+        onClick={() => {
+          pageSelected(e)
+        }}
+      >
+        {e}
+      </div>
+    ))
   }
-  
-    return (
-      <div>{paintButtons()}</div>
-      
-  
-  )
+
+  const pageSelected = (e) => {
+    setPage(e)
+  }
+
+  return <div>{paintButtons()}</div>
 }
 
 export default ButtonPages

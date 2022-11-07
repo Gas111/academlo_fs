@@ -5,11 +5,11 @@ height: 50px;
 font-size: 1.2rem;
 background-color:var(--background-resident-info);
 color: white;
-display: flex;
-justify-content: center;
-align-items: center;
+display: inline-block;
+flex-direction: column;
 
-
+padding: 15px;
+margin: 5px 10px;
 }
 
 .single-button-pages:hover{

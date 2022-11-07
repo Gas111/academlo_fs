@@ -1,0 +1,8 @@
+.made-by{
+
+display: flex;
+align-items: center;
+height: 3rem;
+position:abolute;
+top: 0;
+}

@@ -1,6 +1,6 @@
 article {
     max-width: 500px;
-    height: 202px;
+    height: 215px;
     background-color: var(--background-resident-info);
     border-radius: 10px;
     display: flex;
@@ -8,18 +8,50 @@ article {
     margin: 0.5rem 0;
 }
 
-.image-resident {
-    
-    width: 202px;
-    height: 202px;
-
+@media (min-width:768px) {
+    .article {
+        height: 202px;
+        width: 500px;
+    }
 }
 
+
+
+
+
+
+.image-resident {
+    
+    width: 150px;
+    height: 100%;
+
+}
+@media (min-width:768px) {
+    .image-resident {
+    
+        width: 202px;
+    
+    }
+}
+
+
+
+
+
+
 .box-info {
-    min-width: 300px;
+    min-width: 200px;
     text-align: left;
     padding: 1rem;
   
+}
+
+@media (min-width:768px) {
+.box-info {
+    width: 200px;
+
+  
+}
 }
 
 
@@ -39,9 +71,10 @@ article {
 
 
 .resident-name {
+    display: flex;
     font-size: 1.1rem;
     color: var(--text-color-resident-data);
-    margin-bottom:1rem;
+    margin-bottom:0.5rem;
 
 
 }
@@ -81,4 +114,10 @@ article {
 .color-death{
 
     background-color: brown;
+}
+
+p{
+display: flex;
+flex-wrap: wrap;
+
 }
