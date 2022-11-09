@@ -90,7 +90,7 @@ function App() {
     }
 
     if (array[i]) {
-      return <div key={ResidentInfo?.id} >{<ResidentInfo key={ResidentInfo?.id} resident={array[i]} />}</div>
+      return <ResidentInfo resident={array[i]} />
     }
   }
 
@@ -100,6 +100,7 @@ function App() {
       <header className="header">
         <img src="" alt="" />
       </header>
+
       <h1 className="title-aplication">Rick and Morty wiki</h1>
       <form action="" onSubmit={handlerSumit}>
         <input
@@ -111,7 +112,8 @@ function App() {
           onClick={handlerClickInput}
         />
         <button type="submit">Selected</button>
-        <FilterList key={ResidentInfo?.id} suggestedList={suggestedList} setLocation={setLocation} setShowFilter={setShowFilter} showFilter={showFilter} />
+        <FilterList suggestedList={suggestedList} setLocation={setLocation} setShowFilter={setShowFilter} showFilter={showFilter} />
+      
       </form>
       <h2>{location?.name}</h2>
       <p className="information">
@@ -129,8 +131,11 @@ function App() {
         </span>
       </p>
 
-      <section className="articles" key={ResidentInfo?.id}>
-        {location.residents?.map((resident, i) => sendPages(resident, i))}
+      <section className="articles">
+        {location.residents?.map((resident, i) => (i<10 && <div key={resident}>{sendPages(resident, i)}</div>))}
+    
+      {/* al poner el key con el div me esta creando divs  */}
+      
       </section>
       <section className="box-buttons">
         <ButtonPages
