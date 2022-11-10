@@ -1,0 +1,71 @@
+.form{
+text-align: center;
+padding: 1rem 1.2rem;
+border-radius: 10px;
+box-shadow: 0 1px 3px rgba(0, 0, 0,0.4);
+position: relative;
+z-index: 10;
+background-color:rgba(255, 255, 255,1.5);
+min-height: 300px;
+
+
+}
+
+.visible-true {
+display: block;
+position: absolute;
+z-index: 20;
+top: 50%;  /* position the top  edge of the element at the middle of the parent */
+left: 50%; /* position the left edge of the element at the middle of the parent */
+transform: translate(-50%, -50%)
+
+}
+
+.visible-false {
+display: none;
+}
+
+label{
+    display: inline-block;
+width: 90px;
+margin-right: 1rem;
+
+}
+div{
+margin: 1rem 0;
+
+}
+input{
+    width: 200px;
+    border: none;
+    background-color: var(--color-input);
+    padding: 5px 8px;
+    font-size: 0.7rem;
+}
+#birthday{
+    padding: 5px 28px;
+}
+
+button{
+
+    height: 35px;
+    background-color:rgba(2, 113, 5, 0.727);
+    color:white;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    border: none;
+    margin-top: 1rem;
+
+}
+
+.close-model{
+text-align: right;
+width: 100px;
+
+
+}
+
+.closeicon{
+color:black;
+
+}

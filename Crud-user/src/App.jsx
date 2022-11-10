@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import '../src/styles/App.css'
 import FormUsers from './components/FormUsers'
 import axios from 'axios'
 import UserCard from './components/UserCard'
+import Header from './components/Header'
 
 function App() {
   const [users, setUsers] = useState()
   const [userToUpdate, setUserToUpdate] = useState({})
+  const [formVisible, setFormVisible] = useState(false)
 
   const baseURL = 'https://users-crud1.herokuapp.com'
 
@@ -70,12 +72,19 @@ function App() {
 
   return (
     <div className="App">
+      
       <FormUsers
         createNewUser={createNewUser}
         userToUpdate={userToUpdate}
         updateUser={updateUser}
+        formVisible={formVisible}
+        setFormVisible={setFormVisible}
       />
 
+   <section className={`section ${formVisible ? "vi-false":"vi-true"}`}>
+      <Header setFormVisible={setFormVisible}/>
+
+     
       {users?.map((user) => (
         <UserCard
           key={user.id}
@@ -83,8 +92,8 @@ function App() {
           deleteUser={deleteUser}
           setUserToUpdate={setUserToUpdate}
         />
-      ))}
-    </div>
+      ))}</section>
+ </div>
   )
 }
 

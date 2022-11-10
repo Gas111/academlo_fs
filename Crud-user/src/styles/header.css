@@ -1,0 +1,17 @@
+.header{
+display: flex;
+justify-content:space-between;
+align-items: center;
+padding: 0.5rem 2rem;
+width: 100vw;
+}
+
+.button-create-new{
+ 
+    height: 35px;
+    background-color:rgba(0,22,100,0.5);
+    color:white;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    border: none;
+}

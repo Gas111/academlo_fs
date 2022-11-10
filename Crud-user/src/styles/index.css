@@ -1,0 +1,32 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  --color-generic: rgba(0, 0, 0, 0.3);
+  --color-input: rgba(0, 0, 0, 0.1);
+  --color-button-trash: rgba(248, 134, 35, 0.751);
+  --color-button-trash-hover: rgba(248, 134, 35, 0.5);
+
+  --color-button-edit: rgba(0, 0, 0, 0.2);
+  --color-button-edit-hover: rgba(0, 0, 0, 0.05);
+
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+
+*,:before,:after{
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+  }
