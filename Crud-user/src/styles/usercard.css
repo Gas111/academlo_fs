@@ -1,0 +1,97 @@
+:root{
+--color-generic:rgba(0,0,0,0.3);
+--color-button-trash:rgba(248, 134, 35, 0.751);
+--color-button-trash-hover:rgba(248, 134, 35, 0.5);
+
+--color-button-edit:rgba(0,0,0,0.2);
+--color-button-edit-hover:rgba(0,0,0,0.05);
+
+}
+
+*,:before,:after{
+
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+
+}
+
+.user-card{
+
+text-align: left;
+min-height: 200px;
+max-width: 400px;
+
+box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+border-radius: 5px;
+padding: 1rem 2rem;
+
+}
+
+.line{
+background-color:rgba(0,0,0,0.2);
+height: 1px;
+width: 100%;
+
+}
+
+h5{
+
+    color:var(--color-generic);
+}
+
+.footer-card{
+
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 0.5rem 0;
+}
+
+.box-buttons{
+display: flex;
+gap:1rem;
+
+}
+
+.button-trash,.button-edit{
+
+height: 30px;
+width: 30px;
+background-size: cover;
+border-radius: 2px;
+border: solid 1px var(--color-generic);
+color:white;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.button-trash{
+background-color:var(--color-button-trash);
+}
+
+.button-edit{
+    background-color:var(--color-button-edit);
+    color:gray;
+}
+.img-birthday{
+    height: 20px;
+    width: 20px;
+    background-size: cover;
+
+}
+
+
+.button-trash:hover{
+
+cursor:pointer;
+background-color:var(--color-button-trash-hover);
+
+}
+
+.button-edit:hover{
+    cursor:pointer;
+
+    background-color:var(--color-button-edit-hover);
+}
