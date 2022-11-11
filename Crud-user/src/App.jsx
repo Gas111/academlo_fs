@@ -84,15 +84,18 @@ function App() {
    <section className={`section ${formVisible ? "vi-false":"vi-true"}`}>
       <Header setFormVisible={setFormVisible}/>
 
-     
+     <main className='main'>
       {users?.map((user) => (
         <UserCard
           key={user.id}
           user={user}
           deleteUser={deleteUser}
           setUserToUpdate={setUserToUpdate}
+          setFormVisible={setFormVisible}
         />
-      ))}</section>
+      ))}
+      </main>
+      </section>
  </div>
   )
 }

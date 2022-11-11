@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/usercard.css'
 
-const UserCard = ({ user, deleteUser, setUserToUpdate }) => {
+const UserCard = ({ user, deleteUser, setUserToUpdate, setFormVisible }) => {
   return (
     <div className="user-card">
       <h3>{`${user.first_name} ${user.last_name}`}</h3>
@@ -23,7 +23,10 @@ const UserCard = ({ user, deleteUser, setUserToUpdate }) => {
             className="button-trash fa-regular fa-trash-can"
           ></i>
           <i
-            onClick={() => setUserToUpdate(user)}
+            onClick={() => {
+              setUserToUpdate(user)
+              setFormVisible(true)
+            }}
             className="button-edit fa-solid fa-pencil"
           ></i>
         </div>

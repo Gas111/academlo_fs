@@ -1,8 +1,14 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import "../styles/form.css"
+import '../styles/form.css'
 
-const FormUsers = ({ createNewUser, userToUpdate, updateUser,formVisible,setFormVisible }) => {
+const FormUsers = ({
+  createNewUser,
+  userToUpdate,
+  updateUser,
+  formVisible,
+  setFormVisible,
+}) => {
   const userDefault = {
     email: '',
     first_name: '',
@@ -21,27 +27,35 @@ const FormUsers = ({ createNewUser, userToUpdate, updateUser,formVisible,setForm
   const { handleSubmit, register, reset } = useForm()
 
   const submit = (data) => {
-    console.log("userToteUser",userToUpdate)
-    
-    if (userToUpdate.id) {
-    
-      updateUser(data, userToUpdate.id)
-      console.log("Ingrese al update",userToUpdate)
-     
-    } else {
+    console.log('userToteUser', userToUpdate)
 
+    if (userToUpdate.id) {
+      updateUser(data, userToUpdate.id)
+      setFormVisible(false)
+    } else {
       console.log(data)
       createNewUser(data)
       setFormVisible(false)
-
     }
     reset(userDefault)
   }
 
+  const handleClose = () => {
+    reset(userDefault)
+    reset(userToUpdate)
+    setFormVisible(false)
+  }
+
   return (
-    <form className={`form ${formVisible ? "visible-true":"visible-false"}`}  style={{opacity:1}}  onSubmit={handleSubmit(submit)}>
-     <div className='close-model'><i className="fa-light fa-rectangle-xmark"></i></div>
-      
+    <form
+      className={`form ${formVisible ? 'visible-true' : 'visible-false'}`}
+      style={{ opacity: 1 }}
+      onSubmit={handleSubmit(submit)}
+    >
+      <div className="close-model">
+        <i className="closeicon fa-solid fa-xmark" onClick={handleClose}></i>
+      </div>
+      <h4>{`${userToUpdate.id ? 'Update User' : 'Data for New User'}`}</h4>
       <div>
         <label htmlFor="email">Email</label>
         <input type="email" id="email" {...register('email')} />
@@ -63,7 +77,7 @@ const FormUsers = ({ createNewUser, userToUpdate, updateUser,formVisible,setForm
         <input type="date" id="birthday" {...register('birthday')} />
       </div>
       <div>
-        <button>New User</button>
+        <button>{`${userToUpdate.id ? 'Change' : 'New User'}`}</button>
       </div>
     </form>
   )

@@ -59,13 +59,22 @@ button{
 }
 
 .close-model{
-text-align: right;
-width: 100px;
-
+width: 100%;
+height: auto;
+display: flex;
+justify-content:end;
+align-items: start;
 
 }
 
 .closeicon{
-color:black;
-
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    border-radius: 50%;
+    border: solid 1px var(--color-generic);
+    color:rgb(243, 9, 9);
+ display: flex;
+    justify-content: center;
+    align-items: center;
 }
