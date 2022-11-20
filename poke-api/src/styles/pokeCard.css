@@ -1,0 +1,42 @@
+.pokecard{
+width: 250px;
+height: 250px;
+background-color: blue;
+padding: 0 1rem;
+border-radius: 10px;
+transition: transform 200ms ease;
+}
+
+
+
+.pokecard:hover{
+transform: scale(1.1);
+}
+
+.poke-image{
+position: relative;
+float: right;
+width: 160px;
+height: 160px;
+bottom:10rem;
+
+
+}
+
+
+.poke-image img{
+    width: 160px;
+    height: 160px;
+    
+}
+
+.pokecard__information{
+background-color: aqua;
+max-width: auto;
+height: auto;
+border-radius: 16px;
+padding: 0.4rem 0.5rem;
+margin: 0.2rem 0;
+text-shadow: 0 0 2px #0003;
+}
+

@@ -1,0 +1,47 @@
+.input-search {
+    width: 300px;
+    height: 30px;
+    padding: 5px 9px;
+    border-radius: 30px;
+    box-shadow: 1px 4px 10px #0006;
+    border: none;
+
+}
+
+
+.box-checkbox {
+    height: 1rem;
+    width: 5rem;
+    position: relative;
+}
+
+.checkbox {
+    -webkit-appearance: none;
+    height: 1rem;
+    width: 5rem;
+    box-shadow: 0 0 3px #0004;
+    border-radius: 1rem;
+       margin: 1rem;
+        background-color: rgb(253, 137, 5)
+}
+
+.circle {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: rgb(255, 253, 253);
+    box-shadow: 1px 1px 1px 2px #0005;
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.box-checkbox-checked{
+
+    background-color: rgb(38, 21, 148);
+
+}
+.circle-checked {
+    left: 4.5rem;
+    }
