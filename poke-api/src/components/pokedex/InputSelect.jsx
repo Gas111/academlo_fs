@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-
+import "../../styles/inputSelect.css"
 const InputSelect = () => {
 
     const [typePokemons, setTypePokemons] = useState()
@@ -20,7 +20,7 @@ useEffect(() => {
 
   return (
     <div>
-        <select name="" id="">
+        <select className="input-select" name="" id="">
             {typePokemons?.map(typePokemon =>(<option key={typePokemon.name}>{typePokemon.name}</option>))} 
         </select>
          

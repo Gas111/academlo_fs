@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import "../../styles/inputcheckbox.css"
 
-const InputCheckbox = () => {
+const InputCheckbox = ({stateCheckbox, setStateCheckbox}) => {
 
   const [attributeCheckbox, setAttributeCheckbox] = useState("checkbox")
 
-  const [stateCheckbox, setStateCheckbox] = useState(false)
+ 
 
 const handleChange=(e)=>{
  
@@ -27,10 +27,16 @@ const handleChange=(e)=>{
 }
 
   return (
+    <div className="element-checkbox"> 
+    <span>Type</span> 
     <div className="box-checkbox">
-      <input onClick={handleChange} className={ attributeCheckbox} type="checkbox" name="" id="checkbox"/>
+     
+      <input onClick={handleChange} className={attributeCheckbox} type="checkbox" name="" id="checkbox"/>
       <div className={stateCheckbox ? "circle":"circle circle-checked"}></div>
-
+     
+      </div>
+       <span>Pokemon</span> 
+      
       </div>
   )
 }

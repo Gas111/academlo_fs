@@ -9,10 +9,23 @@
 }
 
 
+.element-checkbox{
+width: 40%;
+height: 1rem;
+display: flex;
+justify-content: space-evenly;
+object-position: center;
+gap:1rem;
+align-items:center;
+margin: 3rem auto;
+}
+
+
 .box-checkbox {
     height: 1rem;
     width: 5rem;
     position: relative;
+
 }
 
 .checkbox {

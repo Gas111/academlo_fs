@@ -1,0 +1,25 @@
+.main-settings{
+
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+}
+
+.config-title{
+padding: 2rem;
+
+}
+
+.theme-section,.items-section{
+
+    height: 30%;
+    width: 90%;
+    box-shadow: 0 0 3px #0004;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+}
+

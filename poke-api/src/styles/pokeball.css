@@ -10,6 +10,7 @@ animation-iteration-count: infinite;
 position:absolute;
 z-index: -10; 
 opacity: 0.4;
+
 }
 
 @keyframes rotate {
@@ -28,6 +29,7 @@ to{
 
 
 .external-circle{
+    box-shadow: inset 3px -38px 50px -42px black;
     height: 200px;
     width: 200px;
     border-radius: 50%;
@@ -36,6 +38,8 @@ position:relative;
 }
 
 .external-circle-red{
+    box-shadow: inset 1px 40px 62px -21px rgba(255,255,255,0.7); 
+    /* box-shadow: 1px 1px 3px #0003; */
     height: 100px;
     width: 200px;
     border-start-start-radius: 100px;

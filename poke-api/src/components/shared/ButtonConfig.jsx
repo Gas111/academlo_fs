@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useDeferredValue } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const ButtonConfig = () => {
 
+ const navigate= useNavigate()
+
+
 const handleClick=()=>{
 
-
+navigate('/config/')
 
 }
 
