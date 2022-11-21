@@ -1,4 +1,4 @@
-.main-settings{
+.main-settings {
 
     margin: 0;
     padding: 0;
@@ -6,16 +6,18 @@
 
 }
 
-.config-title{
-padding: 2rem;
+.config-title {
+    padding: 1rem;
+    margin: 0;
 
 }
 
-.theme-section,.items-section{
+.theme-section,
+.items-section {
 
     height: 30%;
     width: 90%;
-    box-shadow: 0 0 3px #0004;
+    box-shadow: 0 0 3px var(--var-boxshadow);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,3 +25,24 @@ padding: 2rem;
     margin: 2rem;
 }
 
+.box-checkbox {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+
+
+}
+
+.bg-true{
+
+background-color: black;
+color:rgb(161, 158, 158);
+--var-boxshadow: #fff4;
+}
+
+.bg-false{
+    background-color: rgb(255, 255, 255);
+    color:black;
+    --var-boxshadow: #0004;
+    }

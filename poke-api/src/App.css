@@ -1,0 +1,5 @@
+.App{
+    min-height: 100vh;
+    position:relative;
+    z-index: 0;
+}

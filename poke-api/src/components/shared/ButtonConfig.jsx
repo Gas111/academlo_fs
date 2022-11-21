@@ -1,5 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import "../../styles/configButton.css"
+
+
 
 const ButtonConfig = () => {
 
@@ -14,7 +17,7 @@ navigate('/config/')
 
 
   return (
-    <div className="config" onClick={handleClick}><i className="fa-solid fa-gear"></i></div>
+    <div className="config-button" onClick={handleClick}><i className="fa-solid fa-gear"></i></div>
   )
 }
 

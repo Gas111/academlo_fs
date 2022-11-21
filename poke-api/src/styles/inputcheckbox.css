@@ -11,7 +11,6 @@
 
 .element-checkbox{
 width: 50%;
-
 display: flex;
 justify-content: space-evenly;
 object-position: center;
@@ -34,7 +33,8 @@ margin: 1rem auto;
     width: 5rem;
     box-shadow: 0 0 3px #0004;
     border-radius: 1rem;
-            background-color: rgb(253, 137, 5)
+            background-color: rgb(253, 137, 5);
+            position: relative;
 }
 
 .circle {
@@ -44,8 +44,8 @@ margin: 1rem auto;
     background-color: rgb(255, 253, 253);
     box-shadow: 1px 1px 1px 2px #0005;
     position: absolute;
-    top: 0rem;
-    left: 0rem;
+    top: -0.25rem;
+    left:0%;
     z-index: 10;
 }
 
@@ -55,5 +55,6 @@ margin: 1rem auto;
 
 }
 .circle-checked {
-    left: 4.5rem;
+    position: absolute;
+    left:70%;
     }

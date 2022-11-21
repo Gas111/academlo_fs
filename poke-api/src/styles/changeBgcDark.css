@@ -1,0 +1,14 @@
+
+.bg-true{
+
+    background-color: black;
+    color:rgb(161, 158, 158);
+    --var-boxshadow: #fff4;
+    }
+    
+    .bg-false{
+        background-color: rgb(255, 255, 255);
+        color:black;
+        --var-boxshadow: #0004;
+        }
+    

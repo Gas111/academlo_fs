@@ -1,0 +1,25 @@
+
+.back-button {
+
+    background-color: rgb(24, 95, 3);
+    padding: 10px;
+    color: white;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    /* position: fixed;
+    top: 1rem;
+    left: 1rem; */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 3px #0003;
+    margin: 1rem;
+}
+
+.back-button:hover{
+    cursor: pointer;
+    filter: brightness(1.1);
+}

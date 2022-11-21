@@ -7,10 +7,14 @@ import Pokedex from './pages/Pokedex'
 import PokedexById from './pages/PokedexById'
 import ProtectedRoutes from './pages/ProtectedRoutes'
 import Config from './pages/Config'
+import {useSelector } from 'react-redux'
+import "../src/styles/changeBgcDark.css"
 
 function App() {
+  const changeBgcDark=useSelector(state=>state.changeBgcDark)
+
   return (
-    <div className="App">
+    <div className={`App bg-${changeBgcDark}`}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/config" element={<Config />} />

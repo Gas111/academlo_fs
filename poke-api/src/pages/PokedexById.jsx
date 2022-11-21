@@ -33,7 +33,9 @@ const PokedexById = () => {
 
   return (
     <section className="body-pokedex">
+      <nav>
       <BackButton navigateTo={`/pokedex/`} />
+      </nav>
       <main className="main">
         <img
           className="main__img"
