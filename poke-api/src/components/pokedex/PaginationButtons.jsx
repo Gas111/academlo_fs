@@ -3,28 +3,53 @@ import { useSelector } from 'react-redux'
 
 import "../../styles/paginationButtons.css"
 
-const PaginationButtons = ({setPageSelected}) => {
+const PaginationButtons = ({setPageSelected,pageSelected}) => {
 
     
     const quantityCardsForPages=useSelector((state)=>(state.cardsForPage))
 
     const pokemonsLength = useSelector((state) => state.pokemonsLength)
 
+    const pagesPerBlock=4
+   
+  const currentBlock=Math.ceil(pageSelected/pagesPerBlock)
+ 
+  const totalPages=Math.ceil((pokemonsLength)/quantityCardsForPages)
+
+  const blockLength=Math.ceil(pokemonsLength/pagesPerBlock) //QUantity of blocks in pages.
     const arrayButtons=[]
 
-for (let i =1;i<=((pokemonsLength)/quantityCardsForPages);i++)
-{arrayButtons[i-1]=i-1
+const initialPage=(currentBlock-1)*pagesPerBlock+1
+const limitPage=blockLength=== currentBlock ? pokemonsLength:currentBlock*pagesPerBlock
+
+
+
+for (let i =initialPage;i<=limitPage;i++)
+{arrayButtons[i]=i
 }
 
 const handleClick= button =>{
   setPageSelected(button)
-  console.log(button)
+}
+
+
+const handleNextBlock= () =>{
+  setPageSelected(pageSelected+1)
+
+}
+
+const handlePreviusBlock= () =>{
+  setPageSelected(pageSelected-1)
+  
+  
 }
 
 
   return (
     <section className='pagination-buttons'>
-        {arrayButtons.map(button =>(<div onClick={()=>handleClick(button)} className='button-page' key={button}>{button+1}</div>))}
+      {pageSelected >0 && <div onClick={handlePreviusBlock} className='button-page'>&#60;</div>}
+        {arrayButtons.map(button =>(<div onClick={()=>handleClick(button)} className={`button-page ${button===pageSelected && "button-active"}`} key={button}>{button+1}</div>))}
+        {pageSelected<pokemonsLength && <div onClick={handleNextBlock} className='button-page'>&#62;</div>}
         
        </section>
   )

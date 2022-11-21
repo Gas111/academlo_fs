@@ -13,9 +13,9 @@ gap:1rem;
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
-    background-color: green;
-    box-shadow: 0 1px 3px #0003;
-    color:white;
+    background-color: rgb(253, 253, 253);
+    box-shadow: 0px 0px 5px 2px #0004;
+    color:black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,8 +23,9 @@ gap:1rem;
     
 }
 
-.button-page:hover{
-    background-color: rgb(106, 197, 106);
+.button-page:hover,.button-active{
+    background-color: rgb(250, 3, 3);
+    color:white;
     cursor:pointer;
 
 }

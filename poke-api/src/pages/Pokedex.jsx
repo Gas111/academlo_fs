@@ -19,7 +19,7 @@ const Pokedex = () => {
 
   const [selectedURLPokemons, setSelectedURLPokemons] = useState('All Pokemons')
 
-  const [pageSelected, setPageSelected] = useState()
+  const [pageSelected, setPageSelected] = useState(1)
 
   return (
     <main>
@@ -30,14 +30,14 @@ const Pokedex = () => {
         <div className="element-checkbox">
       <span>Type</span><InputCheckbox setStateCheckbox={setStateCheckbox} /><span>Pokemon</span></div>
         {stateCheckbox ? (
-          <InputSelect setSelectedURLPokemons={setSelectedURLPokemons} />
+          <InputSelect setSelectedURLPokemons={setSelectedURLPokemons} setPageSelected={setPageSelected} />
         ) : (
           <InputSearch />
         )}
       </section>
       <ElementsPokedex selectedURLPokemons={selectedURLPokemons} pageSelected={pageSelected}/>
       <PokeBall />
-      <PaginationButtons setPageSelected={setPageSelected}/>
+      <PaginationButtons setPageSelected={setPageSelected} pageSelected={pageSelected}/>
       <ButtonConfig />
 
     </main>

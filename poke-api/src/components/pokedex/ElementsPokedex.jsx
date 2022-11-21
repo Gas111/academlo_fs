@@ -15,7 +15,7 @@ const ElementsPokedex = ({ selectedURLPokemons, pageSelected }) => {
   useEffect(() => {
     if (selectedURLPokemons !== 'All Pokemons') {
       const URL = `${selectedURLPokemons}`
-      console.log('selectedtypes', URL)
+      // console.log('selectedtypes', URL)
       axios
         .get(URL)
         .then((res) => {
@@ -28,11 +28,12 @@ const ElementsPokedex = ({ selectedURLPokemons, pageSelected }) => {
         })
     } else {
    
-      if (!pageSelected) {
-        let URL = `https://pokeapi.co/api/v2/pokemon`
+     
+        const URL = `https://pokeapi.co/api/v2/pokemon/?limit=200`
         axios
           .get(URL)
           .then((res) => {
+            setPokemons(res.data.results)
             dispatch(setPokemonsLengthGlobal(res.data.results.length))
             setIsLoading(false)
           })
@@ -40,39 +41,24 @@ const ElementsPokedex = ({ selectedURLPokemons, pageSelected }) => {
             console.log(err)
           })
 
-        URL = `https://pokeapi.co/api/v2/pokemon?limit=${cardsForPage}&offset=${pageSelected}`
-
-        axios
-          .get(URL)
-          .then((res) => {
-            setPokemons(res.data.results)
-            setIsLoading(false)
-          })
-          .catch((err) => {
-            console.log(err)
-          })
-      } else {
-        URL = `https://pokeapi.co/api/v2/pokemon?limit=${cardsForPage}&offset=${pageSelected*cardsForPage}`
-    
-
-        axios
-          .get(URL)
-          .then((res) => {
-            setPokemons(res.data.results)
-            setIsLoading(false)
-          })
-          .catch((err) => {
-            console.log(err)
-          })
+       
       }
     }
-  }, [selectedURLPokemons, pageSelected])
+  , [selectedURLPokemons])
+
+
+
+const initialIndex=(pageSelected*cardsForPage)
+const finalIndex=((pageSelected+1)*cardsForPage)
+
+console.log(pokemons)
+
 
   return (
     <section className="section-pokecards">
       {isLoading
         ? 'loading'
-        : pokemons?.map((pokemon) => (
+        : pokemons?.slice(initialIndex,finalIndex).map((pokemon) => (
             <PokeCard pokemon={pokemon} key={pokemon.name} />
           ))}
     </section>

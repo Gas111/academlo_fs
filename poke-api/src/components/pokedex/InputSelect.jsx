@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import '../../styles/inputSelect.css'
 
-const InputSelect = ({ setSelectedURLPokemons }) => {
+const InputSelect = ({ setSelectedURLPokemons, setPageSelected}) => {
   const [typePokemons, setTypePokemons] = useState()
 
   const URL = 'https://pokeapi.co/api/v2/type/'
@@ -20,6 +20,8 @@ const InputSelect = ({ setSelectedURLPokemons }) => {
 
   const handleChangeSelect = (e) => {
     setSelectedURLPokemons(e.target.value)
+    setPageSelected(1)
+
   }
 
   return (
