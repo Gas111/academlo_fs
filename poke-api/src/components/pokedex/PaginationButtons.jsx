@@ -13,14 +13,18 @@ const PaginationButtons = ({setPageSelected}) => {
     const arrayButtons=[]
 
 for (let i =1;i<=((pokemonsLength)/quantityCardsForPages);i++)
-{arrayButtons[i-1]=i
+{arrayButtons[i-1]=i-1
 }
 
+const handleClick= button =>{
+  setPageSelected(button)
+  console.log(button)
+}
 
 
   return (
     <section className='pagination-buttons'>
-        {arrayButtons.map(button =>(<div className='button-page' key={button}>{button}</div>))}
+        {arrayButtons.map(button =>(<div onClick={()=>handleClick(button)} className='button-page' key={button}>{button+1}</div>))}
         
        </section>
   )

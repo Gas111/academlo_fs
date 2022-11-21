@@ -5,17 +5,17 @@ import '../../styles/elementsPokedex.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { setPokemonsLengthGlobal } from '../../store/slices/pokemonsLength.slice'
 
-const ElementsPokedex = ({ selectedURLPokemons }) => {
+const ElementsPokedex = ({ selectedURLPokemons, pageSelected }) => {
   const dispatch = useDispatch()
-  const cardsForPage=useSelector((state)=>state.cardsForPage)
+  const cardsForPage = useSelector((state) => state.cardsForPage)
   const [isLoading, setIsLoading] = useState(true)
 
   const [pokemons, setPokemons] = useState()
 
   useEffect(() => {
     if (selectedURLPokemons !== 'All Pokemons') {
-
-      const URL=`${selectedURLPokemons}?limit=${cardsForPage}` 
+      const URL = `${selectedURLPokemons}`
+      console.log('selectedtypes', URL)
       axios
         .get(URL)
         .then((res) => {
@@ -27,34 +27,54 @@ const ElementsPokedex = ({ selectedURLPokemons }) => {
           console.log(err)
         })
     } else {
-      
-      const URL = `https://pokeapi.co/api/v2/pokemon/?limit=${cardsForPage}`   
-      
-      // limit=20&offset=20
- 
-      axios
-        .get(URL)
-        .then((res) => {
-          setPokemons(res.data.results)
-          dispatch(setPokemonsLengthGlobal(res.data.results.length))
-          setIsLoading(false)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+   
+      if (!pageSelected) {
+        let URL = `https://pokeapi.co/api/v2/pokemon`
+        axios
+          .get(URL)
+          .then((res) => {
+            dispatch(setPokemonsLengthGlobal(res.data.results.length))
+            setIsLoading(false)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+
+        URL = `https://pokeapi.co/api/v2/pokemon?limit=${cardsForPage}&offset=${pageSelected}`
+
+        axios
+          .get(URL)
+          .then((res) => {
+            setPokemons(res.data.results)
+            setIsLoading(false)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      } else {
+        URL = `https://pokeapi.co/api/v2/pokemon?limit=${cardsForPage}&offset=${pageSelected*cardsForPage}`
+    
+
+        axios
+          .get(URL)
+          .then((res) => {
+            setPokemons(res.data.results)
+            setIsLoading(false)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
     }
-  }, [selectedURLPokemons])
-
-
-
-
+  }, [selectedURLPokemons, pageSelected])
 
   return (
-
     <section className="section-pokecards">
-      {isLoading ? "loading": pokemons?.map((pokemon) => (
-        <PokeCard pokemon={pokemon} key={pokemon.name} /> 
-      )) }
+      {isLoading
+        ? 'loading'
+        : pokemons?.map((pokemon) => (
+            <PokeCard pokemon={pokemon} key={pokemon.name} />
+          ))}
     </section>
   )
 }

@@ -12,7 +12,7 @@ const Config = () => {
   
   return (
     <main className="main-settings">
-      <BackButton navigateTo={`/`} />
+      <BackButton navigateTo={`/pokedex`} />
 
       <h1 className="config-title">Setting</h1>
 

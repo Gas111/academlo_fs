@@ -19,7 +19,7 @@ const Pokedex = () => {
 
   const [selectedURLPokemons, setSelectedURLPokemons] = useState('All Pokemons')
 
-  const [pageSelected, setPageSelected] = useState(1)
+  const [pageSelected, setPageSelected] = useState()
 
   return (
     <main>
@@ -35,7 +35,7 @@ const Pokedex = () => {
           <InputSearch />
         )}
       </section>
-      <ElementsPokedex selectedURLPokemons={selectedURLPokemons} />
+      <ElementsPokedex selectedURLPokemons={selectedURLPokemons} pageSelected={pageSelected}/>
       <PokeBall />
       <PaginationButtons setPageSelected={setPageSelected}/>
       <ButtonConfig />
