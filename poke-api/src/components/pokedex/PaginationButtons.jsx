@@ -11,22 +11,37 @@ const PaginationButtons = ({setPageSelected,pageSelected}) => {
     const pokemonsLength = useSelector((state) => state.pokemonsLength)
 
     const pagesPerBlock=4
-   
+  
+console.log(`pageSelected:${pageSelected},pagesPerBlock:${pagesPerBlock},quantityCardsForPages:${quantityCardsForPages},pokemonsLength:${pokemonsLength}`)
+ 
+
   const currentBlock=Math.ceil(pageSelected/pagesPerBlock)
+  console.log(`DATO   currentBlock:${currentBlock}`)
+
  
   const totalPages=Math.ceil((pokemonsLength)/quantityCardsForPages)
 
   const blockLength=Math.ceil(pokemonsLength/pagesPerBlock) //QUantity of blocks in pages.
-    const arrayButtons=[]
+    
+  
+  const arrayButtons=[]
 
-const initialPage=(currentBlock-1)*pagesPerBlock+1
-const limitPage=blockLength=== currentBlock ? pokemonsLength:currentBlock*pagesPerBlock
+console.log(`currentBlock:${currentBlock},TotalPages:${totalPages},blockLength:${blockLength}`)
+
+
+const initialPage=((currentBlock-1)*pagesPerBlock) 
+const limitPage= ((currentBlock*pagesPerBlock) >= blockLength ? totalPages : currentBlock*pagesPerBlock)
+
+// const limitPage= (currentBlock === blockLength ? pokemonsLength : currentBlock*pagesPerBlock)
 
 
 
-for (let i =initialPage;i<=limitPage;i++)
-{arrayButtons[i]=i
+console.log(`initialPage:${initialPage},limitPage:${limitPage}`)
+
+for (let i =initialPage;i<limitPage;i++)
+{arrayButtons[i]=i+1
 }
+
 
 const handleClick= button =>{
   setPageSelected(button)
@@ -47,9 +62,9 @@ const handlePreviusBlock= () =>{
 
   return (
     <section className='pagination-buttons'>
-      {pageSelected >0 && <div onClick={handlePreviusBlock} className='button-page'>&#60;</div>}
-        {arrayButtons.map(button =>(<div onClick={()=>handleClick(button)} className={`button-page ${button===pageSelected && "button-active"}`} key={button}>{button+1}</div>))}
-        {pageSelected<pokemonsLength && <div onClick={handleNextBlock} className='button-page'>&#62;</div>}
+      {pageSelected >1 && <div onClick={handlePreviusBlock} className='button-page'>&#60;</div>}
+        {arrayButtons.map(button =>(<div onClick={()=>handleClick(button)} className={`button-page ${button===pageSelected && "button-active"}`} key={button}>{button}</div>))}
+        {pageSelected<totalPages && <div onClick={handleNextBlock} className='button-page'>&#62;</div>}
         
        </section>
   )

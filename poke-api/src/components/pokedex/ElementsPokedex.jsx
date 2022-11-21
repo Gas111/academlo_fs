@@ -48,10 +48,10 @@ const ElementsPokedex = ({ selectedURLPokemons, pageSelected }) => {
 
 
 
-const initialIndex=(pageSelected*cardsForPage)
-const finalIndex=((pageSelected+1)*cardsForPage)
+const initialIndex=((pageSelected-1)*cardsForPage)
+const finalIndex=((pageSelected)*cardsForPage)
 
-console.log(pokemons)
+// console.log(pokemons)
 
 
   return (
