@@ -1,28 +1,61 @@
 import React, { useEffect, useState } from 'react'
-import axios from "axios"
+import axios from 'axios'
 import PokeCard from '../pokecard/PokeCard'
-import "../../styles/elementsPokedex.css"
+import '../../styles/elementsPokedex.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { setPokemonsLengthGlobal } from '../../store/slices/pokemonsLength.slice'
 
-const ElementsPokedex = () => {
+const ElementsPokedex = ({ selectedURLPokemons }) => {
+  const dispatch = useDispatch()
+  const cardsForPage=useSelector((state)=>state.cardsForPage)
+  const [isLoading, setIsLoading] = useState(true)
 
-const [pokemons, setPokemons] = useState()
+  const [pokemons, setPokemons] = useState()
+
+  useEffect(() => {
+    if (selectedURLPokemons !== 'All Pokemons') {
+
+      const URL=`${selectedURLPokemons}?limit=${cardsForPage}` 
+      axios
+        .get(URL)
+        .then((res) => {
+          setPokemons(res.data.pokemon.map((poke) => poke.pokemon))
+          dispatch(setPokemonsLengthGlobal(res.data.pokemon.length))
+          setIsLoading(false)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    } else {
+      
+      const URL = `https://pokeapi.co/api/v2/pokemon/?limit=${cardsForPage}`   
+      
+      // limit=20&offset=20
+ 
+      axios
+        .get(URL)
+        .then((res) => {
+          setPokemons(res.data.results)
+          dispatch(setPokemonsLengthGlobal(res.data.results.length))
+          setIsLoading(false)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }, [selectedURLPokemons])
 
 
-useEffect(() => {
-const URL="https://pokeapi.co/api/v2/pokemon/?limit=20"
-
-axios.get(URL).then((res) => {setPokemons(res.data.results)
-  
-}).catch((err) => {console.log(err)});
-  
-}, [])
 
 
 
   return (
-    <section className='section-pokecards'>
-      {pokemons?.map(pokemon =>(<PokeCard pokemon={pokemon} key={pokemon.name}/>))}
-      </section>
+
+    <section className="section-pokecards">
+      {isLoading ? "loading": pokemons?.map((pokemon) => (
+        <PokeCard pokemon={pokemon} key={pokemon.name} /> 
+      )) }
+    </section>
   )
 }
 

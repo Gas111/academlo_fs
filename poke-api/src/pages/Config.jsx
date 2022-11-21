@@ -1,10 +1,15 @@
 import React from 'react'
-import InputSelect from '../components/pokedex/InputSelect'
+import InputSelect from '../components/config/InputSelect'
 import BackButton from '../components/shared/BackButton'
 import InputCheckbox from '../components/shared/InputCheckbox'
 import '../styles/config.css'
 
+
 const Config = () => {
+
+
+
+  
   return (
     <main className="main-settings">
       <BackButton navigateTo={`/`} />
@@ -13,7 +18,7 @@ const Config = () => {
 
       <section className="theme-section">
         <h2>Theme</h2>
-        <InputCheckbox />
+        <div className="box-checkbox"><span>Ligth</span><InputCheckbox /><span>Dark</span></div>
       </section>
 
       <section className="items-section">

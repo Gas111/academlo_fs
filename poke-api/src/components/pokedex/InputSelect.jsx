@@ -1,30 +1,39 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import "../../styles/inputSelect.css"
-const InputSelect = () => {
+import '../../styles/inputSelect.css'
 
-    const [typePokemons, setTypePokemons] = useState()
-  
-  const URL="https://pokeapi.co/api/v2/type/?limit=20"
-  
+const InputSelect = ({ setSelectedURLPokemons }) => {
+  const [typePokemons, setTypePokemons] = useState()
 
-useEffect(() => {
+  const URL = 'https://pokeapi.co/api/v2/type/'
 
-  axios.get(URL).then((result) => { setTypePokemons(result.data.results)}).catch((err) => { err=>console.log(err)
-    
-  });
+  useEffect(() => {
+    axios
+      .get(URL)
+      .then((result) => {
+        setTypePokemons(result.data.results)
+      })
+      .catch((err) => {
+        ;(err) => console.log(err)
+      })
+  }, [])
 
-}, [])
-
-// console.log(typePokemons)
+  const handleChangeSelect = (e) => {
+    setSelectedURLPokemons(e.target.value)
+  }
 
   return (
     <div>
-        <select className="input-select" name="" id="">
-            {typePokemons?.map(typePokemon =>(<option key={typePokemon.name}>{typePokemon.name}</option>))} 
-        </select>
-         
-        </div>
+      <select onChange={handleChangeSelect} className="input-select" name="">
+        <option value="All Pokemons">All Pokemons</option>
+
+        {typePokemons?.map((typePokemon) => (
+          <option key={typePokemon.name} value={typePokemon.url}>
+            {typePokemon.name}
+          </option>
+        ))}
+      </select>
+    </div>
   )
 }
 

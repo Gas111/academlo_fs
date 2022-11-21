@@ -1,43 +1,38 @@
 import React, { useState } from 'react'
-import "../../styles/inputcheckbox.css"
+import '../../styles/inputcheckbox.css'
 
-const InputCheckbox = ({stateCheckbox, setStateCheckbox}) => {
-
-  const [attributeCheckbox, setAttributeCheckbox] = useState("checkbox")
-
- 
-
-const handleChange=(e)=>{
- 
-  if(!stateCheckbox)
-  {
-  setAttributeCheckbox("checkbox box-checkbox-checked")
-  setStateCheckbox(true)
-
-  }
-  else{
-    setAttributeCheckbox("checkbox")
-    setStateCheckbox(false)
-
-
-  }
-
+const InputCheckbox = ({ setStateCheckbox }) => {
+  const [attributeCheckbox, setAttributeCheckbox] = useState('checkbox')
   
+  const [checked, setChecked] = useState(false)
 
-}
+  const handleChange = (e) => {
+    if (!checked) {
+      setAttributeCheckbox('checkbox box-checkbox-checked')
+      setStateCheckbox(true)
+      setChecked(true)
+    } else {
+      setAttributeCheckbox('checkbox')
+      setStateCheckbox(false)
+      setChecked(false)
+    }
+  }
 
   return (
-    <div className="element-checkbox"> 
-    <span>Type</span> 
-    <div className="box-checkbox">
-     
-      <input onClick={handleChange} className={attributeCheckbox} type="checkbox" name="" id="checkbox"/>
-      <div className={stateCheckbox ? "circle":"circle circle-checked"}></div>
-     
+    
+   
+      <div className="box-checkbox">
+        <input
+          onClick={handleChange}
+          className={attributeCheckbox}
+          type="checkbox"
+          name=""
+          id="checkbox"
+        />
+        <div className={checked ? 'circle' : 'circle circle-checked'}></div>
       </div>
-       <span>Pokemon</span> 
       
-      </div>
+   
   )
 }
 

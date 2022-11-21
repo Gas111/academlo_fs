@@ -5,12 +5,15 @@ import ButtonConfig from '../components/shared/ButtonConfig'
 import '../styles/pokedexById.css'
 import BackButton from '../components/shared/BackButton'
 
+import Pokemon404 from '../components/pokedexId/Pokemon404'
+
 const PokedexById = () => {
-  // const navigate = useNavigate()
+ 
 
   const { id } = useParams()
 
   const [pokemon, setPokemon] = useState()
+  const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
     const URL = 'https://pokeapi.co/api/v2/pokemon/' + id
@@ -20,16 +23,17 @@ const PokedexById = () => {
       .then((res) => setPokemon(res.data))
       .catch((err) => {
         console.log(err)
+        setHasError(true)
       })
   }, [])
 
-  // const handleClickBack = () => {
-  //   navigate(`/pokedex/`)
-  // }
+  if (hasError) {
+    return <Pokemon404 />
+  }
 
   return (
     <section className="body-pokedex">
-<BackButton navigateTo={`/pokedex/`}/>
+      <BackButton navigateTo={`/pokedex/`} />
       <main className="main">
         <img
           className="main__img"

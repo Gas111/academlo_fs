@@ -1,16 +1,16 @@
-.body-pokedex{
-width: 100%;
-background-color:lightpink;
+.body-pokedex {
+    width: 100%;
+    background-color: lightpink;
 
 }
 
-.header{
+.header {
 
     height: 50px;
     padding: 1rem;
 }
 
-.main{
+.main {
 
     background-color: white;
     border-radius: 10px;
@@ -21,42 +21,49 @@ background-color:lightpink;
 
 }
 
-.main__img{
-max-width: 250px;
+.main__img {
+    max-width: 250px;
 }
 
-.main__box{
-display: flex;
-justify-content:space-evenly;
-align-items: center;
-
-}
-
-.main__title,.title{
+.main__box {
     display: flex;
-    justify-content:space-between;
-}
-
-.main__line{
-height: 3rem;
-width: 30%;;
-border-bottom: solid 1px #000;
+    justify-content: space-evenly;
+    align-items: center;
 
 }
 
-
-.main__id{
-border:1px solid #0003;
-padding: 1rem;
-display: inline-block;
+.main__title,
+.title {
+    display: flex;
+    justify-content: space-between;
 }
 
-h1,h2,h3{
+.main__line {
+    height: 3rem;
+    width: 30%;
+    ;
+    border-bottom: solid 1px #000;
+
+}
+
+
+.main__id {
+    border: 1px solid #0003;
+    padding: 1rem;
+    display: inline-block;
+}
+
+h1,
+h2,
+h3 {
 
     display: inline-block;
 }
 
-.type,.abilities,.stats-base,.movements{
+.type,
+.abilities,
+.stats-base,
+.movements {
 
     background-color: white;
     border-radius: 10px;
@@ -64,31 +71,36 @@ h1,h2,h3{
     text-align: center;
     margin: 0 auto;
     margin-top: 1rem;
- padding-bottom: 1rem;
+    padding-bottom: 1rem;
 
 }
 
-.type__items,.abilities__items{
+.type__items,
+.abilities__items {
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-.type__item,.abilities__item{
+.type__item,
+.abilities__item {
     padding: 0.5rem 1rem;
-    background-color:lightblue;
+    background-color: lightblue;
     border-radius: 3px;
     margin: 0.5rem 1rem;
 
 }
 
 
-.type__line,.stats__line,.movements__line,.abilities__line{
+.type__line,
+.stats__line,
+.movements__line,
+.abilities__line {
     height: 2rem;
-    width: 30%;;
+    width: 30%;
+    ;
     border-bottom: solid 1px #0003;
     margin: 0 auto;
- 
-    }
-    
+
+}

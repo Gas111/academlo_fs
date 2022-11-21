@@ -1,10 +1,11 @@
 .pokecard{
-width: 250px;
+width: 100%;
 height: 250px;
-background-color: blue;
+
 padding: 0 1rem;
 border-radius: 10px;
 transition: transform 200ms ease;
+text-transform: capitalize;
 }
 
 
@@ -16,22 +17,20 @@ transform: scale(1.1);
 .poke-image{
 position: relative;
 float: right;
-width: 160px;
-height: 160px;
+width: 110px;
+height: 110px;
 bottom:10rem;
-
-
 }
 
 
 .poke-image img{
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     
 }
 
 .pokecard__information{
-background-color: aqua;
+
 max-width: auto;
 height: auto;
 border-radius: 16px;
@@ -40,3 +39,126 @@ margin: 0.2rem 0;
 text-shadow: 0 0 2px #0003;
 }
 
+
+/* background Types */
+
+.bg-fire{
+    background-color: rgb(255, 57, 27);
+}
+
+
+.bg-i-fire{
+    background-color:  rgb(252, 118, 98);
+}
+
+
+.bg-grass{
+    background-color: rgb(60, 137, 47);
+}
+
+
+.bg-i-grass{
+    background-color: rgba(110, 253, 85, 0.5);
+}
+.bg-bug{
+    background-color: rgb(130, 88, 42);
+}
+
+
+.bg-i-bug{
+    background-color:  rgb(254, 172, 85);
+}
+
+.bg-electric{
+    background-color: rgb(243, 239, 13);
+}
+
+
+.bg-i-electric{
+    background-color: rgb(255, 252, 88);
+}
+
+.bg-water{
+    background-color: rgb(243, 239, 13);
+}
+
+
+.bg-i-water{
+    background-color: rgb(255, 252, 88);
+}
+
+.bg-ground{
+    background-color: rgb(36, 108, 94);
+}
+
+
+.bg-i-ground{
+    background-color:  rgb(84, 243, 211);
+}
+
+.bg-dragon{
+    background-color: rgb(112, 42, 159);
+}
+
+
+.bg-i-dragon{
+    background-color:rgb(180, 70, 254);
+}
+.bg-rock{
+    background-color: rgb(140, 139, 141);
+}
+
+
+.bg-i-rock{
+    background-color:rgb(227, 225, 229);
+}
+.bg-normal{
+    background-color: rgb(112, 42, 159);
+}
+
+
+.bg-i-normal{
+    background-color:rgb(180, 70, 254);
+}
+.bg-flying{
+    background-color: rgb(112, 42, 159);
+}
+
+
+.bg-i-flying{
+    background-color:rgb(180, 70, 254);
+}
+.bg-poison{
+    background-color: rgb(112, 42, 159);
+}
+
+
+.bg-i-poison{
+    background-color:rgb(180, 70, 254);
+}
+.bg-psychic{
+    background-color: rgb(159, 42, 114);
+}
+
+
+.bg-i-psychic{
+    background-color:rgb(223, 150, 215);
+}
+
+.bg-ice{
+    background-color: rgb(145, 221, 239);
+}
+
+
+.bg-i-ice{
+    background-color:rgb(170, 225, 224);
+}
+
+.bg-fighting{
+    background-color: rgb(91, 31, 15);
+}
+
+
+.bg-i-fighting{
+    background-color:rgb(150, 123, 104);
+}

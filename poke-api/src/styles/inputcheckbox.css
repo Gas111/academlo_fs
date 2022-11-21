@@ -10,14 +10,14 @@
 
 
 .element-checkbox{
-width: 40%;
-height: 1rem;
+width: 50%;
+
 display: flex;
 justify-content: space-evenly;
 object-position: center;
 gap:1rem;
 align-items:center;
-margin: 3rem auto;
+margin: 1rem auto;
 }
 
 
@@ -34,8 +34,7 @@ margin: 3rem auto;
     width: 5rem;
     box-shadow: 0 0 3px #0004;
     border-radius: 1rem;
-       margin: 1rem;
-        background-color: rgb(253, 137, 5)
+            background-color: rgb(253, 137, 5)
 }
 
 .circle {
@@ -45,8 +44,8 @@ margin: 3rem auto;
     background-color: rgb(255, 253, 253);
     box-shadow: 1px 1px 1px 2px #0005;
     position: absolute;
-    top: 0.6rem;
-    left: 1rem;
+    top: 0rem;
+    left: 0rem;
     z-index: 10;
 }
 
