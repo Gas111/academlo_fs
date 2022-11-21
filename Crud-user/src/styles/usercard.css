@@ -10,6 +10,14 @@ border: 0.5px solid rgba(0,0,0,0.5);
 margin: 0 auto;
 }
 
+.user-card:hover{
+transform:scale(1.1) ;
+transition:transform 200ms ease
+
+}
+
+
+
 .line{
 background-color:rgba(0,0,0,0.2);
 height: 1px;
@@ -50,16 +58,36 @@ color:white;
 display: flex;
 justify-content: center;
 align-items: center;
+transition: transform 200ms ease;
+
 }
 
 .button-trash{
 background-color:var(--color-button-trash);
 }
 
+.button-trash:hover{
+    transform: scale(1.1);
+    transition: transform 200ms ease;
+
+
+}
+
 .button-edit{
     background-color:var(--color-button-edit);
     color:gray;
 }
+
+.button-edit:hover{
+    transform: scale(1.1);
+    transition: transform 200ms ease;
+
+
+}
+
+
+
+
 .img-birthday{
     height: 20px;
     width: 20px;

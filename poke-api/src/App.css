@@ -1,5 +1,8 @@
 .App{
     min-height: 100vh;
     position:relative;
+    width: 100wh;
     z-index: 0;
+    overflow: hidden;
+
 }
