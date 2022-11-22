@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useDispatch}from 'react-redux'
 import InputSelect from '../components/config/InputSelect'
 import BackButton from '../components/shared/BackButton'
@@ -12,10 +12,14 @@ const Config = () => {
 
   const [stateCheckboxBgc, setStateCheckboxBgc] = useState(false)
 
-  if(stateCheckboxBgc)
-  {
+  useEffect(()=>{
+
+
 dispatch(setChangeBgcDarkGlobal(stateCheckboxBgc))
-  }
+
+
+  },[stateCheckboxBgc])
+  
 
   return (
     <main className={`main-settings bg-${stateCheckboxBgc}`}>
