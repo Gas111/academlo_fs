@@ -43,9 +43,7 @@ const elementMenuAsside = document.querySelector('.menu-asside')
 const elementCloseMenuButton = document.querySelector('.close-menu')
 const elementCloseCartButton = document.querySelector('.close-cart-asside')
 const elementSectionCards = document.querySelector('.products__cards')
-const elementTotalUnits = document.querySelector(
-  '.header__navbar__menu__total-units',
-)
+const elementTotalUnits = document.querySelector('.header__navbar__menu__total-units')
 
 // ---ELEMENTS TO BE FILTER-------
 const elementProductsMenu = document.querySelector('.products__menu')
@@ -59,8 +57,8 @@ const elementCartProducts = document.querySelector('.cart-asside__products')
 
 // ----LOCAL STORAGE insert-----------
 localStorage.setItem('products', JSON.stringify(productsArray))
-if (cartArray === []) {
-  console.log('seteo cart en cero')
+if (cartArray.length === 0) {
+// set in cero CART
   localStorage.setItem('cart', JSON.stringify(cartArray))
 }
 // ----LOCAL STORAGE read-----------------
@@ -99,6 +97,7 @@ elementSectionCards.addEventListener('click', (e) => {
     let stock = ''
     let price = ''
     let unit = ''
+
 
     if (searchInCartArray(itemCartSelected)) {
       const index = cartArray.findIndex(
@@ -186,7 +185,7 @@ elementSweatshirts.addEventListener('click', () => {
 // ----------------EVENT CART ASSIDE---------
 
 elementCartAsside.addEventListener('click', (e) => {
-  console.log(e.target)
+ 
 
   if (e.target.classList.contains('bx-plus-circle')) {
     const id = e.target.getAttribute('id')
@@ -274,7 +273,7 @@ function searchInCartArray(cart) {
 
 function totalUnitsInArray(cart) {
   let total = 0
-  cart.forEach((element, index) => {
+  cart?.forEach((element, index) => {
     total = total + element.quantity
   })
   return total
