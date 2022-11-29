@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import CardProduct from '../shared/CardProduct'
-import "./styles/similarProducts.css"
+// import "./styles/similarProducts.css"
 
 const SimilarProducts = ({ product }) => {
   const [categories, setCategories] = useState()
