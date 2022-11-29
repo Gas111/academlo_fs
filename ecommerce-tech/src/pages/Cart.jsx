@@ -18,9 +18,9 @@ const Cart = () => {
     <div>
       <Header />
 
-      {cart?.products.map((product) => (
+      {/* {cart?.products.map((product) => (
         <CartItem key={product.id} product={product} />
-      ))}
+      ))} */}
     </div>
   )
 }
