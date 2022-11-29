@@ -1,0 +1,44 @@
+.product-id{
+    margin-top: 4rem;
+}
+
+.product-id__container-link{
+    display: flex;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0;
+    align-items: center;
+    
+
+}
+
+
+.product-id__product-info{
+
+}
+
+.product-info__link-home{
+
+    text-decoration: none;
+    color:black;
+    display: inline;
+    margin-left: 1rem;
+
+}
+
+.product-info__title{
+    display: inline;
+    margin-left: 1rem;
+}
+
+.red-ball-decoration{
+    height: 0.5rem;
+    width: 0.5rem;
+    background-color: rgb(253, 90, 21);
+    border-radius: 50%;
+    display: inline-block;
+    margin: auto 1rem;
+
+}
+
+.product-id__similar-products{}

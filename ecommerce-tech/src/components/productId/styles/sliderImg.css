@@ -1,0 +1,38 @@
+.slider{
+
+    width: max-content;
+
+}
+
+
+.slider__static{
+
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1.5;
+    overflow: hidden;
+}
+
+
+.slider__move{
+
+    display: flex;
+    width: 300%;
+    height: 100%;
+
+    /* transform: translateX(calc((-1/3)*100%)); */
+    transition: transform 500ms ease;
+}
+
+.slider__img-container{
+width: calc(100%/3);
+padding: 20px;
+}
+.slider__img{
+width: 100%;
+
+height: 100%;
+object-fit: contain;
+
+
+}
