@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import SearchFilters from '../components/home/SearchFilters'
 import SearchInput from '../components/home/SearchInput'
@@ -9,12 +9,23 @@ import { getAllProducts } from '../store/slices/products.slices'
 import "./styles/home.css"
 
 const Home = () => {
+
+const [filterChange, setfilterChange] = useState()
+
   const products = useSelector((state) => state.products)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllProducts())
-  }, [])
+if(filterChange)
+{
+products=[...filterChange]
+
+}
+   
+else{dispatch(getAllProducts())}
+
+
+  }, [filterChange])
 
   return (
     <main className="home">
@@ -22,7 +33,7 @@ const Home = () => {
      
       <div className="home__container"> 
       <aside className="home__filters">
-        <SearchFilters products={products}/>
+        <SearchFilters products={products} setfilterChange={setfilterChange}  />
       </aside>
       <div className="home__container__search"><SearchInput/></div>
       <div className="home__container__cards"> 
