@@ -27,4 +27,7 @@ return axios.get(URL,getConfig()).then((res) => dispatch(setCartGlobal(res.data.
 
 
 
+
+
+
 }

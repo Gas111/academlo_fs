@@ -1,17 +1,17 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 
-const usePostData = (URL,data,config) => {
+const useGetData = (URL, config) => {
   if (config) {
-   
+    useEffect(() => {
       axios
-        .get(URL,data,config)
+        .get(URL, config)
         .then((res) => res.data
         )
         .catch((err) => {
           console.log(err)
         })
-   
+    }, [])
   } else {
 
     useEffect(() => {
@@ -26,4 +26,4 @@ const usePostData = (URL,data,config) => {
   }
 }
 
-export default usePostData
+export default useGetData

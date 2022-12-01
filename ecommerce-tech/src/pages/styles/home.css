@@ -49,8 +49,12 @@ grid-template-rows: 1fr 8fr ; */
     }
 
     .home__filters {
-        display: block;
+        display: flex;
         grid-area: 2/1/6/2;
+        justify-content: center;
+        
+    
+        
     }
 
 }
