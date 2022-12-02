@@ -7,7 +7,7 @@ align-items: center;
 flex-direction: column;
 gap:2rem;
 padding: 3rem 0;
-
+width: 100%;
 }
 
 

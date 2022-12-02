@@ -1,0 +1,21 @@
+.purchases-page {
+    min-height: 100vh;
+    width: 100vw;
+    margin-top: 100px;
+
+}
+
+.purchases {
+
+    width: 80%;
+    margin: 50px auto;
+}
+
+.purchases__container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}

@@ -1,0 +1,34 @@
+.cart-item {
+
+    margin: 2rem;
+    width: 80%;
+    border: 1px solid #aaa4;
+    padding:1rem;
+    /* display: flex;
+    justify-content: start;
+    flex-direction:column;
+    align-items: center; */
+}
+
+
+.button-delete {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 5%;
+    background-color: rgb(252, 85, 8);
+    /* float:right; */
+    cursor: pointer;
+    color: white;
+    margin: 1rem;
+    border: none;
+
+    
+}
+
+.button-delete:hover {
+
+    background-color: rgb(252, 85, 8,0.4);
+  
+
+    
+}

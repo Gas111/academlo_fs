@@ -1,10 +1,16 @@
 import React from 'react'
 import "./styles/searchInput.css"
 
-const SearchInput = () => {
+const SearchInput = ({inputText,setInputText}) => {
+
+const handleChange = (e) => {
+  setInputText(e.target.value)
+ }
+
+
   return (
     <div className="search">
-      <input type="text" className="search__input" placeholder="Search your product here"/>
+      <input value={inputText} onChange={handleChange} type="text" className="search__input" placeholder="Search your product here"/>
       <button className="search__button"><i className="fa-solid fa-magnifying-glass"></i></button>
     </div>
   )

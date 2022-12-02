@@ -1,0 +1,28 @@
+.cart {
+    margin-top: 100px;
+}
+
+.cart__title {
+    margin: 1rem;
+}
+
+.cart__buy-button {
+    height: 2rem;
+    width: 10rem;
+    border-radius: 5px;
+    background-color: rgb(252, 85, 8);
+    color: white;
+    font-size: larger;
+    font-weight: 600;
+    margin: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.cart__buy-button:hover {
+    background-color: rgb(252, 85, 8, 0.4);
+}
+
+.cart-container-button {
+    text-align: end;
+}

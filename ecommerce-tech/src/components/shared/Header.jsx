@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import './styles/header.css'
+import Cart from '../../pages/Cart'
 const Header = () => {
   const navigate = useNavigate()
 
@@ -8,8 +9,19 @@ const Header = () => {
     navigate(`/login`)
   }
 
+  const handleCart = () => {
+
+
+
+  }
+
   return (
     <div className="header-body">
+  {/* <div className="home__modal__cart">
+        <Cart/>
+        </div> */}
+
+
       <div className="header-body__branch">
         <span>
           <Link to="/" className='link'>Ecommerce</Link>
@@ -27,7 +39,7 @@ const Header = () => {
           </NavLink>
         </div>
         <div className="header-body__container_i">
-          <NavLink to="/cart" className='link'>
+          <NavLink to="/cart" onClick={handleCart} className='link'>
             {' '}
             <i className="fa-solid fa-cart-shopping"></i>
           </NavLink>

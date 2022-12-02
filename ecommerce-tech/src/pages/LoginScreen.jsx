@@ -81,7 +81,7 @@ const LoginScreen = () => {
           <label htmlFor="">Password</label>
           <input type="text" id="password" {...register('password')} />
         </div>
-        <button>Login</button>
+        <button className="main-button">Login</button>
       </form>
       <hr />
 {/* 

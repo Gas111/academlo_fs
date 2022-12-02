@@ -1,0 +1,53 @@
+.card-purchases {
+    border: solid 1px #aaa4;
+    border-radius: 10px;
+    margin: 1rem;
+    min-width: 300px;
+}
+
+@media (min-width: 768px) {
+
+    .card-purchases {
+        min-width: 600px;
+    }
+}
+
+.card-purchases__date {
+    font-size: medium;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    border-bottom: solid 1px #aaa4;
+
+}
+
+
+.card-purchases__section {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:flex-end;
+}
+
+.card-purchases__container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 3rem;
+    width: 100%;
+}
+
+.card-purchases__title,
+.card-purchases__price,
+.card-purchases__qty {
+    display: inline-block;
+    margin-right: 1rem;
+
+}
+
+
+.card-purchases__qty {
+    border: solid 1px #aaa4;
+    padding: 0.2rem 1rem;
+
+
+}

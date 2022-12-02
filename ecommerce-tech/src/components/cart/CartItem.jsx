@@ -3,6 +3,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { getAllProductsCart } from '../../store/slices/cart.slice'
 import getConfig from '../../utils/getConfig'
+import "./styles/cartItem.css"
 
 const CartItem = ({product}) => {
 
@@ -20,11 +21,11 @@ const handleButtonDelete = (id) => {
 }
 
   return (
-    <article>
+    <article className='cart-item'>
         <h1>{product.title}</h1>
         <div><span>Price:</span><span>{product.price}</span></div>
         <div><span>Quantity:</span><span> {product.productsInCart.quantity}</span></div>
-        <div><button onClick={()=>handleButtonDelete(product.id)} className='button-delete'><i className="fa-solid fa-trash"></i></button></div>        
+        <div className='cart-container-button'><button onClick={()=>handleButtonDelete(product.id)} className='button-delete'><i className="fa-solid fa-trash"></i></button></div>        
     </article>
   )
 }

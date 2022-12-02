@@ -51,10 +51,13 @@ grid-template-rows: 1fr 8fr ; */
     .home__filters {
         display: flex;
         grid-area: 2/1/6/2;
-        justify-content: center;
-        
-    
-        
+        justify-content: center;        
     }
 
+    
+
+}
+
+.home__modal__cart{
+    display: none;
 }

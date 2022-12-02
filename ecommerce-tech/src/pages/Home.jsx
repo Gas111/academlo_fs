@@ -5,22 +5,43 @@ import SearchInput from '../components/home/SearchInput'
 import CardProduct from '../components/shared/CardProduct'
 import Footer from '../components/shared/Footer'
 import Header from '../components/shared/Header'
+import LoadingAnimation from '../components/shared/LoadingAnimation'
 import { getAllProducts } from '../store/slices/products.slices'
+import Cart from './Cart'
 import './styles/home.css'
 
 const Home = () => {
-  const [filterChange, setfilterChange] = useState(false)
+  const [categories, setCategories] = useState()
 
+  const [filterCategory, setFilterCategory] = useState()
+  const [filterCategoryClick, setFilterCategoryClick] = useState(false)
+
+  const [inputText, setInputText] = useState()
+  const [filterByText, setFilterByText] = useState()
   const products = useSelector((state) => state.products)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (filterChange) {
-      products = [...filterChange]
+    dispatch(getAllProducts())
+  }, [])
+
+  useEffect(() => {
+    if (inputText) {
+      const result = products.filter((product) =>
+        product.title.toLowerCase().includes(inputText.toLowerCase().trim()),
+      )
+      setFilterByText(result)
     } else {
-      dispatch(getAllProducts())
+      setFilterByText()
     }
-  }, [filterChange])
+  }, [inputText])
+
+useEffect(() => {
+
+
+}, [filterCategoryClick])
+
+
 
   return (
     <main className="home">
@@ -28,18 +49,20 @@ const Home = () => {
 
       <div className="home__container">
         <aside className="home__filters">
-          <SearchFilters
-            products={products}
-            setfilterChange={setfilterChange}
-          />
+          <SearchFilters products={products}  setFilterCategory={setFilterCategory} setFilterCategoryClick={setFilterCategoryClick}/>
         </aside>
         <div className="home__container__search">
-          <SearchInput />
+          <SearchInput inputText={inputText} setInputText={setInputText} />
         </div>
         <div className="home__container__cards">
-          {products?.map((product) => (
-            <CardProduct key={product.id} product={product} />
-          ))}
+          {filterByText
+            ? filterByText?.map((product) => (
+                <CardProduct key={product.id} product={product} />
+              )) : filterCategoryClick ? filterCategory?.map((product) => (
+                <CardProduct key={product.id} product={product} />
+              )) : products?.map((product) => (
+                <CardProduct key={product.id} product={product} /> 
+              ))   }
         </div>
       </div>
 
