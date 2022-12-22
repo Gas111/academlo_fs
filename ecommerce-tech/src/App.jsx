@@ -1,8 +1,12 @@
 
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Footer from './components/shared/Footer'
+import Header from './components/shared/Header'
+import LoadingAnimation from './components/shared/LoadingAnimation'
 import Cart from './pages/Cart'
 import Home from './pages/Home'
 import LoginScreen from './pages/LoginScreen'
@@ -11,31 +15,15 @@ import ProtectedRoutes from './pages/ProtectedRoutes'
 import Purchases from './pages/Purchases'
 
 function App() {
-  
-//   useEffect(() => {
-//   const data = {
-//   firstName: 'gaston',
-//   lastName: 'colque',
-//   email: 'alcidescolque@gmail.com',
-//   password: 'abc123456789',
-//   phone: "2222222223",
-//   role: 'admin',
-// }
-
-//     const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/users'
-
-//     axios
-//       .post(URL, data)
-//       .then((res) => {
-//         console.log(res.data)
-//       })
-//       .catch((err) => {
-//         console.log(err)
-//       })
-//   }, [])
+ 
+  // const isLoading=useSelector(state=>state.)
+  const [isLoading, setIsLoading] = useState(false)
 
   return (
     <div className="App">
+      <Header className="App__header" />
+      {isLoading && <LoadingAnimation/>}
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/product/:id" element={<ProductId />}></Route>
@@ -46,6 +34,8 @@ function App() {
           <Route path="/purchases" element={<Purchases />}></Route>
         </Route>
       </Routes>
+
+      <Footer className="App__footer"/>
     </div>
   )
 }

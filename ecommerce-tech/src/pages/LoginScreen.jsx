@@ -44,11 +44,11 @@ const LoginScreen = () => {
   if (localStorage.getItem('token')) {
     return (
       <main className="main-login">
-        <Header />
+     
         <h2>User</h2>
         <button onClick={handleIsLogged}>Log Out</button>
 
-        <Footer />
+  
       </main>
     )
   }
@@ -110,8 +110,6 @@ const LoginScreen = () => {
         </div>
         <button>Login New User</button>
       </form> */}
-
-      <Footer />
     </main>
   )
 }

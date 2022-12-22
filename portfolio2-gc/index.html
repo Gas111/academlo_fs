@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body class="dark-theme">
+    <nav class="navbar">
+        <span>
+            <a href="">Qullqe</a>
+        </span>
+        <ul class="navbar__menu">
+            <li class="text-spanish"><a class="link" href="#home">Inicio</a></li>
+            <li class="text-english"><a class="link" href="#home">Home</a></li>
+            <li class="text-spanish"><a class="link" href="#about_me">Sobre mi</a></li>
+            <li class="text-english"><a class="link" href="#about_me">About me</a></li>
+            <li class="text-spanish"><a class="link" href="#portfolio">Portafolio</a></li>
+            <li class="text-english"><a class="link" href="#portfolio">Portfolio</a></li>
+            <li class="text-spanish"><a class="link" href="#contact">Contacto</a></li>
+            <li class="text-english"><a class="link" href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <main class="main">
+        <section class="home hidden" id="home">
+            <h1 class="text-spanish">Soy Gaston Colque</h1>
+            <h1 class="text-english">Im Gaston Colque</h1>
+        <div class="home__image"><img src="./assets/images/bcg_main.jpg" alt="Imagen de fondo"></div>
+        </section>
+        <section class="about-me hidden" id="about_me">
+            <h2 class="about-me__title text-spanish">Quien Soy</h2>
+            <p class="about-me__text text-spanish">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
+                laudantium!</p>
+            <h2 class="about-me__title text-english">How I am</h2>
+            <p class="about-me__text text-english">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
+                doloribus?</p>
+            <div class="about-me__img"><img src="" alt="picture of me"></div>
+
+        </section>
+        <section class="portfolio hidden" id="portfolio">
+            <h2 class="porfolio__title text-english">Portfolio</h2>
+            <h2 class="porfolio__title text-spanish">Portafolio</h2>
+            <div class="portfolio__img"><img src="" alt="image1"></div>
+            <div class="portfolio__img"><img src="" alt="image1"></div>
+            <div class="portfolio__img"><img src="" alt="image1"></div>
+            <div class="portfolio__img"><img src="" alt="image1"></div>
+        </section>
+        <section class="contact hidden" id="contact">
+            <form action="" class="contact__form">
+                <input type="text" placeholder="Ingresa tu nombre" name="name-user" id="name_user">
+                <input type="mail" placeholder="Ingresa tu email" name="email-user" id="email_user">
+                <textarea name="comments" id="comments" cols="30" rows="10"
+                    placeholder="Escribe tus comentarios"></textarea>
+                <button class="button">Send Me</button>
+            </form>
+
+
+        </section>
+
+
+
+    </main>
+<script src="./main.js"></script>
+</body>
+
+</html>

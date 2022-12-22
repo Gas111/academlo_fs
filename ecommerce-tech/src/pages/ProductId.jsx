@@ -31,7 +31,7 @@ const ProductId = () => {
   
   return (
     <main className='product-id'>
-      <Header/>
+    
       <div className="product-id__container-link">
        <h2 className="product-info__title"><Link to="/" className="product-info__link-home">Home</Link><div className='red-ball-decoration'></div>{product?.title}</h2></div>
 
@@ -41,7 +41,7 @@ const ProductId = () => {
         <div className='product-id__similar-products'>
         <SimilarProducts product={product}/>
       </div>
-      <Footer/>
+   
     </main>
   )
 }

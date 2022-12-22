@@ -25,7 +25,7 @@ const Purchases = () => {
 
   return (
     <div className="purchases-page">
-      <Header />
+  
       <div className="purchases">
         <h2 className="purchases__title">My Purchases</h2>
         <div className="purchases__container">
@@ -34,7 +34,7 @@ const Purchases = () => {
           ))}
         </div>
       </div>
-      <Footer />
+ 
     </div>
   )
 }

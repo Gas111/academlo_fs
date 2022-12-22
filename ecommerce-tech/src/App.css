@@ -1,0 +1,9 @@
+.App{
+
+   min-height: 100vh;
+   width: 100%;
+   display:flex;
+   padding-top: 4rem;
+   flex-wrap: wrap;
+}
+

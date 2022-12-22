@@ -10,11 +10,14 @@ background-image: url("./assets/img/empty-blackboard.jpg");
 /* background-color: black; */
 background-size: cover;
 background-position: center;
-font-family: "Tiza Regular";
-font-size: 5rem;
-color: white;
+
 }
 
+h1{
+  font-family: "Tiza Regular";
+  font-size: 5rem;
+  color: white;
+}
 
 @font-face {
   font-family: 'Tiza Regular';

@@ -8,27 +8,26 @@ flex-direction: column;
 gap:2rem;
 padding: 3rem 0;
 width: 100%;
+align-self: flex-end;
 }
 
 
 
 .container-social-links{
     width: 70%;
-    height: 50px;
     display: flex;
     justify-content: space-evenly;
     
     }
     
-    
-    
+        
     .social-links{
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
         display: flex;
         justify-content:center;
         align-items: center;
         background-color: rgba(130, 127, 127, 0.751);
         border-radius: 50%;
-        font-size: larger;
+        font-size: 25px;
         }

@@ -1,0 +1,25 @@
+.container-order-by {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.order-by__title {
+    border-bottom: 1px solid #0004;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+}
+
+.order-by__button {
+    box-sizing: content-box;
+    background-color: rgb(233, 84, 20);
+    color: white;
+    align-self: ;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: medium;
+    font-weight: 600;
+    margin: 0.5rem 3rem;
+
+}

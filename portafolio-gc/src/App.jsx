@@ -1,15 +1,18 @@
 import './App.css'
-import PaperNote2 from './components/PaperNote2'
+import PaperNote from './components/PaperNote'
 import "./fonts/tiza.woff"
 
 function App() {
   return (
     <div className="App">
-      {/* <img className='backgroud' src="" alt="" /> */}
-      <PaperNote2 color={"yellow"}/>
-      <PaperNote2 color={"green"}/>
-      <PaperNote2 color={"blue"}/>
-      <PaperNote2 color={"pink"}/>
+      <div className="card-pin"><div className="card-pin-image"></div></div>
+      <PaperNote color={"yellow"} degree={"deg5"} text={"About Me"}/>
+      <div className="card-pin"><div className="card-pin-image"></div></div>
+      <PaperNote color={"green"} degree={"deg-5"} text={"Tecnologies"}/>
+      <div className="card-pin"><div className="card-pin-image"></div></div>
+      <PaperNote color={"blue"} degree={"deg3"} text={"Porfolio"}/>
+      <div className="card-pin"><div className="card-pin-image"></div></div>
+      <PaperNote color={"pink"} degree={"deg-7"} text={"xxxx"}/>
       <p>Im Gaston</p>
     </div>
   )

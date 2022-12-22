@@ -1,177 +1,183 @@
-.box {
-  position: relative;
-  width: 300px;
-  height: 300px;
+.tilting-card-body {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  box-shadow: var(--shadow);
 }
 
-.box-contents {
+.mouse-position-tracker {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  /* background: url(https://source.unsplash.com/300x300/?cat) 50% 50% / cover no-repeat; */
-  background: url("../../assets/img/yellowParperNote.png") 50% 50% / cover no-repeat;
-  /* background-color: rgba(254, 254, 0); */
-  box-shadow: 0 0 50px rgba(0, 0, 0, .3);
-  transition: .5s ease;
-}
-
-.hover-point {
-  position: absolute;
-  z-index: 2;
   width: calc(100% / 3);
   height: calc(100% / 3);
+  z-index: 2;
 }
 
-.hover-point:nth-child(1) {
-  top: 0;
-  left: 0;
-}
-
-.hover-point:nth-child(2) {
-  top: 0;
-  left: calc(100% / 3);
-}
-
-.hover-point:nth-child(3) {
-  top: 0;
-  right: 0;
-}
-
-.hover-point:nth-child(4) {
-  top: calc(100% / 3);
-  left: 0;
-}
-
-.hover-point:nth-child(5) {
-  top: calc(100% / 3);
-  right: 0;
-}
-
-.hover-point:nth-child(6) {
-  bottom: 0;
-  left: 0;
-}
-
-.hover-point:nth-child(7) {
-  bottom: 0;
-  left: calc(100% / 3);
-}
-
-.hover-point:nth-child(8) {
-  bottom: 0;
-  right: 0;
-}
-
-.hover-point:nth-child(1):hover~.box-contents {
-  box-shadow: 15px 15px 50px rgba(0, 0, 0, .3);
-  transform-origin: right top;
-  transform: perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(2deg);
-}
-
-.hover-point:nth-child(2):hover~.box-contents {
-  box-shadow: 0 15px 50px rgba(0, 0, 0, .3);
-  transform-origin: center top;
-  transform: perspective(1000px) rotateX(10deg);
-}
-
-.hover-point:nth-child(3):hover~.box-contents {
-  box-shadow: -15px 15px 50px rgba(0, 0, 0, .3);
-  transform-origin: left top;
-  transform: perspective(1000px) rotateX(5deg) rotateY(0deg) rotateZ(-1deg);
-}
-
-.hover-point:nth-child(4):hover~.box-contents {
-  box-shadow: 15px 5px 50px rgba(0, 0, 0, .3);
-  transform-origin: left center;
-  transform: perspective(1000px) rotateY(1deg);
-}
-
-.hover-point:nth-child(5):hover~.box-contents {
-  box-shadow: -15px 5px 50px rgba(0, 0, 0, .3);
-  transform-origin: right center;
-  transform: perspective(1000px) rotateY(-10deg);
-}
-
-.hover-point:nth-child(6):hover~.box-contents {
-  box-shadow: -15px 15px 50px rgba(0, 0, 0, .3);
-  transform-origin: right bottom;
-  transform: perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(2deg);
-}
-
-.hover-point:nth-child(7):hover~.box-contents {
-  box-shadow: 0 15px 50px rgba(0, 0, 0,1);
-  transform-origin: center top;
-  transform: perspective(1000px) rotateX(10deg);
-}
-
-.hover-point:nth-child(8):hover~.box-contents {
-  box-shadow: 0px 15px 50px rgba(0, 0, 0,1);
-  transform-origin: center top;
-  transform: perspective(1000px) rotateX(10deg);
-}
-
-
-/* demo style
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  text-align: center;
+/* .mouse-position-tracker {
+  /* // background: blue;
+  // opacity: .2;
 } */
-/* .demo {
-  padding: 2em;
+
+/* 1st, 4th, 7th */
+.mouse-position-tracker:nth-child(3n - 2) {
+  left: 0;
 }
 
-.hover-point {
-  counter-increment: point;
+/* 2nd, 5th, 8th */
+.mouse-position-tracker:nth-child(3n - 1) {
+  left: calc(100% / 3);
 }
 
- .hover-point::before {
+/* 2nd, 5th, 8th */
+.mouse-position-tracker:nth-child(3n) {
+  right: 0;
+}
+
+/* 4 to 6 */
+.mouse-position-tracker:nth-child(n + 4):nth-child(-n + 6) {
+  top: calc(100% / 3);
+}
+
+/* 7 to 9 */
+.mouse-position-tracker:nth-child(n + 7):nth-child(-n + 9) {
+  bottom: 0;
+}
+
+.tilting-card-wrapper {
+  position: relative;
+  width: 250px;
+  aspect-ratio: 1 / 1;
+}
+
+.tilting-card-body {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  content: counter(point);
-  color: #fff;
-  font-size: 1.5rem;
+  inset: 0;
+  /* outline: 3px solid red; */
+  /* background-image: url("../../assets/img/yellowParperNote.png"); */
+  background-size: cover;
+  background-position: center;
 }
 
-.hover-point:nth-child(1) {
-  background: rgba(46, 204, 113, .5);
+.yellow {
+  background-image: url("../../assets/img/yellowPaperNote.png");
 }
 
-.hover-point:nth-child(2) {
-  background: rgba(52, 152, 219, .5);
+.green {
+  background-image: url("../../assets/img/greenPaperNote.png");
 }
 
-.hover-point:nth-child(3) {
-  background: rgba(155, 89, 182, .5);
+.blue {
+  background-image: url("../../assets/img/bluePaperNote.png");
 }
 
-.hover-point:nth-child(4) {
-  background: rgba(241, 196, 15, .5);
+.pink {
+  background-image: url("../../assets/img/pinkPaperNote.png");
 }
 
-.hover-point:nth-child(5) {
-  background: rgba(230, 126, 34, .5);
+
+.tilting-card-body> :where(h1, p) {
+  padding: 0.2rem;
+  margin: 0;
+  color: white;
 }
 
-.hover-point:nth-child(6) {
-  background: rgba(231, 76, 60, .5);
+.tilting-card-body {
+  --perspective: 300px;
+  --rotationX: 0;
+  --rotationY: 0;
+  --rotationZ: 5deg;
+  --angle: -5deg;
+  transform: perspective(var(--perspective)) rotateX(var(--rotationX)) rotateY(var(--rotationY)) rotateZ(var(--rotationZ));
+  transition: transform 500ms ease;
 }
 
-.hover-point:nth-child(7) {
-  background: rgba(26, 188, 156, .5);
+.deg5{
+  --rotationZ: 5deg;
 }
 
-.hover-point:nth-child(8) {
-  background: rgba(149, 165, 166, .5);
+.deg-5{
+  --rotationZ: -5deg;
 }
 
-.box {
-  margin-top: 2em;
-} */
+.deg3{
+  --rotationZ: 3deg;
+}
+
+.deg-7{
+  --rotationZ: -7deg;
+}
+
+
+
+
+.mouse-position-tracker:nth-child(1):hover~.tilting-card-body {
+  /* --rotationX: var(--angle*-1); */
+  /* --rotationY: calc(var(--angle) * 1); */
+  --rotationY: calc(var(--angle) * -1);
+}
+
+/* modifique el angulo */
+.mouse-position-tracker:nth-child(2):hover~.tilting-card-body {
+  --rotationX: var(--angle);
+}
+
+.mouse-position-tracker:nth-child(3):hover~.tilting-card-body {
+  --rotationX: var(--angle);
+  --rotationY: var(--angle);
+}
+
+.mouse-position-tracker:nth-child(4):hover~.tilting-card-body {
+  --rotationY: calc(var(--angle) * -1);
+}
+
+.mouse-position-tracker:nth-child(6):hover~.tilting-card-body {
+  /* --rotationY: var(--angle); */
+  --rotationX: calc(var(--angle) * -1);
+
+}
+
+.mouse-position-tracker:nth-child(7):hover~.tilting-card-body {
+  --rotationY: calc(var(--angle) * -1);
+  --rotationX: calc(var(--angle) * -1);
+}
+
+.mouse-position-tracker:nth-child(8):hover~.tilting-card-body {
+  --rotationX: calc(var(--angle) * -1);
+}
+
+.mouse-position-tracker:nth-child(9):hover~.tilting-card-body {
+  /* --rotationY: var(--angle); */
+  --rotationX: calc(var(--angle) * -1);
+}
+
+.title-card {
+  font-family: 'Qwitcher Grypen', cursive;
+  font-size: 4rem;
+  color: rgba(12, 12, 12, 0.619);
+}
+
+.title-card__text {
+  font-family: 'Qwitcher Grypen', cursive;
+  font-weight: 700;
+  font-size: 4rem;
+  color: rgba(12, 12, 12, 0.619);
+}
+
+.card-pin{
+height: 60px;
+width: 60px;
+z-index: 20;
+position: absolute;
+right: -8px;
+top: -10px;
+border-radius: 50%;
+overflow: hidden;
+}
+
+.card-pin-image{
+height: 60px;
+width: 60px;
+background-image: url("../../assets/img/bluePin.png");
+background-size: cover;
+z-index: 30;
+
+}

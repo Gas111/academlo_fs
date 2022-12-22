@@ -52,8 +52,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <Header />
-
+  
       {cart?.map((product) => (
         <CartItem key={product.id} product={product} />
       ))}
@@ -62,7 +61,6 @@ const Cart = () => {
         Buy Now
       </button>
 
-      <Footer />
     </div>
   )
 }

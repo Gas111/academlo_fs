@@ -9,7 +9,6 @@ const Footer = () => {
         <div className='social-links'><i className="fa-brands fa-facebook"></i></div>
         <div className='social-links'><i className="fa-brands fa-linkedin-in"></i></div>
       </div>
-
     </footer>
   )
 }

@@ -1,13 +1,13 @@
 .home {
-    /* display: grid;
-grid-template-columns: 1fr 4fr;
-grid-template-rows: 1fr 8fr ; */
+
+}
+.home__container {
+
 }
 
 
-
 .home__container__search {
-    margin-top: 100px;
+ 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,6 @@ grid-template-rows: 1fr 8fr ; */
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-    /* grid-area: 1/2/9/5; */
 
 }
 
@@ -32,9 +31,7 @@ grid-template-rows: 1fr 8fr ; */
     .home__container {
         display: grid;
         grid-template-columns: 1fr 5fr;
-        grid-template-rows: repeat(4, 0.1fr);
-
-
+        grid-template-rows: 0.4fr 1fr;
     }
 
     .home__container__search {

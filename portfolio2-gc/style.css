@@ -1,0 +1,176 @@
+:root {
+    --color-bg: white;
+    --color-font: rgb(69, 64, 64);
+    --color-ppal: rgb(245, 92, 92);
+}
+
+
+body.dark-theme {
+
+    --color-bg: rgb(49, 43, 43);
+    --color-font: white;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    box-sizing: inherit;
+    background-color: var(--color-bg);
+    color: var(--color-font);
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.text-spanish {
+    display: none;
+}
+
+.text-english {
+    display: block;
+}
+
+main {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+
+ul {
+
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar {
+    background-color: var(--color-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 50px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar__menu {
+    display: flex;
+    gap: 1rem;
+}
+
+.home h1{
+transform-style: preserve-3d;
+transform:perspective(290px) rotateY(-30deg);
+font-size: 3rem;
+position:relative;
+top:0;
+left:0;
+right: 0;
+bottom:0;
+margin: auto;
+
+z-index:10;
+
+}
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    z-index:0;
+}
+
+.home__image{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:0;
+}
+
+.about-me__img {
+    width: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem
+}
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 300px;
+    margin: 0 auto;
+    width: 70%;
+}
+
+
+.contact__form input,
+.contact__form textarea {
+
+    padding: 1rem;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    border: 2px solid transparent;
+    transition: border 0.5s;
+
+}
+
+.contact__form input:focus,
+.contact__form textarea:focus {
+
+    background-color: var(--color-ppal);
+}
+
+.button {
+    background-color: var(--color-ppal);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+.hidden {
+    opacity: 0;
+    transform:translateY(100px);
+    transition:opacity 2s,transform 1s;
+    
+}
+
+.show {
+    opacity: 1;
+    transform:translateY(0px);
+}
+
+.link{
+padding:0.5 1rem;
+border
+
+}
