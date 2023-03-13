@@ -7,10 +7,10 @@
 
 
 .home__container__search {
- 
-    display: flex;
+     display: flex;
     justify-content: center;
     align-items: center;
+    height: 10rem;
 }
 
 .home__container__cards {
@@ -31,7 +31,7 @@
     .home__container {
         display: grid;
         grid-template-columns: 1fr 5fr;
-        grid-template-rows: 0.4fr 1fr;
+        grid-template-rows: 0.1fr 1fr;
     }
 
     .home__container__search {
@@ -48,7 +48,8 @@
     .home__filters {
         display: flex;
         grid-area: 2/1/6/2;
-        justify-content: center;        
+        justify-content: left; 
+
     }
 
     
