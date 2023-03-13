@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import useGetData from '../../assets/hooks/useGetData'
-import { getAllProducts } from '../../store/slices/products.slices'
+import { getAllProducts, getProductsByCategory } from '../../store/slices/products.slices'
 import './styles/searchfilters.css'
 
 const SearchFilters = ({products,setFilterCategory,setFilterCategoryClick}) => {
@@ -11,7 +11,6 @@ const SearchFilters = ({products,setFilterCategory,setFilterCategoryClick}) => {
 
   const dispatch=useDispatch()
   const handleClickCategories = (id) => {
-    console.log(id)
 //    setFilterCategory(products.filter(products=>products.category.id===id))
 // setFilterCategoryClick(true)
 
@@ -35,6 +34,7 @@ useEffect(() => {
     .get(URL)
     .then((res) =>{ setCategories(res.data.data.categories)
       setFilterCategory(res.data.data.categories)
+      console.log(res.data.data.categories)
     
     })
     .catch((err) => {
