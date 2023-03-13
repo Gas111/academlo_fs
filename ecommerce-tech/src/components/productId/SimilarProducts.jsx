@@ -34,7 +34,7 @@ const SimilarProducts = ({ product }) => {
 
   useEffect(() => {
     if (idCategory) {
-      const URL = `https://ecommerce-api-react.herokuapp.com/api/v1/products?category=${idCategory}`
+      const URL = `https://e-commerce-api.academlo.tech/api/v1/products?category=${idCategory}`
       console.log(URL)
 
       axios

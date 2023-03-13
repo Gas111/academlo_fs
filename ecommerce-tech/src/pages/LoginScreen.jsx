@@ -55,7 +55,7 @@ const LoginScreen = () => {
 
   // const submitNewUser = (data) => {
 
-  //   const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/users'
+  //   const URL = 'https://e-commerce-api.academlo.tech/api/v1/users'
 
   //   axios
   //     .post(URL, data)
