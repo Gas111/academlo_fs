@@ -16,7 +16,7 @@ export const {  ascendingProducts} = productsSlice.actions
 export default productsSlice.reducer
 
 export const getAllProducts = () => (dispatch) => {
-  const URLBASE = 'https://ecommerce-api-react.herokuapp.com/api/v1/products'
+  const URLBASE = 'https://e-commerce-api.academlo.tech/api/v1/products'
 
   return axios
     .get(URLBASE)
@@ -25,7 +25,7 @@ export const getAllProducts = () => (dispatch) => {
 }
 
 export const getProductsByCategory=(id)=>(dispatch)=>{
-  const URLBASE = `https://ecommerce-api-react.herokuapp.com/api/v1/products?category=${id}`
+  const URLBASE = `https://e-commerce-api.academlo.tech/api/v1/products?category=${id}`
 
   return axios
     .get(URLBASE)

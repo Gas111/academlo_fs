@@ -17,7 +17,7 @@ const CardProduct = ({ product }) => {
   const handleAddCart = (e) => {
     e.stopPropagation()
 
-   const URL= "https://ecommerce-api-react.herokuapp.com/api/v1/cart"
+   const URL= "https://e-commerce-api.academlo.tech/api/v1/cart"
 
     const data = {
       id: product.id,

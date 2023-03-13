@@ -11,7 +11,7 @@ const CartItem = ({product}) => {
 const dispatch=  useDispatch()
 const handleButtonDelete = (id) => {
   
-  const URL=`https://ecommerce-api-react.herokuapp.com/api/v1/cart/${id}`
+  const URL=`https://e-commerce-api.academlo.tech/api/v1/cart/${id}`
   
  axios.delete(URL,getConfig()).then((res) => 
   dispatch(getAllProductsCart())

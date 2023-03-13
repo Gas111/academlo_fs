@@ -38,7 +38,7 @@ const ProductInfo = ({ product }) => {
       id: `${product.id}`,
       quantity: `${counter}`,
     }
-    const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
+    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
 
     axios
       .post(URL, data, getConfig())

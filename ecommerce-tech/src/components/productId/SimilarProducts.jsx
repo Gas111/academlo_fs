@@ -10,7 +10,7 @@ const SimilarProducts = ({ product }) => {
   const [similarCategory, setSimilarCategory] = useState()
 
   useEffect(() => {
-    const URL = `https://ecommerce-api-react.herokuapp.com/api/v1/products/categories`
+    const URL = `https://e-commerce-api.academlo.tech/api/v1/products/categories`
 
     console.log(URL)
     axios
