@@ -21,12 +21,11 @@ const ProductInfo = ({ product }) => {
     if (index < product?.productImgs.length - 1) {
       setIndex(index + 1)
 
-      //  e.target.parentNode.previousSibling.firstChild.style="color-b"
     }
   }
 
   const handleBackImage = () => {
-    // console.log(e.target.parentNode.previousSibling.firstChild.src)
+ 
 
     if (index > 0) {
       setIndex(index - 1)
