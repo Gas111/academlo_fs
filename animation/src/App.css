@@ -4,12 +4,10 @@ padding: 0;
 box-sizing: border-box;
 min-height: 100vh;
 width: 100%;
-/* background-image: url("./assets/img/empty-blackboard.jpg") 100% 100% cover; */
 background-image: url("./assets/img/empty-blackboard.jpg");
-/* filter: brightness(0.33); */
-/* background-color: black; */
 background-size: cover;
 background-position: center;
+display:flex;
 
 }
 

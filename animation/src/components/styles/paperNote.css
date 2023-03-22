@@ -3,6 +3,7 @@
   place-content: center;
   text-align: center;
   box-shadow: var(--shadow);
+
 }
 
 .mouse-position-tracker {
@@ -12,12 +13,7 @@
   z-index: 2;
 }
 
-/* .mouse-position-tracker {
-  /* // background: blue;
-  // opacity: .2;
-} */
 
-/* 1st, 4th, 7th */
 .mouse-position-tracker:nth-child(3n - 2) {
   left: 0;
 }
@@ -46,13 +42,13 @@
   position: relative;
   width: 250px;
   aspect-ratio: 1 / 1;
+  cursor: pointer;
+  height: 30%;;
 }
 
 .tilting-card-body {
   position: absolute;
   inset: 0;
-  /* outline: 3px solid red; */
-  /* background-image: url("../../assets/img/yellowParperNote.png"); */
   background-size: cover;
   background-position: center;
 }
@@ -90,19 +86,19 @@
   transition: transform 500ms ease;
 }
 
-.deg5{
+.deg5 {
   --rotationZ: 5deg;
 }
 
-.deg-5{
+.deg-5 {
   --rotationZ: -5deg;
 }
 
-.deg3{
+.deg3 {
   --rotationZ: 3deg;
 }
 
-.deg-7{
+.deg-7 {
   --rotationZ: -7deg;
 }
 
@@ -110,8 +106,6 @@
 
 
 .mouse-position-tracker:nth-child(1):hover~.tilting-card-body {
-  /* --rotationX: var(--angle*-1); */
-  /* --rotationY: calc(var(--angle) * 1); */
   --rotationY: calc(var(--angle) * -1);
 }
 
@@ -130,7 +124,6 @@
 }
 
 .mouse-position-tracker:nth-child(6):hover~.tilting-card-body {
-  /* --rotationY: var(--angle); */
   --rotationX: calc(var(--angle) * -1);
 
 }
@@ -145,7 +138,6 @@
 }
 
 .mouse-position-tracker:nth-child(9):hover~.tilting-card-body {
-  /* --rotationY: var(--angle); */
   --rotationX: calc(var(--angle) * -1);
 }
 
@@ -162,22 +154,22 @@
   color: rgba(12, 12, 12, 0.619);
 }
 
-.card-pin{
-height: 60px;
-width: 60px;
-z-index: 20;
-position: absolute;
-right: -8px;
-top: -10px;
-border-radius: 50%;
-overflow: hidden;
+.card-pin {
+  height: 60px;
+  width: 60px;
+  z-index: 20;
+  position: absolute;
+  right: -8px;
+  top: -10px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
-.card-pin-image{
-height: 60px;
-width: 60px;
-background-image: url("../../assets/img/bluePin.png");
-background-size: cover;
-z-index: 30;
+.card-pin-image {
+  height: 60px;
+  width: 60px;
+  background-image: url("../../assets/img/bluePin.png");
+  background-size: cover;
+  z-index: 30;
 
 }

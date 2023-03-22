@@ -6,14 +6,14 @@ function App() {
   return (
     <div className="App">
       <div className="card-pin"><div className="card-pin-image"></div></div>
-      <PaperNote color={"yellow"} degree={"deg5"} text={"About Me"}/>
+      <PaperNote color={"yellow"} degree={"deg5"} text={"Click Here"}/>
       <div className="card-pin"><div className="card-pin-image"></div></div>
-      <PaperNote color={"green"} degree={"deg-5"} text={"Tecnologies"}/>
+      <PaperNote color={"green"} degree={"deg-5"} text={"Click Here"}/>
       <div className="card-pin"><div className="card-pin-image"></div></div>
-      <PaperNote color={"blue"} degree={"deg3"} text={"Porfolio"}/>
+      <PaperNote color={"blue"} degree={"deg3"} text={"Click Here"}/>
       <div className="card-pin"><div className="card-pin-image"></div></div>
-      <PaperNote color={"pink"} degree={"deg-7"} text={"xxxx"}/>
-      <p>Im Gaston</p>
+      <PaperNote color={"pink"} degree={"deg-7"} text={"Click Here"}/>
+
     </div>
   )
 }
