@@ -1,44 +1,85 @@
-.main-login{
-    margin-top: 100px;
+.main-login {
     display: flex;
-    justify-content:center ;
-    align-items:center;
-    flex-direction: column;
-    width:100vw;
-    height:auto; 
-}
-
-
-.main-login form div{
-    width: 50%;
-    display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
-    margin: 2rem;  
- 
-}
-.main-login form h2{
-    margin: 2rem;  
-      
-}
-.main-login form div input{
- height: 2rem;
- margin-left: 10px;
- padding: 0.5rem 1rem;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
 }
 
-.main-login form div label{
+.main-login form {
+    display:flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
+
+
+.main-login form div {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+@media (min-width:468px) {
+    .main-login form div {
+        width: 50%;
+    }
+}
+
+
+.main-login form h2 {
+    margin: 2rem;
+}
+
+.main-login form div input {
+    height: 2rem;
+    margin-left: 1rem;
+    padding: 0.8rem 0.5rem;
+    width: 50%;
+}
+
+.main-login form div label {
     margin-right: 10px;
+    width: 20%;
+    text-align: end;
+}
 
-   }
+
+.main-button {
+    width: auto;
+    height: auto;
+    font-size: medium;
+    font-weight: 500;
+    margin: 1rem;
+    padding: 0.8rem 1.5rem;
+    text-align: center;
+}
 
 
-.main-button{
-width: 60px;
-height: 25px;
-font-size: medium;
-font-weight: 500;
-transform: translateX(300%);  
-margin: 1rem;
+.error {
+    color:red;
+    text-align: center;
+}
+
+
+.user-logged {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+
+}
+
+.user-logged h1{
+
+
+    width: auto;
+    scale: 2;
 }
