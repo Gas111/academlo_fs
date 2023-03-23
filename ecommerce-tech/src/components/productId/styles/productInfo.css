@@ -21,6 +21,7 @@
     color: white;
     font-size: larger;
     font-weight: 600;
+    cursor: pointer;
 
 
 }
@@ -63,18 +64,17 @@
     display: flex;
     flex-direction: column;
     height: 3rem;
-    transform: translateX(+10%);
+    justify-content: center;
+    align-items: center;
 }
 
 .product-info__price-label,
 .product-info__quantity-title {
-
     color: #aaa;
 }
 
 .product-info__price-number {
-
-    font-size: medium;
+    font-size: 1.5rem;
     font-weight: 600;
     display: flex;
     gap: 3px;
@@ -89,17 +89,16 @@
 
 .product-info__quantity-container {
     height: 3rem;
-
+    justify-content: center;
+    align-items: center;
 }
 
 
 .counter-container {
-
     display: flex;
 }
 
 .counter-decrement,
-.counter-value,
 .counter-increment {
     display: flex;
     border: 1px solid #aaa3;
@@ -109,20 +108,24 @@
     align-items: center;
     font-size: larger;
     font-weight: 600;
-
-}
-
-.counter-decrement,
-.counter-increment,
-.product-info__button {
     cursor: pointer;
 }
 
+.counter-value{
+    display: flex;
+    border: 1px solid #aaa3;
+    height: 2rem;
+    width: 2rem;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: 600;
+}
 
 
 
 .product-info__button {
-    grid-area: 2/1/2/3;
+    grid-area: 2/2/2/3;
     height: 3rem;
     border: none;
     width: 80%;
@@ -130,7 +133,8 @@
     background-color: rgb(250, 81, 8);
     color: white;
     border-radius: 8px;
-    transform: translateX(+10%)
+    cursor: pointer;
+    margin:1rem auto;
 }
 
 
@@ -143,22 +147,13 @@
 
 .product-info__description {
     line-height: 1.8;
-
-
-
 }
 
 .color-b {
-
     animation-name: slide;
 }
 
 @keyframes slide {
     10% {}
-
     100% {}
-
-
-
-
 }

@@ -23,3 +23,8 @@
     margin: 0.5rem 3rem;
 
 }
+
+.order-by__button:hover {
+ background-color: rgb(249, 151, 106);
+ cursor:pointer;
+}

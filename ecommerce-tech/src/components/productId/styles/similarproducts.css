@@ -4,7 +4,9 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     text-align: center;
+    width: 100%;
+    margin: 2rem 0;
 
 }

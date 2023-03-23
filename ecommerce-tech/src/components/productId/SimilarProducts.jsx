@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import CardProduct from '../shared/CardProduct'
-// import "./styles/similarProducts.css"
+import "./styles/similarproducts.css"
 
 const SimilarProducts = ({ product }) => {
   const [categories, setCategories] = useState()
@@ -11,10 +11,9 @@ const SimilarProducts = ({ product }) => {
 
   useEffect(() => {
     const URL = `https://e-commerce-api.academlo.tech/api/v1/products/categories`
-
-    console.log(URL)
     axios
-      .get(URL)
+    
+    .get(URL)
       .then((res) => {
         setCategories(res.data.data.categories)
       })
@@ -35,7 +34,6 @@ const SimilarProducts = ({ product }) => {
   useEffect(() => {
     if (idCategory) {
       const URL = `https://e-commerce-api.academlo.tech/api/v1/products?category=${idCategory}`
-      console.log(URL)
 
       axios
         .get(URL)

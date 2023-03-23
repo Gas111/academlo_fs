@@ -22,6 +22,11 @@ const LoginScreen = () => {
   const [isLogged, setIsLogged] = useState(false)
   const [errorLogged, setErrorLogged] = useState(false)
 
+  useEffect(() => {
+    
+  }, [isLogged,errorLogged])
+  
+
   const submit = (data) => {
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/users/login'
 

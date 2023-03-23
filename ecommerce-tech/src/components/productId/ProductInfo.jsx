@@ -6,15 +6,16 @@ import getConfig from '../../utils/getConfig'
 import './styles/productInfo.css'
 
 const ProductInfo = ({ product }) => {
+
   const [counter, setCounter] = useState(1)
   const [index, setIndex] = useState(0)
 
-  const handleDecrement = () => {
-    if (counter > 1) setCounter(counter - 1)
+  const handleDecrements = () => {
+    if (counter > 1) {setCounter(counter - 1)}
   }
 
   const handleIncrement = () => {
-    if (counter < 100) setCounter(counter + 1)
+    if (counter < 100) {setCounter(counter + 1)}
   }
 
   const handleNextImage = () => {
@@ -26,7 +27,6 @@ const ProductInfo = ({ product }) => {
 
   const handleBackImage = () => {
  
-
     if (index > 0) {
       setIndex(index - 1)
     }
@@ -82,7 +82,7 @@ const ProductInfo = ({ product }) => {
         <div className="product-info__quantity-container">
           <span className="product-info__quantity-title">Quantity</span>
           <div className="counter-container">
-            <div className="counter-decrement" onClick={handleDecrement}>
+            <div className="counter-decrement" onClick={handleDecrements}>
               -
             </div>
             <div className="counter-value">{counter}</div>

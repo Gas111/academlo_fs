@@ -18,7 +18,6 @@ const Cart = () => {
     dispatch(getAllProductsCart())
   }, [])
 
-  console.log(cart)
 
   const data = {
     street: 'Green St. 1456',

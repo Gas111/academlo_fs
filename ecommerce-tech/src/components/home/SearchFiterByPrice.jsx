@@ -25,14 +25,15 @@ const SearchFiterByPrice = ({ setFilterByPrice }) => {
         </div>
         <div>
           <label htmlFor="inputmax">From</label>
-          <input type="number" id="inputmax" />
+          <input type="number" id="inputmax"/>
         </div>
         <div>
           <label htmlFor="inputmin">To</label>
           <input type="number" id="inputmin" />
         </div>
-        <div className="container-filters__button"><button className="filter__button">Filter Price</button></div>
-        
+        <div className="container-filters__button">
+          <button className="filter__button">Filter Price</button>
+        </div>
       </form>
     </div>
   )

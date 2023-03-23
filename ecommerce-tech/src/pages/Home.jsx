@@ -5,8 +5,6 @@ import SearchFilters from '../components/home/SearchFilters'
 import SearchFilterByPrice from "../components/home/SearchFiterByPrice"
 import SearchInput from '../components/home/SearchInput'
 import CardProduct from '../components/shared/CardProduct'
-import Footer from '../components/shared/Footer'
-import Header from '../components/shared/Header'
 import LoadingAnimation from '../components/shared/LoadingAnimation'
 import { getAllProducts } from '../store/slices/products.slices'
 import Cart from './Cart'
@@ -27,7 +25,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
 
 
-  const [filterByPrice, setFilterByPrice] = useState({from:0, to:Infinity})
+ let [filterByPrice, setFilterByPrice] = useState({from:0, to:Infinity})
 
   useEffect(() => {
     dispatch(getAllProducts())
@@ -46,6 +44,7 @@ const Home = () => {
   }, [inputText,products])
 
 const callbackFilterPrice=(product)=>{
+  console.log(product.price)
 return +product.price>=filterByPrice.from && +product.price<=filterByPrice.to
 }
 
@@ -68,14 +67,7 @@ return +product.price>=filterByPrice.from && +product.price<=filterByPrice.to
           {filterByText?.filter(callbackFilterPrice).map((product) => (
                 <CardProduct key={product.id} product={product} />
               ))}
-            {/* // : // : filterCategoryClick
-            //   // ? filterCategory?.map((product) => (
-            //   //     <CardProduct key={product.id} product={product} />
-            //   //   ))
-            //   products?.map((product) => (
-            //     <CardProduct key={product.id} product={product} />
-            //   ))} */}
-
+    
         </div>
       </div>
     </main>

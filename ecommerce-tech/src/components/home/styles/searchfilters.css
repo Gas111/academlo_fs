@@ -26,7 +26,6 @@
     margin: 0.8rem auto;
 }
 
-
 .container-filters__form div input {
     height: 2.5rem;
     padding: 0.3rem 1rem;
@@ -37,10 +36,6 @@
     margin: 0 1rem;
 }
 
-/* .container-filters__button {
-    padding: 0.5rem 1rem;
- } */
-
 .filter__button{
     box-sizing: content-box;
     background-color: rgb(233, 84, 20);
@@ -50,8 +45,18 @@
     border: none;
     font-size: medium;
     font-weight: 600;
-
 }
+
+
+.filter__button:hover{
+    background-color: rgb(249, 151, 106);
+    cursor: pointer;
+}
+
+
+
+
+
 
 .container-filters__allcategories {
     display: flex;
@@ -70,7 +75,17 @@
 .display-none{
 display:none;
 }
-.container-filters__price,
+.container-filters__price{
+    border-bottom: 1px solid #0004;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 1rem;
+    font-size: medium;
+    font-weight: 600;  
+    width: 100%;
+}
+
+
 .container-filters__categories {
     border-bottom: 1px solid #0004;
     display: flex;
