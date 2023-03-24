@@ -46,6 +46,8 @@ const LoginScreen = () => {
   const handleIsLogged = () => {
     localStorage.removeItem('token')
     setIsLogged(false)
+    navigate("/login")
+    reset()
   }
 
   if (localStorage.getItem('token')) {

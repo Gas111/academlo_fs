@@ -1,36 +1,52 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import getConfig from '../../utils/getConfig'
 import './styles/productInfo.css'
 
 const ProductInfo = ({ product }) => {
-
+  const navigate = useNavigate()
   const [counter, setCounter] = useState(1)
   const [index, setIndex] = useState(0)
+  const [visibleF, setVisibleF] = useState(true)
+  const [visibleB, setVisibleB] = useState(true)
+  let [status, setStatus] = useState("")
+  
 
   const handleDecrements = () => {
-    if (counter > 1) {setCounter(counter - 1)}
+    if (counter > 1) {
+      setCounter(counter - 1)
+    }
   }
 
   const handleIncrement = () => {
-    if (counter < 100) {setCounter(counter + 1)}
+    if (counter < 100) {
+      setCounter(counter + 1)
+    }
   }
 
   const handleNextImage = () => {
+    setVisibleF(true)
+    setVisibleB(true)
     if (index < product?.productImgs.length - 1) {
       setIndex(index + 1)
-
+    } else {
+      setVisibleF(false)
     }
   }
 
   const handleBackImage = () => {
- 
+    setVisibleF(true)
+    setVisibleB(true)
     if (index > 0) {
       setIndex(index - 1)
+    } else {
+      setVisibleB(false)
     }
   }
+
+  useEffect(() => {}, [index])
 
   const handleAddCart = () => {
     const data = {
@@ -42,10 +58,11 @@ const ProductInfo = ({ product }) => {
     axios
       .post(URL, data, getConfig())
       .then((res) => {
-        console.log(res.data)
+        setStatus(res.status)
       })
       .catch((err) => {
-        console.log(err)
+        console.log(status)
+        if ((status = '401')) navigate('/login')
       })
   }
 
@@ -53,7 +70,12 @@ const ProductInfo = ({ product }) => {
     <div className="product-info">
       <section className="product-info__image">
         <div>
-          <button onClick={handleBackImage} className="button-back">
+          <button
+            onClick={handleBackImage}
+            className={`button-back ${
+              visibleB ? 'visible-true' : 'visible-false'
+            }`}
+          >
             &#60;
           </button>
         </div>
@@ -65,7 +87,12 @@ const ProductInfo = ({ product }) => {
           />
         </div>
         <div>
-          <button onClick={handleNextImage} className="button-foward">
+          <button
+            onClick={handleNextImage}
+            className={`button-foward ${
+              visibleF ? 'visible-true' : 'visible-false'
+            }`}
+          >
             &#62;
           </button>
         </div>

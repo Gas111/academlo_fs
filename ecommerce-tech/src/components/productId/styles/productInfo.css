@@ -157,3 +157,16 @@
     10% {}
     100% {}
 }
+
+.visible-false{
+
+    visibility:hidden;
+
+}
+
+
+.visible-true{
+
+    visibility:visible;
+
+}

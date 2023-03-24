@@ -7,33 +7,31 @@ import getConfig from '../../utils/getConfig'
 import './styles/cardProduct.css'
 
 const CardProduct = ({ product }) => {
-
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleNavigation = () => {
     navigate(`/product/${product.id}`)
   }
   const handleAddCart = (e) => {
-    e.stopPropagation()
 
-   const URL= "https://e-commerce-api.academlo.tech/api/v1/cart"
+    e.stopPropagation()
+    console.log("aca estoy")
+
+    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
 
     const data = {
       id: product.id,
-      quantity: 1
+      quantity: 1,
     }
-    axios
+    let response=axios
       .post(URL, data, getConfig())
       .then((res) => {
-        console.log(res.data)
-dispatch(getAllProductsCart())
-
+        dispatch(getAllProductsCart())
       })
       .catch((err) => {
-        console.log(err)
       })
-    // navigate(`/cart`)
+
   }
 
   return (
@@ -48,7 +46,6 @@ dispatch(getAllProductsCart())
           <span className="product__price-label">Price</span>
           <span className="product__price-number">${product.price}</span>
         </div>
-
         <button className="product__button-cart" onClick={handleAddCart}>
           <i className="product__icon fa-solid fa-cart-shopping"></i>
         </button>

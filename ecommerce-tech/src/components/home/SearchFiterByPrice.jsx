@@ -23,11 +23,11 @@ const SearchFiterByPrice = ({ setFilterByPrice }) => {
           <span>Price</span>
           <i className="icon-down fa-solid fa-chevron-down"></i>
         </div>
-        <div>
+        <div className="container-filters__inputs">
           <label htmlFor="inputmax">From</label>
           <input type="number" id="inputmax"/>
         </div>
-        <div>
+        <div className="container-filters__inputs">
           <label htmlFor="inputmin">To</label>
           <input type="number" id="inputmin" />
         </div>

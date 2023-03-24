@@ -16,7 +16,7 @@ import Purchases from './pages/Purchases'
 
 function App() {
  
-  // const isLoading=useSelector(state=>state.)
+  
   const [isLoading, setIsLoading] = useState(false)
 
   return (

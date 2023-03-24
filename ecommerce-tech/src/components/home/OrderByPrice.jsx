@@ -8,6 +8,7 @@ import "./styles/orderByPrice.css"
 
 const OrderByPrice = () => {
   const dispatch = useDispatch()
+  
   const handleUp = () => {
     dispatch(ascendingProducts())
     return

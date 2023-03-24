@@ -6,8 +6,8 @@
     justify-content: space-between;
     align-items: center;
     border: solid 1px #0006;
-    position:fixed;
-    top:0;
+    position: fixed;
+    top: 0;
     background-color: #fff;
     z-index: 10;
 
@@ -15,7 +15,7 @@
 
 .header-body span {
 
-    color:orange;
+    color: orange;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     font-size: larger;
@@ -35,28 +35,27 @@
 
 .header-body__container_i {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     border-left: solid 1px #0006;
     height: 3rem;
     text-decoration: none;
-    color:black;
-   }
+    color: black;
+}
 
-   .link{
+.link {
 
     text-decoration: none;
-    color:black;
-
-   }
-
-   .home__modal__cart{
-    display: none;
-   }
-
-
-.color-naranja{
-color: orange;
+    color: black;
 
 }
-   
+
+.home__modal__cart {
+    display: none;
+}
+
+
+.color-naranja {
+    color: orange;
+
+}

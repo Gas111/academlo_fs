@@ -43,8 +43,11 @@ const Home = () => {
     }
   }, [inputText,products])
 
+
+
 const callbackFilterPrice=(product)=>{
-  console.log(product.price)
+  console.log(filterByPrice.from)
+  console.log(filterByPrice.to)
 return +product.price>=filterByPrice.from && +product.price<=filterByPrice.to
 }
 
