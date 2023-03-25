@@ -6,6 +6,7 @@ import SimilarProducts from '../components/productId/SimilarProducts'
 import Footer from '../components/shared/Footer'
 import Header from '../components/shared/Header'
 import './styles/productsId.css'
+
 const ProductId = () => {
   const [product, setProduct] = useState()
 
@@ -22,9 +23,8 @@ const ProductId = () => {
       .catch((err) => {
         console.log(err)
       })
-  }, [id])
+  }, [])
 
-  console.log(product?.category)
 
   return (
     <main className="product-id">

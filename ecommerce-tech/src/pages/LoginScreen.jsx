@@ -15,7 +15,7 @@ import Footer from '../components/shared/Footer'
 import Header from '../components/shared/Header'
 import './styles/loginscreen.css'
 
-const LoginScreen = () => {
+const LoginScreen = ({setQuantityCart}) => {
   const navigate = useNavigate()
   const { handleSubmit, register, reset } = useForm()
 
@@ -45,6 +45,7 @@ const LoginScreen = () => {
 
   const handleIsLogged = () => {
     localStorage.removeItem('token')
+    setQuantityCart(0)
     setIsLogged(false)
     navigate("/login")
     reset()

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
 import getConfig from '../../utils/getConfig'
@@ -11,8 +12,10 @@ const ProductInfo = ({ product }) => {
   const [index, setIndex] = useState(0)
   const [visibleF, setVisibleF] = useState(true)
   const [visibleB, setVisibleB] = useState(true)
-  let [status, setStatus] = useState("")
-  
+  let [status, setStatus] = useState('')
+  const [isInCart, setisInCart] = useState(false)
+
+  const cart = useSelector((state) => state.cart)
 
   const handleDecrements = () => {
     if (counter > 1) {
@@ -49,21 +52,27 @@ const ProductInfo = ({ product }) => {
   useEffect(() => {}, [index])
 
   const handleAddCart = () => {
+    let found = 0
     const data = {
       id: `${product.id}`,
       quantity: `${counter}`,
     }
-    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
-
-    axios
-      .post(URL, data, getConfig())
-      .then((res) => {
-        setStatus(res.status)
-      })
-      .catch((err) => {
-        console.log(status)
-        if ((status = '401')) navigate('/login')
-      })
+    found = cart.find((element) => element.id == parseInt(data.id))
+    if (!found) {
+      const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
+      axios
+        .post(URL, data, getConfig())
+        .then((res) => {
+          setStatus(res.status)
+          navigate('/cart')
+        })
+        .catch((err) => {
+          console.log(status)
+          if ((status = '401')) navigate('/login')
+        })
+    } else {
+      setisInCart(true)
+    }
   }
 
   return (
@@ -118,9 +127,16 @@ const ProductInfo = ({ product }) => {
             </div>
           </div>
         </div>
-
+        <p
+          className={`product-info__warning ${
+            isInCart ? 'visible-true' : 'visible-false'
+          }`}
+        >
+          The product was included to Cart
+        </p>
         <button onClick={handleAddCart} className="product-info__button">
-          Add to Cart
+        { isInCart ? 'Product was Added to Cart' : 'Add to Cart'
+          }
           <i className="product-info__icon fa-solid fa-cart-shopping"></i>
         </button>
 

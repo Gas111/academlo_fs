@@ -50,6 +50,12 @@
 
 }
 
+.link:hover {
+
+    color: orange;
+
+}
+
 .home__modal__cart {
     display: none;
 }
@@ -57,5 +63,30 @@
 
 .color-naranja {
     color: orange;
+
+}
+
+.visible-true {
+    visibility: visible;
+
+}
+
+
+.visible-false {
+    visibility: hidden;
+}
+
+.header-body__info-quantity{
+
+width: 1.2rem;
+height: auto;
+font-size: 1rem;
+background-color: orange;
+color:black;
+border-radius: 50%;
+position: relative;
+top:15px;
+right:10px;
+text-align: center;
 
 }

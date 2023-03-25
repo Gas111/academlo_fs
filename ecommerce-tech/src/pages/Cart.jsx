@@ -8,16 +8,12 @@ import { getAllProductsCart, setCartGlobal } from '../store/slices/cart.slice'
 import getConfig from '../utils/getConfig'
 import './styles/cart.css'
 
-const Cart = () => {
-  const cart = useSelector((state) => state.cart)
-
+const Cart = ({ setQuantityCart }) => {
+  // const cart = useSelector((state) => state.cart)
+const cart=null
   const [total, setTotal] = useState(0)
 
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(getAllProductsCart())
-  }, [])
-
 
   const data = {
     street: 'Green St. 1456',
@@ -33,7 +29,6 @@ const Cart = () => {
     axios
       .post(URL, data, getConfig())
       .then((res) => {
-        console.log(res.data)
         dispatch(setCartGlobal(null))
         setTotal(0)
       })
@@ -41,25 +36,37 @@ const Cart = () => {
   }
 
   useEffect(() => {
+    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
+
+    axios
+      .get(URL, getConfig())
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
     if (cart) {
       const result = cart.reduce((acc, cv) => {
         return Number(acc + cv.price * cv.productsInCart.quantity)
       }, 0)
       setTotal(result)
+      setQuantityCart(cart.length)
+    } else {
+      setQuantityCart(0)
     }
-  }, [cart])
+  }, [])
 
   return (
     <div className="cart">
-  
-      {cart?.map((product) => (
+      {/* {cart?.map((product) => (
         <CartItem key={product.id} product={product} />
-      ))}
+      ))} */}
       <h2 className="cart__title">Total Price:${total}</h2>
       <button className="cart__buy-button" onClick={handleBuyNow}>
         Buy Now
       </button>
-
     </div>
   )
 }

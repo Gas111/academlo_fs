@@ -16,6 +16,7 @@ const SearchFilters = ({
   const [categories, setCategories] = useState()
 
   const dispatch = useDispatch()
+  
   const handleClickCategories = (id) => {
     if (id) {
       dispatch(getProductsByCategory(id))
@@ -32,7 +33,6 @@ const SearchFilters = ({
       .then((res) => {
         setCategories(res.data.data.categories)
         setFilterCategory(res.data.data.categories)
-        console.log(res.data.data.categories)
       })
       .catch((err) => {
         console.log(err)

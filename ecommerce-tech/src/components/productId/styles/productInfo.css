@@ -170,3 +170,10 @@
     visibility:visible;
 
 }
+.product-info__warning{
+font-size: 1.2rem;
+color: red;
+display: flex;
+justify-content: center;
+align-items: center;
+}

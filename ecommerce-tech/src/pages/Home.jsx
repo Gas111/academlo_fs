@@ -45,11 +45,9 @@ const Home = () => {
 
 
 
-const callbackFilterPrice=(product)=>{
-  console.log(filterByPrice.from)
-  console.log(filterByPrice.to)
-return +product.price>=filterByPrice.from && +product.price<=filterByPrice.to
-}
+// const callbackFilterPrice=(product)=>{
+// return +product.price>=filterByPrice.from && +product.price<=filterByPrice.to
+// }
 
   return (
     <main className="home">
@@ -67,7 +65,7 @@ return +product.price>=filterByPrice.from && +product.price<=filterByPrice.to
           <SearchInput inputText={inputText} setInputText={setInputText} />
         </div>
         <div className="home__container__cards">
-          {filterByText?.filter(callbackFilterPrice).map((product) => (
+          {filterByText?.map((product) => (
                 <CardProduct key={product.id} product={product} />
               ))}
     
@@ -78,3 +76,8 @@ return +product.price>=filterByPrice.from && +product.price<=filterByPrice.to
 }
 
 export default Home
+
+
+// {filterByText?.filter(callbackFilterPrice).map((product) => (
+//   <CardProduct key={product.id} product={product} />
+// ))}
