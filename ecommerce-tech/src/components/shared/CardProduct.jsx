@@ -46,7 +46,7 @@ const CardProduct = ({ product }) => {
           <span className="product__price-label">Price</span>
           <span className="product__price-number">${product.price}</span>
         </div>
-        <button className="product__button-cart" onClick={handleAddCart}>
+        <button className="product__button-cart" onClick={handleNavigation}>
           <i className="product__icon fa-solid fa-cart-shopping"></i>
         </button>
       </div>

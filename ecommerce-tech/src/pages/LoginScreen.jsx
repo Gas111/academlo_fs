@@ -6,26 +6,35 @@
 //   phone: "222222222",
 //   role: 'admin',
 // }
-import { BiUser } from "react-icons/bi";
+import { BiUser } from 'react-icons/bi'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import Footer from '../components/shared/Footer'
 import Header from '../components/shared/Header'
 import './styles/loginscreen.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllProductsCart } from '../store/slices/cart.slice'
+import getConfig from '../utils/getConfig'
+import { setIsLogged } from '../store/slices/isLogged.slice'
 
-const LoginScreen = ({setQuantityCart}) => {
+const LoginScreen = ({ setUnitsInCart }) => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  // const cart = useSelector((state) => state.cart)
+  const isLogged = useSelector((state) => state.isLogged)
   const { handleSubmit, register, reset } = useForm()
 
-  const [isLogged, setIsLogged] = useState(false)
+  // const [isLogged, setIsLogged] = useState(false)
   const [errorLogged, setErrorLogged] = useState(false)
 
   useEffect(() => {
-    
-  }, [isLogged,errorLogged])
-  
+    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
+
+    // dispatch(getAllProductsCart())
+
+    // if (cart) setUnitsInCart(cart.length)
+  }, [isLogged, errorLogged])
 
   const submit = (data) => {
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/users/login'
@@ -35,26 +44,29 @@ const LoginScreen = ({setQuantityCart}) => {
       .then((res) => {
         localStorage.setItem('token', res.data.data.token)
         setErrorLogged(false)
-        setIsLogged(true)
+        dispatch(setIsLogged(true))
       })
       .catch((err) => {
-      setErrorLogged(true)
-      reset()
+        setErrorLogged(true)
+        dispatch(setIsLogged(false))
+        reset()
       })
   }
 
   const handleIsLogged = () => {
     localStorage.removeItem('token')
-    setQuantityCart(0)
-    setIsLogged(false)
-    navigate("/login")
+    setUnitsInCart(0)
+    dispatch(setIsLogged(false))
+    navigate('/login')
     reset()
   }
 
   if (localStorage.getItem('token')) {
     return (
       <main className="user-logged">
-        <h1><BiUser/></h1>
+        <h1>
+          <BiUser />
+        </h1>
         <h2>User</h2>
         <button onClick={handleIsLogged}>Log Out</button>
       </main>
@@ -77,9 +89,9 @@ const LoginScreen = ({setQuantityCart}) => {
           <input type="text" id="password" {...register('password')} />
         </div>
         <div>
-        <p className="error">{errorLogged && "error in email or password"}</p>  
+          <p className="error">{errorLogged && 'error in email or password'}</p>
         </div>
-        
+
         <button className="main-button">Login</button>
       </form>
       <hr />

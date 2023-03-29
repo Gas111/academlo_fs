@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { getAllProductsCart } from '../../store/slices/cart.slice'
 import './styles/header.css'
 
-const Header = ({ quantityCart }) => {
+const Header = ({ unitsInCart }) => {
+  // const qtyCart = useSelector((state) => state.unitsInCart)
+  // const cart = useSelector((state) => state.cart)
+  // const dispatch = useDispatch()
 
+  useEffect(() => {
+    // dispatch(getAllProductsCart())
+    // console.log(qtyCart)
+  }, [])
 
   return (
     <div className="header-body">
@@ -32,10 +41,10 @@ const Header = ({ quantityCart }) => {
           </NavLink>
           <div
             className={`header-body__info-quantity ${
-              quantityCart ? 'visible-true' : 'visible-false'
+              unitsInCart ? 'visible-true' : 'visible-false'
             }`}
           >
-            {quantityCart}
+            {unitsInCart}
           </div>
         </div>
       </div>

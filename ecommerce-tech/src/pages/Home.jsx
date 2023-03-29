@@ -2,34 +2,33 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import OrderByPrice from '../components/home/OrderByPrice'
 import SearchFilters from '../components/home/SearchFilters'
-import SearchFilterByPrice from "../components/home/SearchFiterByPrice"
+import SearchFilterByPrice from '../components/home/SearchFiterByPrice'
 import SearchInput from '../components/home/SearchInput'
 import CardProduct from '../components/shared/CardProduct'
 import LoadingAnimation from '../components/shared/LoadingAnimation'
+import { getAllProductsCart } from '../store/slices/cart.slice'
 import { getAllProducts } from '../store/slices/products.slices'
 import Cart from './Cart'
 import './styles/home.css'
 
-
-const Home = () => {
+const Home = ({ unitsInCart }) => {
   const [categories, setCategories] = useState()
-
   const [filterCategory, setFilterCategory] = useState()
   const [filterCategoryClick, setFilterCategoryClick] = useState(false)
 
   const [inputText, setInputText] = useState()
   const [filterByText, setFilterByText] = useState()
   const products = useSelector((state) => state.products)
+  const isLoading = useSelector((state) => state.isLoading)
+  const qtyCart = useSelector((state) => state.quantityCart)
+  const cart = useSelector((state) => state.cart)
   const dispatch = useDispatch()
+  let [filterByPrice, setFilterByPrice] = useState({ from: 0, to: Infinity })
 
-  const [isLoading, setIsLoading] = useState(true)
-
-
- let [filterByPrice, setFilterByPrice] = useState({from:0, to:Infinity})
-
+  
   useEffect(() => {
     dispatch(getAllProducts())
-    setIsLoading(false)
+    console.log(qtyCart)
   }, [])
 
   useEffect(() => {
@@ -41,43 +40,35 @@ const Home = () => {
     } else {
       setFilterByText(products)
     }
-  }, [inputText,products])
-
-
-
-// const callbackFilterPrice=(product)=>{
-// return +product.price>=filterByPrice.from && +product.price<=filterByPrice.to
-// }
+  }, [inputText, products])
 
   return (
     <main className="home">
       <div className="home__container">
         <aside className="home__filters container-filters-price-and-categories">
-          <SearchFilterByPrice setFilterByPrice={setFilterByPrice}/>
+          {/* <SearchFilterByPrice setFilterByPrice={setFilterByPrice} /> */}
           <SearchFilters
             products={products}
             setFilterCategory={setFilterCategory}
             setFilterCategoryClick={setFilterCategoryClick}
           />
-          <OrderByPrice/>
+          <OrderByPrice />
         </aside>
         <div className="home__container__search">
           <SearchInput inputText={inputText} setInputText={setInputText} />
         </div>
-        <div className="home__container__cards">
-          {filterByText?.map((product) => (
-                <CardProduct key={product.id} product={product} />
-              ))}
-    
-        </div>
+        {isLoading ? (
+          <LoadingAnimation />
+        ) : (
+          <div className="home__container__cards">
+            {filterByText?.map((product) => (
+              <CardProduct key={product.id} product={product} />
+            ))}
+          </div>
+        )}
       </div>
     </main>
   )
 }
 
 export default Home
-
-
-// {filterByText?.filter(callbackFilterPrice).map((product) => (
-//   <CardProduct key={product.id} product={product} />
-// ))}

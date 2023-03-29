@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 import getConfig from '../../utils/getConfig'
+import { setUnitsCart } from './quantityCart.slice'
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -20,8 +21,24 @@ export const getAllProductsCart = () => (dispatch) => {
 
   return axios
     .get(URL, getConfig())
-    .then((res) => dispatch(setCartGlobal(res.data.data.cart.products)))
+    .then((res) => {
+      dispatch(setCartGlobal(res.data.data.cart.products))
+      dispatch(setUnitsCart(res.data.data.cart.products.length))
+    })
     .catch((err) => {
       console.log(err)
     })
+    .finally(() => {})
+}
+
+export const addProductInCart = () => (dispatch) => {
+  const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
+
+  return axios
+    .get(URL, getConfig())
+    .then((res) => {})
+    .catch((err) => {
+      console.log(err)
+    })
+    .finally(() => {})
 }

@@ -2,26 +2,30 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CartItem from '../components/cart/CartItem'
-import Footer from '../components/shared/Footer'
-import Header from '../components/shared/Header'
+import LoadingAnimation from '../components/shared/LoadingAnimation'
 import { getAllProductsCart, setCartGlobal } from '../store/slices/cart.slice'
 import getConfig from '../utils/getConfig'
 import './styles/cart.css'
 
-const Cart = ({ setQuantityCart }) => {
-  // const cart = useSelector((state) => state.cart)
-const cart=null
+const Cart = () => {
   const [total, setTotal] = useState(0)
-
   const dispatch = useDispatch()
+  const quantityCart = useSelector((state) => state.quantityCart)
+  const cart = useSelector((state) => state.cart)
+  const [itemDeleted, setItemDeleted] = useState(false)
 
-  const data = {
-    street: 'Green St. 1456',
-    colony: 'Southwest',
-    zipCode: 12345,
-    city: 'USA',
-    references: 'Some references',
-  }
+  useEffect(() => {}, [])
+
+  useEffect(() => {
+    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
+
+    dispatch(getAllProductsCart())
+
+    const result = cart?.reduce((acc, cv) => {
+      return Number(acc + cv.price * cv.productsInCart.quantity)
+    }, 0)
+    setTotal(result)
+  }, [cart])
 
   const handleBuyNow = () => {
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/purchases'
@@ -35,38 +39,25 @@ const cart=null
       .catch((err) => {})
   }
 
-  useEffect(() => {
-    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
-
-    axios
-      .get(URL, getConfig())
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-
-    if (cart) {
-      const result = cart.reduce((acc, cv) => {
-        return Number(acc + cv.price * cv.productsInCart.quantity)
-      }, 0)
-      setTotal(result)
-      setQuantityCart(cart.length)
-    } else {
-      setQuantityCart(0)
-    }
-  }, [])
-
   return (
     <div className="cart">
-      {/* {cart?.map((product) => (
-        <CartItem key={product.id} product={product} />
-      ))} */}
-      <h2 className="cart__title">Total Price:${total}</h2>
-      <button className="cart__buy-button" onClick={handleBuyNow}>
-        Buy Now
-      </button>
+      {cart === undefined ? (
+        <LoadingAnimation />
+      ) : (
+        <div>
+          {cart?.map((product) => (
+            <CartItem
+              key={product.id}
+              product={product}
+              setItemDeleted={setItemDeleted}
+            />
+          ))}
+          <h2 className="cart__title">Total Price:${total}</h2>
+          <button className="cart__buy-button" onClick={handleBuyNow}>
+            Buy Now
+          </button>
+        </div>
+      )}
     </div>
   )
 }

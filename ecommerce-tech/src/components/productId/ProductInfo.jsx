@@ -1,21 +1,25 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllProductsCart } from '../../store/slices/cart.slice'
 import getConfig from '../../utils/getConfig'
+import LoadingAnimation from '../shared/LoadingAnimation'
 import './styles/productInfo.css'
+import { BiUser } from 'react-icons/bi'
 
-const ProductInfo = ({ product }) => {
-  const navigate = useNavigate()
+const ProductInfo = ({ product, productId, setUnitsInCart, unitsInCart }) => {
   const [counter, setCounter] = useState(1)
   const [index, setIndex] = useState(0)
   const [visibleF, setVisibleF] = useState(true)
   const [visibleB, setVisibleB] = useState(true)
-  let [status, setStatus] = useState('')
   const [isInCart, setisInCart] = useState(false)
 
   const cart = useSelector((state) => state.cart)
+  const isLogged = useSelector((state) => state.isLogged)
+  const dispatch = useDispatch()
+  const textAdded = 'Product was Added to Cart'
+  const textAdd = 'Add to Cart'
+  const textLoginFirst = 'You Must login First'
 
   const handleDecrements = () => {
     if (counter > 1) {
@@ -49,30 +53,60 @@ const ProductInfo = ({ product }) => {
     }
   }
 
+  useEffect(() => {
+    dispatch(getAllProductsCart())
+    console.log(productId, 'id del producto')
+    const found = cart?.find((element) => element.id == parseInt(productId))
+    if (found) setisInCart(true)
+    else setisInCart(false)
+  }, [])
+
   useEffect(() => {}, [index])
 
+  const buttonFunction = () => {
+    if (isLogged && isInCart) {
+      return <button className={` ${'button-disabled'}  `}>{textAdded}</button>
+    }
+
+    if (isLogged && !isInCart) {
+      return (
+        <button
+          onClick={handleAddCart}
+          className={` ${'product-info__button'}`}
+        >
+          {textAdd}
+          <i className="product-info__icon fa-solid fa-cart-shopping"></i>
+        </button>
+      )
+    }
+    if (!isLogged) {
+      return (
+        <button className={` ${'button-disabled'}  `}>
+          {textLoginFirst}
+          <i className="product-info__icon">
+            <BiUser />
+          </i>
+        </button>
+      )
+    }
+  }
+
   const handleAddCart = () => {
-    let found = 0
     const data = {
       id: `${product.id}`,
       quantity: `${counter}`,
     }
-    found = cart.find((element) => element.id == parseInt(data.id))
-    if (!found) {
-      const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
-      axios
-        .post(URL, data, getConfig())
-        .then((res) => {
-          setStatus(res.status)
-          navigate('/cart')
-        })
-        .catch((err) => {
-          console.log(status)
-          if ((status = '401')) navigate('/login')
-        })
-    } else {
-      setisInCart(true)
-    }
+    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
+    axios
+      .post(URL, data, getConfig())
+      .then((res) => {
+        setisInCart(true)
+        setUnitsInCart(unitsInCart+1)
+      })
+      .catch((err) => {
+        console.log(err)
+        setisInCart(false)
+      })
   }
 
   return (
@@ -89,11 +123,15 @@ const ProductInfo = ({ product }) => {
           </button>
         </div>
         <div className="image-container">
-          <img
-            src={product?.productImgs[index]}
-            alt="image of product"
-            id="image"
-          />
+          {product == undefined ? (
+            <LoadingAnimation />
+          ) : (
+            <img
+              src={product?.productImgs[index]}
+              alt="image of product"
+              id="image"
+            />
+          )}
         </div>
         <div>
           <button
@@ -127,18 +165,7 @@ const ProductInfo = ({ product }) => {
             </div>
           </div>
         </div>
-        <p
-          className={`product-info__warning ${
-            isInCart ? 'visible-true' : 'visible-false'
-          }`}
-        >
-          The product was included to Cart
-        </p>
-        <button onClick={handleAddCart} className="product-info__button">
-        { isInCart ? 'Product was Added to Cart' : 'Add to Cart'
-          }
-          <i className="product-info__icon fa-solid fa-cart-shopping"></i>
-        </button>
+        {buttonFunction()}
 
         <p className="product-info__description">{product?.description}</p>
       </footer>

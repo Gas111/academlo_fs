@@ -1,9 +1,16 @@
 import React from 'react'
-import "./styles/loadingAnimation.css"
+import '../shared/styles/loadingAnimation.css'
 
 const LoadingAnimation = () => {
   return (
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    <div className="overlay">
+        <div className="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
   )
 }
 

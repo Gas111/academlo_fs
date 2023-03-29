@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { setIsLoading } from './isLoading.slice'
 
 export const productsSlice = createSlice({
   name: 'products',
@@ -19,10 +20,12 @@ export default productsSlice.reducer
 export const getAllProducts = () => (dispatch) => {
   const URLBASE = 'https://e-commerce-api.academlo.tech/api/v1/products'
 
-  return axios
+  dispatch(setIsLoading(true))
+  axios
     .get(URLBASE)
     .then((res) => dispatch(setProductsGlobal(res.data.data.products)))
     .catch((err) => console.log(err))
+    .finally(() => dispatch(setIsLoading(false)))
 }
 
 export const getProductsByCategory = (id) => (dispatch) => {

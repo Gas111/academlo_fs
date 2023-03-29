@@ -71,6 +71,7 @@ border-radius: 50%;
 background-color: rgb(252, 85, 8);
 margin:1rem;
 border:none;
+cursor:pointer;
 }
 
 .product__button-cart:hover{

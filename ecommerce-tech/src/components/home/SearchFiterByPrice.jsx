@@ -2,6 +2,9 @@ import React from 'react'
 import './styles/searchfilters.css'
 
 const SearchFiterByPrice = ({ setFilterByPrice }) => {
+ 
+ 
+ 
   const handleSubmit = (e) => {
     e.preventDefault()
 

@@ -5,9 +5,10 @@ import ProductInfo from '../components/productId/ProductInfo'
 import SimilarProducts from '../components/productId/SimilarProducts'
 import Footer from '../components/shared/Footer'
 import Header from '../components/shared/Header'
+import LoadingAnimation from '../components/shared/LoadingAnimation'
 import './styles/productsId.css'
 
-const ProductId = () => {
+const ProductId = ({ setUnitsInCart,unitsInCart }) => {
   const [product, setProduct] = useState()
 
   const { id } = useParams()
@@ -25,25 +26,34 @@ const ProductId = () => {
       })
   }, [])
 
-
   return (
     <main className="product-id">
-      <div className="product-id__container-link">
-        <h2 className="product-info__title">
-          <Link to="/" className="product-info__link-home">
-            Home
-          </Link>
-          <div className="red-ball-decoration"></div>
-          {product?.title}
-        </h2>
-      </div>
-
-      <div className="product-id__product-info">
-        <ProductInfo product={product} />
-      </div>
-      <div className="product-id__similar-products">
-        <SimilarProducts product={product} />
-      </div>
+      {product == undefined ? (
+        <LoadingAnimation />
+      ) : (
+        <div>
+          <div className="product-id__container-link">
+            <h2 className="product-info__title">
+              <Link to="/" className="product-info__link-home">
+                Home
+              </Link>
+              <div className="red-ball-decoration"></div>
+              {product?.title}
+            </h2>
+          </div>
+          <div className="product-id__product-info">
+            <ProductInfo
+              product={product}
+              productId={product.id}
+              setUnitsInCart={setUnitsInCart}
+              unitsInCart={unitsInCart}
+            />
+          </div>
+          <div className="product-id__similar-products">
+            <SimilarProducts product={product} />
+          </div>{' '}
+        </div>
+      )}
     </main>
   )
 }

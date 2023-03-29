@@ -1,37 +1,36 @@
-.product-id{
-    margin-top: 4rem;
+.product-id {
+    margin: 4rem auto;
+
 }
 
-.product-id__container-link{
+.product-id__container-link {
     display: flex;
     width: 100%;
     margin: 1rem 0;
     padding: 0;
     align-items: center;
-    
+
 
 }
 
 
-.product-id__product-info{
+.product-id__product-info {}
 
-}
-
-.product-info__link-home{
+.product-info__link-home {
 
     text-decoration: none;
-    color:black;
+    color: black;
     display: inline;
     margin-left: 1rem;
 
 }
 
-.product-info__title{
+.product-info__title {
     display: inline;
     margin-left: 1rem;
 }
 
-.red-ball-decoration{
+.red-ball-decoration {
     height: 0.5rem;
     width: 0.5rem;
     background-color: rgb(253, 90, 21);
@@ -41,4 +40,4 @@
 
 }
 
-.product-id__similar-products{}
+.product-id__similar-products {}
