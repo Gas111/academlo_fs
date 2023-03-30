@@ -23,8 +23,16 @@ https://rick-and-morty-gc.netlify.app
 
 https://crud-user-gc.netlify.app
 
+https://genericportfolio-gc.netlify.app
 
-dfasfdsa
-rewt
+https://animation-gc.netlify.app
+
+https://portfolioanimation-gc.netlify.app
+
+https://ecommerce-tech-gc.netlify.app
+
+https://poke-api-gc.netlify.app
+
+https://porfolio-gc.netlify.app ---myportfolio
 
 
