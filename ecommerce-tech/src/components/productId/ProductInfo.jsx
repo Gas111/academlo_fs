@@ -54,14 +54,14 @@ const ProductInfo = ({ product, productId, setUnitsInCart, unitsInCart }) => {
   }
 
   useEffect(() => {
-    dispatch(getAllProductsCart())
+    // dispatch(getAllProductsCart())
     console.log(productId, 'id del producto')
     const found = cart?.find((element) => element.id == parseInt(productId))
     if (found) setisInCart(true)
     else setisInCart(false)
   }, [])
 
-  useEffect(() => {}, [index])
+  // useEffect(() => {}, [index])
 
   const buttonFunction = () => {
     if (isLogged && isInCart) {

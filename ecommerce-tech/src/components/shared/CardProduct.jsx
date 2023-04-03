@@ -6,12 +6,14 @@ import { getAllProductsCart } from '../../store/slices/cart.slice'
 import getConfig from '../../utils/getConfig'
 import './styles/cardProduct.css'
 
-const CardProduct = ({ product }) => {
-  const dispatch = useDispatch()
+const CardProduct = ({ product ,category}) => {
+
+  // const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleNavigation = () => {
-    navigate(`/product/${product.id}`)
+
+    navigate(`/product/${product.id}/${category}`)
   }
   const handleAddCart = (e) => {
 
@@ -24,10 +26,9 @@ const CardProduct = ({ product }) => {
       id: product.id,
       quantity: 1,
     }
-    let response=axios
-      .post(URL, data, getConfig())
+    axios.post(URL, data, getConfig())
       .then((res) => {
-        dispatch(getAllProductsCart())
+        // dispatch(getAllProductsCart())
       })
       .catch((err) => {
       })
@@ -35,7 +36,7 @@ const CardProduct = ({ product }) => {
   }
 
   return (
-    <article className="product" onClick={handleNavigation}>
+    <article className="product"onClick={handleNavigation}>
       <header className="product__header">
         <img src={product.productImgs[0]} alt="image of product" />
       </header>
@@ -46,7 +47,7 @@ const CardProduct = ({ product }) => {
           <span className="product__price-label">Price</span>
           <span className="product__price-number">${product.price}</span>
         </div>
-        <button className="product__button-cart" onClick={handleNavigation}>
+        <button className="product__button-cart">
           <i className="product__icon fa-solid fa-cart-shopping"></i>
         </button>
       </div>

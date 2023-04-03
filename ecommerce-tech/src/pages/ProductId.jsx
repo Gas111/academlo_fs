@@ -7,23 +7,28 @@ import Footer from '../components/shared/Footer'
 import Header from '../components/shared/Header'
 import LoadingAnimation from '../components/shared/LoadingAnimation'
 import './styles/productsId.css'
+import { useSelector } from 'react-redux'
 
-const ProductId = ({ setUnitsInCart,unitsInCart }) => {
+const ProductId = ({ setUnitsInCart, unitsInCart }) => {
   const [product, setProduct] = useState()
-
+  const products = useSelector((state) => state.products)
   const { id } = useParams()
+  const { category } = useParams()
+  const { data } = useParams()
 
   useEffect(() => {
-    const URL = `https://e-commerce-api.academlo.tech/api/v1/products/${id}`
-    console.log(URL)
-    axios
-      .get(URL)
-      .then((res) => {
-        setProduct(res.data.data.product)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    setProduct(products?.find((product) => product.id == id))
+
+    // const URL = `https://e-commerce-api.academlo.tech/api/v1/products/${id}`
+    // console.log(URL)
+    // axios
+    //   .get(URL)
+    //   .then((res) => {
+    //     setProduct(res.data.data.product)
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //   })
   }, [])
 
   return (
@@ -50,7 +55,11 @@ const ProductId = ({ setUnitsInCart,unitsInCart }) => {
             />
           </div>
           <div className="product-id__similar-products">
-            <SimilarProducts product={product} />
+            <SimilarProducts
+              product={product}
+              category={category}
+              products={products}
+            />
           </div>{' '}
         </div>
       )}

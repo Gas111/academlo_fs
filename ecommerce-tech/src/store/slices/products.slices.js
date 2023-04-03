@@ -21,7 +21,7 @@ export const getAllProducts = () => (dispatch) => {
   const URLBASE = 'https://e-commerce-api.academlo.tech/api/v1/products'
 
   dispatch(setIsLoading(true))
-  axios
+  return axios
     .get(URLBASE)
     .then((res) => dispatch(setProductsGlobal(res.data.data.products)))
     .catch((err) => console.log(err))

@@ -5,14 +5,14 @@ import { getAllProductsCart } from '../../store/slices/cart.slice'
 import './styles/header.css'
 
 const Header = ({ unitsInCart }) => {
-  // const qtyCart = useSelector((state) => state.unitsInCart)
+  const qtyCart = useSelector((state) => state.quantityCart)
   // const cart = useSelector((state) => state.cart)
   // const dispatch = useDispatch()
 
   useEffect(() => {
     // dispatch(getAllProductsCart())
     // console.log(qtyCart)
-  }, [])
+  }, [qtyCart])
 
   return (
     <div className="header-body">
@@ -41,10 +41,10 @@ const Header = ({ unitsInCart }) => {
           </NavLink>
           <div
             className={`header-body__info-quantity ${
-              unitsInCart ? 'visible-true' : 'visible-false'
+              qtyCart ? 'visible-true' : 'visible-false'
             }`}
           >
-            {unitsInCart}
+            {qtyCart}
           </div>
         </div>
       </div>

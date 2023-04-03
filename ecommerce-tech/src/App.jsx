@@ -16,13 +16,17 @@ import { getAllProductsCart } from './store/slices/cart.slice'
 function App() {
   const [unitsInCart, setUnitsInCart] = useState(0)
   const qtyCart = useSelector((state) => state.quantityCart)
+  const products= useSelector((state) => state.products)
   const cart = useSelector((state) => state.cart)
   const dispatch = useDispatch()
+const [productsArray, setProductsArray] = useState([])
 
   useEffect(() => {
-    dispatch(getAllProductsCart())
-    setUnitsInCart(qtyCart)
-  }, [qtyCart])
+
+   
+  }, [])
+  
+
 
   return (
     <div className="App">
@@ -30,14 +34,15 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home setUnitsInCart={setUnitsInCart} />}
+          element={<Home setUnitsInCart={setUnitsInCart} setProductsArray={setProductsArray}/>}
         ></Route>
         <Route
-          path="/product/:id"
+          path="/product/:id/:category"
           element={
             <ProductId
               setUnitsInCart={setUnitsInCart}
               unitsInCart={unitsInCart}
+              productsArray={productsArray}
             />
           }
         ></Route>

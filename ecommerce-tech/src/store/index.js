@@ -4,6 +4,7 @@ import cart from './slices/cart.slice'
 import isLoading from './slices/isLoading.slice'
 import quantityCart from './slices/quantityCart.slice'
 import isLogged from './slices/isLogged.slice'
+import categories from './slices/categories.slice'
 export default configureStore({
   reducer: {
     products,
@@ -11,5 +12,6 @@ export default configureStore({
     isLoading,
     quantityCart,
     isLogged,
+    categories,
   },
 })

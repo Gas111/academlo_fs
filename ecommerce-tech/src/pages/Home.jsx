@@ -10,6 +10,8 @@ import { getAllProductsCart } from '../store/slices/cart.slice'
 import { getAllProducts } from '../store/slices/products.slices'
 import Cart from './Cart'
 import './styles/home.css'
+import { getAllCategories } from '../store/slices/categories.slice'
+import { setUnitsCart } from '../store/slices/quantityCart.slice'
 
 const Home = ({ unitsInCart }) => {
   const [categories, setCategories] = useState()
@@ -22,13 +24,18 @@ const Home = ({ unitsInCart }) => {
   const isLoading = useSelector((state) => state.isLoading)
   const qtyCart = useSelector((state) => state.quantityCart)
   const cart = useSelector((state) => state.cart)
+  const categoriesSlice = useSelector((state) => state.categories)
   const dispatch = useDispatch()
   let [filterByPrice, setFilterByPrice] = useState({ from: 0, to: Infinity })
 
-  
   useEffect(() => {
-    dispatch(getAllProducts())
-    console.log(qtyCart)
+  if(!products){
+      dispatch(getAllProducts())
+      dispatch(getAllCategories())
+      dispatch(getAllProductsCart())
+  }
+  
+console.log(qtyCart)
   }, [])
 
   useEffect(() => {
@@ -48,9 +55,11 @@ const Home = ({ unitsInCart }) => {
         <aside className="home__filters container-filters-price-and-categories">
           {/* <SearchFilterByPrice setFilterByPrice={setFilterByPrice} /> */}
           <SearchFilters
+            key={products}
             products={products}
             setFilterCategory={setFilterCategory}
             setFilterCategoryClick={setFilterCategoryClick}
+            categoriesSlice={categoriesSlice}
           />
           <OrderByPrice />
         </aside>
@@ -62,7 +71,11 @@ const Home = ({ unitsInCart }) => {
         ) : (
           <div className="home__container__cards">
             {filterByText?.map((product) => (
-              <CardProduct key={product.id} product={product} />
+              <CardProduct
+                key={product.id}
+                product={product}
+                category={product.category.id}
+              />
             ))}
           </div>
         )}
