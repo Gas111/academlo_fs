@@ -6,26 +6,29 @@ import LoadingAnimation from '../components/shared/LoadingAnimation'
 import { getAllProductsCart, setCartGlobal } from '../store/slices/cart.slice'
 import getConfig from '../utils/getConfig'
 import './styles/cart.css'
+import { setUnitsCart } from '../store/slices/quantityCart.slice'
 
 const Cart = () => {
-  const [total, setTotal] = useState(0)
+
   const dispatch = useDispatch()
   const quantityCart = useSelector((state) => state.quantityCart)
   const cart = useSelector((state) => state.cart)
   const [itemDeleted, setItemDeleted] = useState(false)
-
-  useEffect(() => {}, [])
+  // data for buy
+  const data = {
+    street: 'Green St. 1456',
+    colony: 'Southwest',
+    zipCode: 12345,
+    city: 'USA',
+    references: 'Some references',
+  }
 
   useEffect(() => {
-    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
-
     dispatch(getAllProductsCart())
-
-    const result = cart?.reduce((acc, cv) => {
-      return Number(acc + cv.price * cv.productsInCart.quantity)
-    }, 0)
-    setTotal(result)
-  }, [cart])
+    if (itemDeleted) {
+      setItemDeleted(false)
+    }
+  }, [itemDeleted])
 
   const handleBuyNow = () => {
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/purchases'
@@ -34,7 +37,8 @@ const Cart = () => {
       .post(URL, data, getConfig())
       .then((res) => {
         dispatch(setCartGlobal(null))
-        setTotal(0)
+        dispatch(setUnitsCart(0))
+        dispatch(getAllProductsCart())
       })
       .catch((err) => {})
   }
@@ -50,9 +54,15 @@ const Cart = () => {
               key={product.id}
               product={product}
               setItemDeleted={setItemDeleted}
+              cart={cart}
             />
           ))}
-          <h2 className="cart__title">Total Price:${total}</h2>
+          <h2 className="cart__title">
+            Total Price:$
+            {cart?.reduce((acc, cv) => {
+              return Number(acc + cv.price * cv.productsInCart.quantity)
+            }, 0)}
+          </h2>
           <button className="cart__buy-button" onClick={handleBuyNow}>
             Buy Now
           </button>

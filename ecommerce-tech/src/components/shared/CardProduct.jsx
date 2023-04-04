@@ -1,24 +1,23 @@
 import axios from 'axios'
-import React from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getAllProductsCart } from '../../store/slices/cart.slice'
+
 import getConfig from '../../utils/getConfig'
 import './styles/cardProduct.css'
 
-const CardProduct = ({ product ,category}) => {
-
-  // const dispatch = useDispatch()
+const CardProduct = ({ product, category, setProduct }) => {
   const navigate = useNavigate()
 
+  useEffect(() => {}, [])
+
   const handleNavigation = () => {
-
+    // setProduct(product)
     navigate(`/product/${product.id}/${category}`)
-  }
-  const handleAddCart = (e) => {
 
-    e.stopPropagation()
-    console.log("aca estoy")
+  }
+
+  const handleAddCart = (e) => {
+    // e.stopPropagation()
 
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
 
@@ -26,17 +25,14 @@ const CardProduct = ({ product ,category}) => {
       id: product.id,
       quantity: 1,
     }
-    axios.post(URL, data, getConfig())
-      .then((res) => {
-        // dispatch(getAllProductsCart())
-      })
-      .catch((err) => {
-      })
-
+    axios
+      .post(URL, data, getConfig())
+      .then((res) => {})
+      .catch((err) => {})
   }
 
   return (
-    <article className="product"onClick={handleNavigation}>
+    <article className="product" onClick={handleNavigation}>
       <header className="product__header">
         <img src={product.productImgs[0]} alt="image of product" />
       </header>

@@ -1,52 +1,23 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import useGetData from '../../assets/hooks/useGetData'
-import {
-  getAllProducts,
-  getProductsByCategory,
-  setProductsGlobal,
-} from '../../store/slices/products.slices'
+import { setProductsGlobal } from '../../store/slices/products.slices'
 import './styles/searchfilters.css'
 
-const SearchFilters = ({
-  productsBkp,
-  setFilterCategory,
-  setFilterCategoryClick,
-  categoriesSlice,
-}) => {
-  
+const SearchFilters = ({ categoriesSlice }) => {
+  const allProducts = useSelector((state) => state.allProducts)
   const dispatch = useDispatch()
 
   const handleClickCategories = (id) => {
-    // e.stopPropagation()
     if (id) {
       // realizo una busqueda de todos los productos q tenga categoria Id==xxx
-      const productsFounded = products?.filter(
+      const productsFounded = allProducts?.filter(
         (element) => element.category.id == id,
       )
 
       dispatch(setProductsGlobal(productsFounded))
     } else {
-   
+      dispatch(setProductsGlobal(allProducts))
     }
   }
-
-  useEffect(() => {
-
-
-    // const URL =
-    //   'https://e-commerce-api.academlo.tech/api/v1/products/categories'
-    // axios
-    //   .get(URL)
-    //   .then((res) => {
-    //     setCategories(res.data.data.categories)
-    //     setFilterCategory(res.data.data.categories)
-    //   })
-    //   .catch((err) => {
-    //     console.log(err)
-    //   })
-  }, [])
 
   return (
     <section className="container-filters-price-and-categories">

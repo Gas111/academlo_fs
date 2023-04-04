@@ -1,25 +1,32 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllProductsCart } from '../../store/slices/cart.slice'
 import getConfig from '../../utils/getConfig'
 import LoadingAnimation from '../shared/LoadingAnimation'
 import './styles/cartItem.css'
+import { setUnitsCart } from '../../store/slices/quantityCart.slice'
+import { getAllProductsCart } from '../../store/slices/cart.slice'
 
-const CartItem = ({ product, setItemDeleted }) => {
+const CartItem = ({ product, setItemDeleted ,setTotal,cart }) => {
+  const dispatch = useDispatch()
   const [changes, setChanges] = useState(false)
+  const quantityCart = useSelector((state) => state.quantityCart)
 
   const handleButtonDelete = (id) => {
     setChanges(true)
     const URL = `https://e-commerce-api.academlo.tech/api/v1/cart/${id}`
     axios
       .delete(URL, getConfig())
-      .then((res) => {})
+      .then((res) => {
+        dispatch(setUnitsCart(quantityCart - 1))
+      })
       .catch((err) => {
         console.log(err)
       })
       .finally(() => {
         setChanges(false)
+        setItemDeleted(true)
+
       })
   }
 

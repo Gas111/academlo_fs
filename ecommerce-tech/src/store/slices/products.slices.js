@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { setIsLoading } from './isLoading.slice'
+import { setAllProducts } from './allProducts.slice'
 
 export const productsSlice = createSlice({
   name: 'products',
@@ -23,7 +24,10 @@ export const getAllProducts = () => (dispatch) => {
   dispatch(setIsLoading(true))
   return axios
     .get(URLBASE)
-    .then((res) => dispatch(setProductsGlobal(res.data.data.products)))
+    .then((res) => {
+      dispatch(setProductsGlobal(res.data.data.products))
+      dispatch(setAllProducts(res.data.data.products))
+    })
     .catch((err) => console.log(err))
     .finally(() => dispatch(setIsLoading(false)))
 }

@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { getAllProductsCart } from '../../store/slices/cart.slice'
+
 import './styles/header.css'
 
-const Header = ({ unitsInCart }) => {
+const Header = ({}) => {
   const qtyCart = useSelector((state) => state.quantityCart)
-  // const cart = useSelector((state) => state.cart)
-  // const dispatch = useDispatch()
 
-  useEffect(() => {
-    // dispatch(getAllProductsCart())
-    // console.log(qtyCart)
-  }, [qtyCart])
+  useEffect(() => {}, [qtyCart])
 
   return (
     <div className="header-body">

@@ -8,34 +8,29 @@ import CardProduct from '../components/shared/CardProduct'
 import LoadingAnimation from '../components/shared/LoadingAnimation'
 import { getAllProductsCart } from '../store/slices/cart.slice'
 import { getAllProducts } from '../store/slices/products.slices'
-import Cart from './Cart'
 import './styles/home.css'
 import { getAllCategories } from '../store/slices/categories.slice'
-import { setUnitsCart } from '../store/slices/quantityCart.slice'
 
-const Home = ({ unitsInCart }) => {
-  const [categories, setCategories] = useState()
-  const [filterCategory, setFilterCategory] = useState()
-  const [filterCategoryClick, setFilterCategoryClick] = useState(false)
-
+const Home = ({}) => {
   const [inputText, setInputText] = useState()
   const [filterByText, setFilterByText] = useState()
   const products = useSelector((state) => state.products)
   const isLoading = useSelector((state) => state.isLoading)
-  const qtyCart = useSelector((state) => state.quantityCart)
-  const cart = useSelector((state) => state.cart)
   const categoriesSlice = useSelector((state) => state.categories)
+  const cart = useSelector((state) => state.cart)
   const dispatch = useDispatch()
   let [filterByPrice, setFilterByPrice] = useState({ from: 0, to: Infinity })
 
   useEffect(() => {
-  if(!products){
+    if (!products) {
       dispatch(getAllProducts())
-      dispatch(getAllCategories())
-      dispatch(getAllProductsCart())
-  }
-  
-console.log(qtyCart)
+      if (!categoriesSlice) {
+        dispatch(getAllCategories())
+      }
+      if (!cart) {
+        dispatch(getAllProductsCart())
+      }
+    }
   }, [])
 
   useEffect(() => {
@@ -54,13 +49,7 @@ console.log(qtyCart)
       <div className="home__container">
         <aside className="home__filters container-filters-price-and-categories">
           {/* <SearchFilterByPrice setFilterByPrice={setFilterByPrice} /> */}
-          <SearchFilters
-            key={products}
-            products={products}
-            setFilterCategory={setFilterCategory}
-            setFilterCategoryClick={setFilterCategoryClick}
-            categoriesSlice={categoriesSlice}
-          />
+          <SearchFilters key={products} categoriesSlice={categoriesSlice} />
           <OrderByPrice />
         </aside>
         <div className="home__container__search">

@@ -4,6 +4,8 @@ import "./styles/searchInput.css"
 const SearchInput = ({inputText,setInputText}) => {
 
 const handleChange = (e) => {
+  // e.preventDefault()
+  e.stopPropagation()
   setInputText(e.target.value)
  }
 

@@ -11,51 +11,38 @@ import LoginScreen from './pages/LoginScreen'
 import ProductId from './pages/ProductId'
 import ProtectedRoutes from './pages/ProtectedRoutes'
 import Purchases from './pages/Purchases'
-import { getAllProductsCart } from './store/slices/cart.slice'
+
 
 function App() {
-  const [unitsInCart, setUnitsInCart] = useState(0)
-  const qtyCart = useSelector((state) => state.quantityCart)
-  const products= useSelector((state) => state.products)
-  const cart = useSelector((state) => state.cart)
-  const dispatch = useDispatch()
-const [productsArray, setProductsArray] = useState([])
 
-  useEffect(() => {
-
-   
-  }, [])
-  
-
+ 
 
   return (
     <div className="App">
-      <Header className="App__header" unitsInCart={unitsInCart} />
+      <Header className="App__header" />
       <Routes>
         <Route
           path="/"
-          element={<Home setUnitsInCart={setUnitsInCart} setProductsArray={setProductsArray}/>}
+          element={<Home />}
         ></Route>
         <Route
           path="/product/:id/:category"
           element={
             <ProductId
-              setUnitsInCart={setUnitsInCart}
-              unitsInCart={unitsInCart}
-              productsArray={productsArray}
+          
             />
           }
         ></Route>
         <Route
           path="/login"
-          element={<LoginScreen setUnitsInCart={setUnitsInCart} />}
+          element={<LoginScreen  />}
         ></Route>
 
         <Route element={<ProtectedRoutes />}>
           <Route
             path="/cart"
             element={
-              <Cart setUnitsInCart={setUnitsInCart} unitsInCart={unitsInCart} />
+              <Cart  />
             }
           ></Route>
           <Route path="/purchases" element={<Purchases />}></Route>

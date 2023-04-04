@@ -14,27 +14,16 @@ import { useNavigate } from 'react-router-dom'
 import Header from '../components/shared/Header'
 import './styles/loginscreen.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllProductsCart } from '../store/slices/cart.slice'
-import getConfig from '../utils/getConfig'
 import { setIsLogged } from '../store/slices/isLogged.slice'
 
-const LoginScreen = ({ setUnitsInCart }) => {
+const LoginScreen = ({}) => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  // const cart = useSelector((state) => state.cart)
   const isLogged = useSelector((state) => state.isLogged)
   const { handleSubmit, register, reset } = useForm()
-
-  // const [isLogged, setIsLogged] = useState(false)
   const [errorLogged, setErrorLogged] = useState(false)
 
-  useEffect(() => {
-    const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
-
-    // dispatch(getAllProductsCart())
-
-    // if (cart) setUnitsInCart(cart.length)
-  }, [isLogged, errorLogged])
+  useEffect(() => {}, [isLogged, errorLogged])
 
   const submit = (data) => {
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/users/login'

@@ -1,13 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllProductsCart } from '../../store/slices/cart.slice'
 import getConfig from '../../utils/getConfig'
 import LoadingAnimation from '../shared/LoadingAnimation'
 import './styles/productInfo.css'
 import { BiUser } from 'react-icons/bi'
+import { setUnitsCart } from '../../store/slices/quantityCart.slice'
 
-const ProductInfo = ({ product, productId, setUnitsInCart, unitsInCart }) => {
+const ProductInfo = ({ product, productId }) => {
   const [counter, setCounter] = useState(1)
   const [index, setIndex] = useState(0)
   const [visibleF, setVisibleF] = useState(true)
@@ -16,6 +16,7 @@ const ProductInfo = ({ product, productId, setUnitsInCart, unitsInCart }) => {
 
   const cart = useSelector((state) => state.cart)
   const isLogged = useSelector((state) => state.isLogged)
+  const quantityCart = useSelector((state) => state.quantityCart)
   const dispatch = useDispatch()
   const textAdded = 'Product was Added to Cart'
   const textAdd = 'Add to Cart'
@@ -54,15 +55,13 @@ const ProductInfo = ({ product, productId, setUnitsInCart, unitsInCart }) => {
   }
 
   useEffect(() => {
-    // dispatch(getAllProductsCart())
-    console.log(productId, 'id del producto')
+
     const found = cart?.find((element) => element.id == parseInt(productId))
     if (found) setisInCart(true)
     else setisInCart(false)
   }, [])
 
-  // useEffect(() => {}, [index])
-
+ 
   const buttonFunction = () => {
     if (isLogged && isInCart) {
       return <button className={` ${'button-disabled'}  `}>{textAdded}</button>
@@ -101,10 +100,14 @@ const ProductInfo = ({ product, productId, setUnitsInCart, unitsInCart }) => {
       .post(URL, data, getConfig())
       .then((res) => {
         setisInCart(true)
-        setUnitsInCart(unitsInCart+1)
+       dispatch(setUnitsCart(quantityCart+1))
+       const result = cart?.reduce((acc, cv) => {
+        return Number(acc + cv.price * cv.productsInCart.quantity)
+        }, 0)
+       product.price
+      cart.reduce
       })
       .catch((err) => {
-        console.log(err)
         setisInCart(false)
       })
   }
