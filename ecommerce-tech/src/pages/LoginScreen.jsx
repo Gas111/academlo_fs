@@ -73,7 +73,7 @@ const LoginScreen = ({}) => {
         <h1>
           <BiUser />
         </h1>
-        <h2>User</h2>
+        <h2>Hola Gaston</h2>
         <button onClick={handleIsLogged}>Log Out</button>
       </main>
     )
