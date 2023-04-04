@@ -7,14 +7,15 @@ import LoadingAnimation from '../components/shared/LoadingAnimation'
 import './styles/productsId.css'
 import { useSelector } from 'react-redux'
 
-const ProductId = ({}) => {
-  const [product, setProductAll] = useState()
+const ProductId = () => {
+  const [product, setProduct] = useState('')
+
   const products = useSelector((state) => state.products)
   const { id } = useParams()
   const { category } = useParams()
 
   useEffect(() => {
-    setProductAll(products?.find((product) => product.id == id))
+   setProduct(products?.find((product) => product.id == id))
   }, [product])
 
   return (
@@ -29,18 +30,18 @@ const ProductId = ({}) => {
                 Home
               </Link>
               <div className="red-ball-decoration"></div>
-              {product?.title}
+              {(products?.find((product) => product.id == id)).title}
             </h2>
           </div>
           <div className="product-id__product-info">
-            <ProductInfo product={product} productId={product.id} />
+            <ProductInfo product={products?.find((product) => product.id == id)} productId={product.id} />
           </div>
           <div className="product-id__similar-products">
             <SimilarProducts
-              product={product}
+              product={products?.find((product) => product.id == id)}
               category={category}
               products={products}
-              setProduct={setProductAll}
+            
             />
           </div>
         </div>

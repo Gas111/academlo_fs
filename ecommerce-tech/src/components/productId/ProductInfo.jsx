@@ -14,6 +14,8 @@ const ProductInfo = ({ product, productId }) => {
   const [visibleB, setVisibleB] = useState(true)
   const [isInCart, setisInCart] = useState(false)
 
+  
+
   const cart = useSelector((state) => state.cart)
   const isLogged = useSelector((state) => state.isLogged)
   const quantityCart = useSelector((state) => state.quantityCart)
@@ -55,13 +57,11 @@ const ProductInfo = ({ product, productId }) => {
   }
 
   useEffect(() => {
-
     const found = cart?.find((element) => element.id == parseInt(productId))
     if (found) setisInCart(true)
     else setisInCart(false)
   }, [])
 
- 
   const buttonFunction = () => {
     if (isLogged && isInCart) {
       return <button className={` ${'button-disabled'}  `}>{textAdded}</button>
@@ -100,12 +100,7 @@ const ProductInfo = ({ product, productId }) => {
       .post(URL, data, getConfig())
       .then((res) => {
         setisInCart(true)
-       dispatch(setUnitsCart(quantityCart+1))
-       const result = cart?.reduce((acc, cv) => {
-        return Number(acc + cv.price * cv.productsInCart.quantity)
-        }, 0)
-       product.price
-      cart.reduce
+        dispatch(setUnitsCart(quantityCart + 1))
       })
       .catch((err) => {
         setisInCart(false)

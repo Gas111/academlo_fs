@@ -5,15 +5,14 @@ import { useNavigate } from 'react-router-dom'
 import getConfig from '../../utils/getConfig'
 import './styles/cardProduct.css'
 
-const CardProduct = ({ product, category, setProduct }) => {
+const CardProduct = ({ product, category }) => {
   const navigate = useNavigate()
 
   useEffect(() => {}, [])
 
   const handleNavigation = () => {
-    // setProduct(product)
     navigate(`/product/${product.id}/${category}`)
-
+    // setProduct(product)
   }
 
   const handleAddCart = (e) => {
