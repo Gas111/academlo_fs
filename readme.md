@@ -1,4 +1,4 @@
-Estoy proyectos fueron realizados en el Bootcamp Academlo y algunos otros fuera de la cursada. 
+
 Las siguientes direcciones:
 
 https://weather-app-gc.netlify.app
