@@ -12,12 +12,9 @@ const CardProduct = ({ product, category }) => {
 
   const handleNavigation = () => {
     navigate(`/product/${product.id}/${category}`)
-    // setProduct(product)
   }
 
   const handleAddCart = (e) => {
-    // e.stopPropagation()
-
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
 
     const data = {

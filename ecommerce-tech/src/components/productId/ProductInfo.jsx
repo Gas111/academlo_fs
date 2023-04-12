@@ -14,8 +14,6 @@ const ProductInfo = ({ product, productId }) => {
   const [visibleB, setVisibleB] = useState(true)
   const [isInCart, setisInCart] = useState(false)
 
-  
-
   const cart = useSelector((state) => state.cart)
   const isLogged = useSelector((state) => state.isLogged)
   const quantityCart = useSelector((state) => state.quantityCart)
@@ -57,10 +55,18 @@ const ProductInfo = ({ product, productId }) => {
   }
 
   useEffect(() => {
-    const found = cart?.find((element) => element.id == parseInt(productId))
-    if (found) setisInCart(true)
-    else setisInCart(false)
-  }, [])
+    const foundItemInCart = () => {
+      const found = cart?.find((element) => element.id === parseInt(productId))
+      return found
+    }
+    const founded = foundItemInCart()
+
+    if (founded) {
+      setisInCart(true)
+    } else {
+      setisInCart(false)
+    }
+  }, [cart, isLogged, productId])
 
   const buttonFunction = () => {
     if (isLogged && isInCart) {
@@ -95,6 +101,7 @@ const ProductInfo = ({ product, productId }) => {
       id: `${product.id}`,
       quantity: `${counter}`,
     }
+
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
     axios
       .post(URL, data, getConfig())

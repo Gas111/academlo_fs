@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const isLogged = createSlice({
   name: 'isLogged',
-  initialState: true,
+  initialState: false,
   reducers: {
     setIsLogged: (state, action) => {
       const isLogged = action.payload

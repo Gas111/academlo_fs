@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setIsLogged } from '../store/slices/isLogged.slice'
 import LoadingAnimation from '../components/shared/LoadingAnimation'
 import { setUnitsCart } from '../store/slices/quantityCart.slice'
+import { getAllProductsCart } from '../store/slices/cart.slice'
 
 const LoginScreen = ({}) => {
   const navigate = useNavigate()
@@ -28,8 +29,10 @@ const LoginScreen = ({}) => {
   const [errorLogged, setErrorLogged] = useState(false)
 
   useEffect(() => {
-
-  
+    if (localStorage.getItem('token')) {
+      dispatch(setIsLogged(true))
+      dispatch(getAllProductsCart())
+    }
   }, [isLogged, errorLogged])
 
   const submit = (data) => {
@@ -43,8 +46,6 @@ const LoginScreen = ({}) => {
         setErrorLogged(false)
         dispatch(setIsLogged(true))
         setIsLoading(false)
-       
-
       })
       .catch((err) => {
         setIsLoading(false)
@@ -52,11 +53,6 @@ const LoginScreen = ({}) => {
         dispatch(setIsLogged(false))
         reset()
       })
-
-    
-
-
-
   }
 
   const handleIsLogged = () => {
@@ -65,9 +61,9 @@ const LoginScreen = ({}) => {
     dispatch(setIsLogged(false))
     navigate('/login')
     reset()
-  
   }
-  if (localStorage.getItem('token')) {
+
+  if (isLogged) {
     return (
       <main className="user-logged">
         <h1>
@@ -79,9 +75,6 @@ const LoginScreen = ({}) => {
     )
   }
 
-
-
-
   return (
     <main className="main-login">
       <Header />
@@ -91,15 +84,19 @@ const LoginScreen = ({}) => {
       ) : (
         <form onSubmit={handleSubmit(submit)}>
           <h2>Welcome Enter your email and password to continue</h2>
-          <p>For test use gastoncolque@gmail.com</p>
-          <p>and password: abc123456789</p>
+          <p>
+            For test use <strong>gastoncolque@gmail.com</strong>
+          </p>
+          <p>
+            and password: <strong>abc123456789</strong>
+          </p>
           <div>
             <label htmlFor="">Email</label>
             <input type="text" id="email" {...register('email')} />
           </div>
           <div>
             <label htmlFor="">Password</label>
-            <input type="text" id="password" {...register('password')} />
+            <input type="password" id="password" {...register('password')} />
           </div>
           <div>
             <p className="error">
